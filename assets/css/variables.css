@@ -1,0 +1,11 @@
+:root {
+  --primary-color: #9B51E0; /* Purple main color */
+  --text-placeholder: #475069; /* Admin inputların placeholder (daxili) rəngi */
+  --bg-color: #1E1E1E; /* Background rəngi */
+  --sidebar-text-color: #AEAEAE; /* Sidebar-da elementlərin mətni rəngi */
+  --card-number-color: #FFFFFF; /* Card-ların içindəki rəqəmlərin rəngi */
+  --input-bg-color: #323B54; /* Create/Update modal-larda inputların background rəngi */
+
+  /*admin hisse rengler */
+}
+
