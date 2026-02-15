@@ -14,7 +14,6 @@ body{
     height: 55px;
     padding-left: 40px;
     box-sizing: border-box;
-    /* height: 100vh; */
 }
 
 
@@ -149,7 +148,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 116px 30px 24px;
+    padding: 30px 116px 70px 24px;
     width: calc(100vw - 250px);
     background-color: var(--bg-color);
 }
@@ -196,6 +195,12 @@ p {
     border: none;
     margin-right: 28px;
 }
+
+.create-btn:hover{
+    background-color: var(--card-bg-purple);
+}
+
+
 
 .rightHeaderSection img{
     width: 31px;

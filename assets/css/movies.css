@@ -1,16 +1,61 @@
-.movies-container{
+.movies-container {
     display: flex;
 }
 
 
 
-main{
+main {
     background-color: var(--bg-color);
 }
 
 
-.section{
 
-    
 
+.table {
+
+    text-align: center;
+    width: 90%;
+    margin: 24px;
+
+    img {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+
+    }
+
+}
+
+
+.table td, .table th{
+  vertical-align: middle;
+  height: 60px;
+}
+
+
+table .title-movie {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    p {
+        margin: 0;
+    }
+}
+
+.operation i:first-child{
+  margin-right: 15px;
+}
+
+.operation i{
+    cursor: pointer;
+}
+
+.operation i:nth-child(1){
+    color: green;
+}
+
+.operation i:nth-child(2){
+    color: red;
 }
