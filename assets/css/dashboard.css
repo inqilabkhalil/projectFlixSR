@@ -43,6 +43,7 @@ p {
     color: white;
     font-size: 14px;
     line-height: 13px;
+    text-decoration: none;
 }
 
 .sideBar-item {
@@ -99,6 +100,7 @@ p {
     margin: 0;
     font-size: 14px;
     color: inherit;
+    text-decoration: none;
 }
 
 .lowerAside img {
