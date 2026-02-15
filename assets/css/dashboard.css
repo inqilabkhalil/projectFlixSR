@@ -6,10 +6,9 @@ p {
     margin: 0;
 }
 
-.dashBoardContainer {
+/* .dashBoardContainer {
     display: flex;
     background-color: var(--bg-color);
-    padding-top: 38px;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -30,6 +29,8 @@ p {
     padding-left: 15px;
     padding-right: 5px;
     box-sizing: border-box;
+    margin-bottom: 40px;
+    margin-top: 18px;
 }
 
 .aside-text {
@@ -113,7 +114,7 @@ p {
 
 .lowerAside:hover img {
     filter: brightness(0) invert(1);
-}
+} */
 
 main {
     width: 100%;
@@ -136,6 +137,7 @@ main {
 }
 
 .dashBoard-header {
+    padding-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -143,10 +145,16 @@ main {
 
 .rightHeaderSection {
     display: flex;
-    align-items: center;
+    align-items: center; 
     gap: 10px;
     margin-right: 20px;
 }
+
+/* a{
+    text-decoration: none;
+
+} */
+
 
 .rightHeaderSection img {
     width: 28px;
@@ -175,7 +183,6 @@ p {
     display: flex;
     min-height: 100vh;
     background-color: var(--bg-color);
-    padding-top: 38px;
     font-family: 'Raleway', sans-serif;
 }
 
