@@ -8,6 +8,9 @@ main {
   flex: 1;
   background-color: var(--bg-color);
 }
+.sideBar-text {
+  font-size: 17px !important;
+}
 
 /* TABLE SECTION */
 .section {
@@ -99,7 +102,6 @@ table .title-movie p {
   border: 1px solid #3a3a3a;
   background: transparent;
   padding: 0 20px;
-
   color: white;
   outline: none;
   font-size: 14px;
@@ -137,4 +139,10 @@ table .title-movie p {
 
 .modalSubmit:active {
   transform: scale(0.98);
+}
+.lowerAside {
+  margin-bottom: 10px;
+}
+.logout-text {
+  font-size: 16px;
 }
