@@ -24,7 +24,7 @@ p{ margin: 0; }
     align-items: center;
     gap: 12px;
     height: 55px;
-    padding-left: 35px;
+    padding-left: 15px;
     padding-right: 5px;
     box-sizing: border-box;
 }
@@ -34,11 +34,6 @@ p{ margin: 0; }
     font-size: 20px;
 }
 
-.sideBar-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
 
 .sideBar-text {
     color: white;
@@ -48,14 +43,11 @@ p{ margin: 0; }
 
 .sideBar-item {
     width: 100%;
+    padding-left: 30px;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 12px;
     height: 50px;
-    padding-left: 40px;
-    padding-right: 16px;
     border-radius: 8px;
+    padding-left: 25px;
     color: var(--sidebar-text-color);
     cursor: pointer;
     transition:
@@ -65,6 +57,7 @@ p{ margin: 0; }
 
 .sideBar-item img {
     transition: filter 0.35s ease;
+    margin-left: 7px;
 }
 
 .sideBar-text {
@@ -260,17 +253,6 @@ p{ margin: 0; }
 .lowerAside:hover img{
     filter: brightness(0) invert(1);
 }
-
-main{
-    flex: 1;
-    min-width: 0;
-    margin-left: 25px;
-}
-
-.mainContent{
-    padding-right: 50px;
-}
-
 .dashBoard-header{
     display: flex;
     justify-content: space-between;
@@ -309,7 +291,15 @@ main{
     font-weight: 500;
 }
 /*sidebar header bitis hisse */
+main{
+    flex: 1;
+    min-width: 0;
+    margin-left: 25px;
+}
 
+.mainContent{
+    padding-right: 50px;
+}
 .cards-container{
     margin-top: 32px;
     display: grid;
