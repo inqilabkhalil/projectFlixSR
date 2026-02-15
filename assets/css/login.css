@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  background: #1d1d1d;
+}
+.login-page {
+  min-height: 100vh;
+  width: 100%;
+  background: #1d1d1d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  width: 520px;
+  max-width: calc(100% - 40px); /* mobil/kiçik ekranda kənara dəyməsin */
+  padding: 50px 40px;
+  border-radius: 16px;
+  background: #1d1d1d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+/* LOGO */
+.login-logo img {
+  width: 249px;
+  height: 150px;
+  display: block;
+  transform: translate(-40px, 18px);
+}
+
+/* TITLE */
+.login-title {
+  font-size: 70px;
+  font-weight: 400;
+  width: 264px;
+  height: 80px;
+  color: #cfcfcf;
+  letter-spacing: -2%;
+}
+
+/* =========================
+   FORM
+========================= */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Wrapper */
+.form-group {
+  position: relative;
+  width: 100%;
+}
+
+/* Inputs */
+.form-group input {
+  width: 100%;
+  height: 46px;
+  border-radius: 10px;
+  border: 1px solid #2f2f2f;
+  background: transparent;
+  color: #ffffff;
+  outline: none;
+  font-size: 13px;
+  /* ikonlar üçün yer */
+  padding-left: 44px; /* soldakı ikon */
+  padding-right: 44px; /* sağdakı eye */
+}
+
+.form-group input::placeholder {
+  color: #7b7b7b;
+}
+
+.form-group input:focus {
+  border-color: rgba(140, 82, 255, 0.8);
+}
+
+/* SOLD ICON (username/lock) */
+.toggle-user,
+.toggle-password2,
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  pointer-events: none; /* klik inputa getsin */
+}
+
+.toggle-user img,
+.toggle-password2 img,
+.input-icon img {
+  width: 18px;
+  height: 18px;
+}
+/* RIGHT EYE */
+.toggle-eye {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  font-size: 16px;
+  color: #9a9a9a;
+}
+/* BUTTON */
+.login-button {
+  width: 100%;
+  height: 46px;
+  border: none;
+  border-radius: 10px;
+  background: #8c52ff;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 8px;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+.login-button:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
