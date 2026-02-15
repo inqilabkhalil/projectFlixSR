@@ -15,7 +15,7 @@ if (currentPage.includes("dashboard")) {
   dashboardItem?.classList.add("active");
 }
 else if (currentPage.includes("movie")) {
-  movieItem?.classList.add("active");
+  movieItem?.classList.add("active"); 
 }
 else if (currentPage.includes("category")) {
   categoriesItem?.classList.add("active");
