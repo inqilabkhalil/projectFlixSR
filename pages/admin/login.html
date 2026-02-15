@@ -1,11 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<!doctype html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../../assets/css/login.css" />
+  </head>
+  <body>
+    <div class="login-page">
+      <div class="login-box">
+        <!-- Logo -->
+        <div class="login-logo">
+          <img src="../../assets/img/admin.logo.svg" alt="Logo" />
+        </div>
+
+        <!-- Title -->
+        <h1 class="login-title">Admin</h1>
+
+        <!-- Form -->
+        <form class="login-form">
+          <!-- Username -->
+          <div class="form-group">
+            <span class="input-icon">
+              <img
+                src="../../assets/img/admin.username.svg"
+                alt="username icon"
+              />
+            </span>
+            <input type="text" placeholder="username" required />
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <span class="input-icon">
+              <img
+                src="../../assets/img/admin.password.svg"
+                alt="password icon"
+              />
+            </span>
+
+            <input
+              type="password"
+              placeholder="password"
+              id="password"
+              required
+            />
+
+            <span class="toggle-eye" id="togglePassword"> 👁 </span>
+          </div>
+
+          <button type="submit" class="login-button">login</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
