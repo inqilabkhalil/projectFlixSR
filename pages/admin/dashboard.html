@@ -1,118 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-      <link rel="stylesheet" href="../../assets/css/variables.css">
-      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="../../assets/css/variables.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="../../assets/css/dashboard.css">
-        <link rel="stylesheet" href="../../assets/css/global.css">
 
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/global.css">
 </head>
 
 <body>
-    <div class="dashBoardContainer">
-        <aside class="asideContainer">
-            <div class="upperAside">
-                <div class="logoArea">
-                    <img src="../../assets/img/filmalisalogo.png" alt="">
-                    <p class="aside-text">filmalisa</p>
+<div class="dashBoardContainer">
 
-                </div>
+    <aside class="asideContainer">
+        <div class="upperAside">
 
-                <div class="sideBar-item dashBoardItem">
-                    <img src="../../assets/img/dashboard.svg" alt="">
-                    <a href="#" class="sideBar-text">Dashboard</a>
-                </div>
-                <div class="sideBar-item movieItem">
-                    <img src="../../assets/img/Group.svg" alt="">
-                    <a href="../admin/movies.html" class="sideBar-text">Movies</a>
-                </div>
-                <div class="sideBar-item categoriesItem">
-                      <img src="../../assets/img/star.svg" alt="">
-                    <a class="sideBar-text">Categories</a>
-                </div>
-                <div class="sideBar-item usersItem">
-                      <img src="../../assets/img/user.png" alt="">
-                    <a class="sideBar-text">Users</a>
-                </div>
-
-                <div class="sideBar-item commentsItem">
-                    <img src="../../assets/img/comment.png" alt="">
-                    <a class="sideBar-text">Comments</a>
-                </div>
-                <div class="sideBar-item contactItem">
-                    <img src="../../assets/img/faq.svg" alt="">
-                    <a class="sideBar-text">Contact</a>
-                </div>
-
+            <div class="logoArea">
+                <img src="../../assets/img/filmalisalogo.png" alt="">
+                <p class="aside-text">filmalisa</p>
             </div>
-            <div class="lowerAside">
-                <img src="../../assets/img/logout.svg" alt="">
-                <a class="logout-text">Logout</a>
-            </div>
-        </aside>
 
-        <main>
-            <div class="mainContent">
-                <header class="dashBoard-header">
-                    <div class="leftHeaderSection">
-                        <p class="admin-text">Hi Admin</p>
-                        <p class="page-text">DashBoard</p>
-                    </div>
+            <!-- SIDEBAR -->
+            <a href="./dashboard.html" class="sideBar-item dashBoardItem">
+                <img src="../../assets/img/dashboard.svg" alt="">
+                <span class="sideBar-text">Dashboard</span>
+            </a>
 
-                    <div class="rightHeaderSection">
-                        <img src="../../assets/img/adminman.svg" alt="">
-                        <p class="profileName">Admin</p>
-                    </div>
-                </header>
+            <a href="./movies.html" class="sideBar-item movieItem">
+                <img src="../../assets/img/Group.svg" alt="">
+                <span class="sideBar-text">Movies</span>
+            </a>
 
-                <section class="cards-container">
-                    <div class="favoriteCard statCard-purple">
-                        <p class="dashboard-text">Favorite actions</p>
-                        <p class="dashboard-number">121</p>
-                    </div>
-                     <div class="statCard statCard-purple">
-                        <p class="dashboard-text">Users</p>
-                        <p class="dashboard-number">10</p>
-                    </div>
-                     <div class="statCard statCard-purple">
-                        <p class="dashboard-text">Movies</p>
-                        <p class="dashboard-number">40</p>
-                    </div>
-                     <div class="statCard statCard-purple">
-                        <p class="dashboard-text">Comments</p>
-                        <p class="dashboard-number">45</p>
-                    </div>
-                     <div class="categoriesCard statCard-purple">
-                        <p class="dashboard-text">Categories</p>
-                        <p class="dashboard-number">12</p>
-                    </div>
-                     <div class="statCard statCard-purple">
-                        <p class="dashboard-text">Actors</p>
-                        <p class="dashboard-number">20</p>
-                    </div>
-                     <div class="statCard statCard-purple">
-                        <p class="dashboard-text">Contacts</p>
-                        <p class="dashboard-number">20</p>
-                    </div>
-                </section>
-            </div>
-        </main>
-    </div>
+            <a href="#" class="sideBar-item categoriesItem">
+                <img src="../../assets/img/star.svg" alt="">
+                <span class="sideBar-text">Categories</span>
+            </a>
 
+            <a href="#" class="sideBar-item usersItem">
+                <img src="../../assets/img/user.png" alt="">
+                <span class="sideBar-text">Users</span>
+            </a>
 
+            <a href="./comment.html" class="sideBar-item commentsItem">
+                <img src="../../assets/img/comment.png" alt="">
+                <span class="sideBar-text">Comments</span>
+            </a>
 
+            <a href="#" class="sideBar-item contactItem">
+                <img src="../../assets/img/faq.svg" alt="">
+                <span class="sideBar-text">Contact</span>
+            </a>
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../assets/js/active.js"></script>
+        </div>
 
+        <div class="lowerAside">
+            <img src="../../assets/img/logout.svg" alt="">
+            <span class="logout-text">Logout</span>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+        <div class="mainContent">
+
+            <header class="dashBoard-header">
+                <div class="leftHeaderSection">
+                    <p class="admin-text">Hi Admin</p>
+                    <p class="page-text">Dashboard</p>
+                </div>
+
+                <div class="rightHeaderSection">
+                    <img src="../../assets/img/adminman.svg" alt="">
+                    <p class="profileName">Admin</p>
+                </div>
+            </header>
+
+            <section class="cards-container">
+                <div class="favoriteCard statCard-purple">
+                    <p class="dashboard-text">Favorite actions</p>
+                    <p class="dashboard-number">121</p>
+                </div>
+
+                <div class="statCard statCard-purple">
+                    <p class="dashboard-text">Users</p>
+                    <p class="dashboard-number">10</p>
+                </div>
+
+                <div class="statCard statCard-purple">
+                    <p class="dashboard-text">Movies</p>
+                    <p class="dashboard-number">40</p>
+                </div>
+
+                <div class="statCard statCard-purple">
+                    <p class="dashboard-text">Comments</p>
+                    <p class="dashboard-number">45</p>
+                </div>
+
+                <div class="categoriesCard statCard-purple">
+                    <p class="dashboard-text">Categories</p>
+                    <p class="dashboard-number">12</p>
+                </div>
+
+                <div class="statCard statCard-purple">
+                    <p class="dashboard-text">Actors</p>
+                    <p class="dashboard-number">20</p>
+                </div>
+
+                <div class="statCard statCard-purple">
+                    <p class="dashboard-text">Contacts</p>
+                    <p class="dashboard-number">20</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../assets/js/active.js"></script>
 </body>
-
 </html>
