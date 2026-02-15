@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Numans&family=Poppins:wght@600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/variables.css">
+    <link rel="stylesheet" href="../../assets/css/client/register.css" />
+  </head>
+
+  <body>
+    <div class="register-page">
+      <div class="register-box">
+
+        <!-- Logo -->
+        <div class="register-logo">
+          <img src="../../assets/img/admin.logo.svg" alt="Logo" />
+        </div>
+
+        <!-- Brand -->
+        <h1 class="brand-title">filmalisa</h1>
+
+        <!-- Register title -->
+        <h2 class="register-title">register</h2>
+
+        <!-- Form -->
+        <form class="register-form">
+          <!-- Full name -->
+          <div class="form-group">
+            <span class="input-icon">
+              <img src="../../assets/img/admin.username.svg" alt="user icon" />
+            </span>
+            <input type="text" placeholder="full name" required />
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <span class="input-icon">
+              <img src="../../assets/img/admin.username.svg" alt="email icon" />
+            </span>
+            <input type="email" placeholder="email" required />
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <span class="input-icon">
+              <img src="../../assets/img/admin.password.svg" alt="password icon" />
+            </span>
+
+            <input type="password" placeholder="password" id="password" required />
+            <span class="toggle-eye" id="togglePassword">👁</span>
+          </div>
+
+          <!-- Helper -->
+            
+            <a href="./login.html" class="helper-link"> Do you have a account?Login here</a>
+
+          <button type="submit" class="register-button">register</button>
+        </form>
+
+      </div>
+    </div>
+
+    <script src="../../assets/js/client/register.js"></script>
+  </body>
+</html>
