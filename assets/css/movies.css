@@ -12,7 +12,8 @@ main {
 
 
 .table {
-
+    border-radius: 8px;
+    overflow: hidden;
     text-align: center;
     width: 90%;
     margin: 24px;
@@ -27,9 +28,11 @@ main {
 }
 
 
-.table td, .table th{
-  vertical-align: middle;
-  height: 60px;
+
+.table td,
+.table th {
+    vertical-align: middle;
+    height: 60px;
 }
 
 
@@ -44,18 +47,18 @@ table .title-movie {
     }
 }
 
-.operation i:first-child{
-  margin-right: 15px;
+.operation i:first-child {
+    margin-right: 15px;
 }
 
-.operation i{
+.operation i {
     cursor: pointer;
 }
 
-.operation i:nth-child(1){
+.operation i:nth-child(1) {
     color: green;
 }
 
-.operation i:nth-child(2){
+.operation i:nth-child(2) {
     color: red;
 }
