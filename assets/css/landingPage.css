@@ -274,3 +274,75 @@ nav .logo-div {
     padding: 12px 50px;
 
 }
+
+
+/* accordion */
+
+
+
+
+ .faq-area {
+    border-bottom: 6px solid grey;
+  padding: 72px 0px;
+  color: var(--card-number-color);
+}
+
+.faq-title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 62px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.faq-wrapper {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.faq-card {
+  margin-bottom: 8px;
+  background-color: var( --bg-color);
+}
+
+.faq-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  background-color: var(--bg-color);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.faq-head:hover {
+  background-color: #343030;
+}
+
+.faq-question {
+  font-size: 18px;
+}
+
+.faq-icon {
+  font-size: 30px;
+  transition: transform 0.3s ease;
+}
+
+.faq-icon.spin {
+  transform: rotate(45deg);
+}
+
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  background-color: #222020;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.faq-body.active {
+  max-height: 220px;
+  padding: 20px;
+  opacity: 1;
+}
