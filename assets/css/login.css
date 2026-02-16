@@ -145,3 +145,7 @@ body {
   opacity: 0.92;
   transform: translateY(-1px);
 }
+.warning-alert{
+  display: none;
+  color: red;
+}
