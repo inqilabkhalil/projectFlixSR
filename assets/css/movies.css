@@ -47,6 +47,14 @@ table .title-movie {
     }
 }
 
+
+
+.title-movie img{
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+
 .operation i:first-child {
     margin-right: 15px;
 }
