@@ -195,6 +195,7 @@ p {
     outline: none;
     border: none;
     margin-right: 28px;
+    cursor: pointer;
 }
 
 .create-btn:hover{
