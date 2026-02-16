@@ -3,7 +3,7 @@ body {
     /* background-size: cover; */
     background-repeat: no-repeat;
     /* background-position: center; */
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--font-primary);
     background-color: black;
 
     /* max-width: 1440px; */

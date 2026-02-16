@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Numans&family=Poppins:wght@600&family=Raleway:wght@300;400;500;600;700&display=swap');
+
 :root {
+  --font-primary: 'Raleway', sans-serif;
+  
   --primary-color: #9B51E0; /* Purple main color */
   --text-placeholder: #475069; /* Admin inputların placeholder (daxili) rəngi */
   --bg-color: rgba(23, 22, 22, 1);/* Background rəngi */
