@@ -10,9 +10,9 @@ body {
   overflow: hidden;
 }
 
-.body {
+body {
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   background: #1d1d1d;
 }
 .login-page {
