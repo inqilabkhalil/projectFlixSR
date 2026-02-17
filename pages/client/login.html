@@ -44,7 +44,6 @@
                 alt="password icon"
               />
             </span>
-
             <input
               type="password"
               placeholder="password"
@@ -57,13 +56,14 @@
           <!-- Helper -->
           <a href="./register.html" class="helper-link">Register here</a>
 
+          <!-- Xəta mesajı — JS tərəfindən idarə olunur -->
+          <p class="error-message" id="errorMessage" style="display:none; color:red; font-size:13px; margin-bottom:8px;"></p>
+
           <button type="submit" class="login-button">login</button>
         </form>
       </div>
     </div>
 
-    <!-- JS sonradan qoşulacaq -->
-     <script src="../../assets/js/admin page script/login.js"></script>
-     <!-- <script src="../../assets/js/client/login.js"></script> -->
+    <script src="../../assets/js/client/login.js"></script>
   </body>
 </html>
