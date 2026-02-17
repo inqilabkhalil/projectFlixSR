@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../assets/css/variables.css">
@@ -18,7 +19,7 @@
         <div class="headSection">
             <nav class="menu">
                 <a class="menu__item" href="#">
-                    <img src="../../assets/img/icon1..svg" alt="" />
+                    <img src="../../assets/img/Play.svg" alt="" />
                 </a>
 
                 <a class="menu__item homeIcon" href="./home.html">
@@ -29,17 +30,18 @@
                     <img src="../../assets/img/home.icon3.svg" alt="Movies" />
                 </a>
 
-                <a class="menu__item" href="./series.html">
+                <a class="menu__item" >
                     <img src="../../assets/img/home.icon4.svg" alt="Series" />
                 </a>
 
-                <a class="menu__item" href="./mylist.html">
+                <a class="menu__item" >
                     <img src="../../assets/img/home.icon5.svg" alt="My List" />
                 </a>
             </nav>
             <div class="detail-body-section">
                 <section class="movieImgSection">
                     <img src="../../assets/img/detailimg.jpg" alt="movie image" class="movieImg" />
+                    <img src="../../assets/img/sarkhanmuellim.svg" alt="Sarkhan Muellim" class="teacher-name"/>
                 </section>
 
             </div>
@@ -139,10 +141,48 @@
                         on where I can learn React? Thanks!</p>
                 </div>
             </section>
+
+            <section class="similar-movie-section">
+                <h3 class="section-title">similar movies ></h3>
+
+                <div class="swiper similarSwiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide movie-card">
+                            <img src="../../assets/img/gameofthrones.png" alt="">
+                            <div class="card-overlay">
+                                <p class="category-name">Action, Adventure, Drama</p>
+                                <p class="movie-name">Game of Thrones</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide movie-card">
+                            <img src="../../assets/img/falcon.png" alt="">
+                            <div class="card-overlay">
+                                <p class="category-name">Action, Adventure, Sci-Fi</p>
+                                <p class="movie-name">The Falcon and the Winter Soldier</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide movie-card">
+                            <img src="../../assets/img/wandavision.jpg" alt="">
+                           <div class="card-overlay">
+                                <p class="category-name">Action, Adventure, Sci-Fi</p>
+                                <p class="movie-name">WandaVision</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </section>
+
         </div>
 
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../../assets/js/client/detail.js"></script>
+
 </body>
 
 </html>
