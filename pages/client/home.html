@@ -52,62 +52,86 @@
     </nav>
     <!-- navbar sol hisse bitti -->
     <!-- section1 -->
-    <!-- test push -->
-    <!-- test  home update -->
+    <section id="section1">
+      <div class="hero-carousel" id="heroCarousel">
+        <!-- əvvəl placeholder -->
+        <div class="hero-slide active">
+          <img
+            src="https://wallpapers.com/images/featured/godzilla-nar7zaewxcq9xhm3.jpg"
+            alt="demo"
+          />
+          <button class="watch-btn">Watch now</button>
+        </div>
+      </div>
+
+      <div class="hero-dots" id="heroDots"></div>
+    </section>
+
     <!-- section1 bitti -->
     <!-- section2 -->
     <section class="section section--action">
-      <!-- Başlıq hissəsi -->
       <div class="section__header">
         <h2 class="section__title">
           Action <span class="section__chevron">&gt;</span>
         </h2>
       </div>
-      <!-- Filmlər -->
+
       <div class="action__wrapper" id="actionWrapper">
-        <article class="movie-card">
+        <article class="action-card">
           <img src="../../assets/img/home.film1.svg" alt="Action movie 1" />
         </article>
 
-        <article class="movie-card">
+        <article class="action-card">
           <img src="../../assets/img/home.film2.svg" alt="Action movie 2" />
         </article>
 
-        <article class="movie-card">
+        <article class="action-card">
           <img src="../../assets/img/home.flm3.svg" alt="Action movie 3" />
         </article>
-        <article class="movie-card">
+
+        <article class="action-card">
           <img src="../../assets/img/home.film4.svg" alt="Action movie 4" />
         </article>
-        <article class="movie-card">
+
+        <article class="action-card">
           <img src="../../assets/img/home.flm5.svg" alt="Action movie 5" />
         </article>
       </div>
     </section>
+
     <!-- section2 bitti -->
     <!-- section3 -->
     <section class="section section--comedy">
-      <!-- Başlıq hissəsi -->
       <div class="section__header">
         <h2 class="section__title">
           Comedy <span class="section__chevron">&gt;</span>
         </h2>
       </div>
-      <!-- Filmlər -->
+
       <div class="comedy__wrapper" id="comedyWrapper">
-        <article class="movie-card">
+        <article class="comedy-card">
           <img src="../../assets/img/home.fon1.svg" alt="Comedy movie 1" />
         </article>
-        <article class="movie-card">
+
+        <article class="comedy-card">
           <img src="../../assets/img/home.fon2.svg" alt="Comedy movie 2" />
         </article>
-        <article class="movie-card">
+
+        <article class="comedy-card">
           <img src="../../assets/img/home.fon3.svg" alt="Comedy movie 3" />
         </article>
       </div>
     </section>
+
     <!-- section3 bitti -->
     <!-- modal -->
+    <div class="modal" id="movieModal">
+      <div class="modal-content">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <h2>Movie Title</h2>
+        <p>Burada film məlumatı olacaq...</p>
+      </div>
+    </div>
 
     <script src="../../assets/js/client/home.js"></script>
   </body>

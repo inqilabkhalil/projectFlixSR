@@ -1,4 +1,3 @@
-/* LEFT MENU */
 .menu {
   position: fixed;
   top: 0;
@@ -37,16 +36,111 @@
   height: 22px;
   display: block;
 }
+
 /* PAGE OFFSET (menu fixed olduğuna görə) */
 body {
   background: #121212;
   color: #fff;
 }
 
+/* ===== SECTION 1 (TOXUNMURAM) ===== */
+.section1 {
+  width: 100%;
+  margin-top: 30px;
+}
+
+/* CAROUSEL */
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+/* SLIDE */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* IMAGE */
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* DARK OVERLAY (Netflix effekti) */
+.hero-slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+}
+
+/* WATCH BUTTON */
+.watch-btn {
+  position: absolute;
+  left: 200px;
+  bottom: 150px;
+  padding: 12px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 2;
+
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  backdrop-filter: blur(10px);
+
+  transition: 0.3s;
+}
+
+.watch-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.05);
+}
+
+/* DOTS */
+.hero-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.hero-dots button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: 0.3s;
+}
+
+.hero-dots button.active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* ===== ORTAQ SECTION STILI (Action/Comedy) ===== */
 .section {
   margin-left: 56px; /* menu width */
   padding: 18px 18px 0 18px;
 }
+
 .section__header {
   display: flex;
   align-items: center;
@@ -60,31 +154,17 @@ body {
   letter-spacing: 0.2px;
 }
 
-.section__arrow {
-  width: 34px;
-  height: 34px;
-  border: 0;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.08);
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-}
-
-.section__arrow:hover {
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.section__arrow img {
-  width: 16px;
-  height: 16px;
-  display: block;
-}
 /* WRAPPERS: horizontal scroll */
-.action__wrapper,
-.comedy__wrapper {
+.action__wrapper {
   display: flex;
   gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+.comedy__wrapper {
+  display: flex;
   overflow-x: auto;
   padding-bottom: 10px;
   scroll-behavior: smooth;
@@ -96,18 +176,34 @@ body {
   height: 0;
 }
 
-/* MOVIE CARD */
-.movie-card {
+/* ===== ACTION CARD (AYRI) ===== */
+.action-card {
   flex: 0 0 auto;
-  width: 150px;
+  width: 292px;
   border-radius: 14px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.06);
 }
 
-.movie-card img {
+.action-card img {
   width: 100%;
-  height: 210px;
+  height: 440px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== COMEDY CARD (AYRI) ===== */
+.comedy-card {
+  flex: 0 0 auto;
+  width: 504px; /* bunu böyütmək istəyirsənsə burada artır */
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.comedy-card img {
+  width: 100%;
+  height: 736px; /* Comedy şəkilləri böyüsün deyirsənsə bunu artır */
   object-fit: cover;
   display: block;
 }
