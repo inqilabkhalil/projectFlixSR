@@ -1,22 +1,28 @@
-
-
 <!doctype html>
 
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movies</title>
-    <link rel="stylesheet" href="../../assets/css/variables.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/variables.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <!-- CSS ler -->
     <link rel="stylesheet" href="../../assets/css/global.css">
@@ -100,6 +106,8 @@
                         <p class="profileName">Admin</p>
                     </div>
 
+                    <button class="create-btn" type="submit">Submit</button>
+                  </div>
                 </div>
             </header>
 
@@ -201,53 +209,57 @@
                         </div>
                     </div>
                 </div>
+              </div>
+            </div>
+          </div>
 
-
-
-
-
-
-                <!--Delete modal-->
-                <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" style="max-width:400px;">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Delete Content</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                            </div>
-                            <div class="modal-body">
-                                <span id="deleteModalText">Are you sure you want to delete <strong id="deleteItemName"
-                                        style="color:#fff;"></strong>? This action cannot be undone.</span>
-                            </div>
-                            <div class="modal-footer d-flex justify-content-end">
-                                <button class="btn-cancel" data-bs-dismiss="modal">Cancel</button>
-                                <button class="btn-delete-confirm" data-bs-dismiss="modal">Delete</button>
-                            </div>
-                        </div>
-                    </div>
+          <!--Delete modal-->
+          <div
+            class="modal fade"
+            id="deleteModal"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            <div
+              class="modal-dialog modal-dialog-centered"
+              style="max-width: 400px"
+            >
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Delete Content</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                  ></button>
                 </div>
-
-            </section>
-        </main>
-
+                <div class="modal-body">
+                  <span id="deleteModalText"
+                    >Are you sure you want to delete
+                    <strong id="deleteItemName" style="color: #fff"></strong>?
+                    This action cannot be undone.</span
+                  >
+                </div>
+                <div class="modal-footer d-flex justify-content-end">
+                  <button class="btn-cancel" data-bs-dismiss="modal">
+                    Cancel
+                  </button>
+                  <button class="btn-delete-confirm" data-bs-dismiss="modal">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
-
-
-
-
-
-
-
 
     <!-- js  active-->
      <script src="../../assets/js/admin page script/tokencheck.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../assets/js/admin page script/active.js"></script>
 
-
     <script src="../../assets/js/admin page script/movies-page.js"></script>
-
-
-</body>
-
+  </body>
 </html>
