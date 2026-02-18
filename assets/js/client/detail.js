@@ -13,13 +13,9 @@ function closePlayModal() {
   modal.hide();
 }
 
-closeBtn.addEventListener("click", (e) => {
-  closePlayModal();
-});
+closeBtn.addEventListener("click",closePlayModal);
 function openPlayModal() {
   modal.show();
 }
 
-watchBtn.addEventListener("click", (e) => {
-  openPlayModal();
-});
+watchBtn.addEventListener("click", openPlayModal);
