@@ -9,7 +9,7 @@
 .detailContainer {
   width: 100%;
   min-height: 100vh;
-  font-family: var(--font-primary); 
+  font-family: var(--font-primary);
   background: var(--detail-page-bg);
 }
 
@@ -58,7 +58,8 @@
   width: calc(100% - 56px);
   position: relative;
 }
-.teacher-name{
+
+.teacher-name {
   z-index: 99;
   position: absolute;
   top: 30px;
@@ -82,7 +83,8 @@
 /* ===== MOVIE INFO ZONE ===== */
 .movieInfo {
   position: relative;
-  padding-left: 90px; /* səndə var */
+  padding-left: 90px;
+  /* səndə var */
   padding-right: 48px;
   padding-bottom: 80px;
   background-color: var(--detail-page-bg);
@@ -110,7 +112,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: rgba(195, 200, 212, 1); /* Grey/100 */
+  color: rgba(195, 200, 212, 1);
+  /* Grey/100 */
   font-size: 16px;
   line-height: 24px;
 }
@@ -124,7 +127,8 @@
 
 .movieName {
   margin-top: 8px;
-  color: rgba(235, 238, 245, 1); /* Grey/50 */
+  color: rgba(235, 238, 245, 1);
+  /* Grey/50 */
   font-size: 32px;
   line-height: 40px;
   font-weight: 600;
@@ -135,7 +139,8 @@
   display: flex;
   align-items: flex-start;
   gap: 64px;
-  padding-top: 110px; /* blur kartın altından başlasın */
+  padding-top: 110px;
+  /* blur kartın altından başlasın */
 }
 
 /* POSTER (Figma: 573x786, radius 24) */
@@ -168,11 +173,15 @@
 }
 
 .detail-header-left-h1 {
-  color: rgba(235, 238, 245, 1); /* Grey/50 */
-  font-size: 30px;              /* Figma: 30 */
-  line-height: 32px;            /* Figma: 32 */
+  color: rgba(235, 238, 245, 1);
+  /* Grey/50 */
+  font-size: 30px;
+  /* Figma: 30 */
+  line-height: 32px;
+  /* Figma: 32 */
   font-weight: 700;
-  letter-spacing: -0.015em;     /* Figma: -1.5% */
+  letter-spacing: -0.015em;
+  /* Figma: -1.5% */
 }
 
 /* WATCH LINK (Figma: 16px / 24px, Warning/500 rgba(255,189,109,1)) */
@@ -210,8 +219,10 @@
   display: grid;
   place-items: center;
 
-  background: rgba(0, 0, 0, 0.1); /* Black/10 */
-  border: 1px solid rgba(50, 59, 84, 1); /* Grey/700 */
+  background: rgba(0, 0, 0, 0.1);
+  /* Black/10 */
+  border: 1px solid rgba(50, 59, 84, 1);
+  /* Grey/700 */
   color: rgba(235, 238, 245, 1);
   font-size: 22px;
   cursor: pointer;
@@ -220,9 +231,11 @@
 /* DESCRIPTION (Figma: 22px / 32px, Grey/300 rgba(142,149,169,1)) */
 .detail-description {
   margin-top: 10px;
-  width: 684px; /* Figma width */
+  width: 684px;
+  /* Figma width */
   max-width: 100%;
-  color: rgba(142, 149, 169, 1); /* Grey/300 */
+  color: rgba(142, 149, 169, 1);
+  /* Grey/300 */
   font-size: 22px;
   line-height: 32px;
   font-weight: 400;
@@ -263,33 +276,40 @@
 
 .aboutMovie-item .data-span {
   display: block;
-  color: rgba(118, 126, 148, 1); /* Grey/400 */
+  color: rgba(118, 126, 148, 1);
+  /* Grey/400 */
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 4px;
 }
 
 .aboutMovie-item {
-  color: rgba(195, 200, 212, 1); /* Grey/100 */
+  color: rgba(195, 200, 212, 1);
+  /* Grey/100 */
   font-size: 20px;
   line-height: 24px;
 }
+
 .data-text {
-  color: rgba(195, 200, 212, 1); /* Grey/100 */
+  color: rgba(195, 200, 212, 1);
+  /* Grey/100 */
   font-size: 20px;
-  line-height: 24px;}
+  line-height: 24px;
+}
 
 /* GENRES */
 .genres-text {
   margin-top: 18px;
-  color: rgba(118, 126, 148, 1); /* Grey/400 */
+  color: rgba(118, 126, 148, 1);
+  /* Grey/400 */
   font-size: 16px;
   line-height: 24px;
 }
 
 .genres-name {
   margin-top: 6px;
-  color: rgba(195, 200, 212, 1); /* Grey/100 */
+  color: rgba(195, 200, 212, 1);
+  /* Grey/100 */
   font-size: 20px;
   line-height: 32px;
 }
@@ -304,7 +324,8 @@
   font-weight: 500;
   color: rgba(235, 238, 245, 1);
   margin-bottom: 16px;
-  text-transform: lowercase; /* figmada “top cast” kiçikdir */
+  text-transform: lowercase;
+  /* figmada “top cast” kiçikdir */
 }
 
 .actors-list {
@@ -313,10 +334,13 @@
   overflow-x: auto;
   padding-bottom: 6px;
 
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
+  /* Firefox */
 }
+
 .actors-list::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
+  /* Chrome/Safari */
 }
 
 .actor-card {
@@ -360,15 +384,19 @@
 }
 
 .commentInput {
-  width: 810px;              /* Figma: Fill 810 */
+  width: 810px;
+  /* Figma: Fill 810 */
   max-width: 100%;
-  height: 64px;              /* Hug 64 */
+  height: 64px;
+  /* Hug 64 */
   border-radius: 12px;
   padding: 12px 16px;
   outline: none;
 
-  background: rgba(0, 0, 0, 0.1);      /* Black/10 */
-  border: 1px solid rgba(50, 59, 84, 1); /* Grey/700 */
+  background: rgba(0, 0, 0, 0.1);
+  /* Black/10 */
+  border: 1px solid rgba(50, 59, 84, 1);
+  /* Grey/700 */
   color: rgba(235, 238, 245, 1);
 }
 
@@ -401,8 +429,10 @@
   border-radius: 12px;
   padding: 16px;
 
-  background: rgba(0, 0, 0, 0.1);       /* yaxın görünüş */
-  border: 1px solid rgba(50, 59, 84, 1); /* Grey/700 */
+  background: rgba(0, 0, 0, 0.1);
+  /* yaxın görünüş */
+  border: 1px solid rgba(50, 59, 84, 1);
+  /* Grey/700 */
 }
 
 .comment-header {
@@ -420,7 +450,8 @@
 }
 
 .comment-user-name {
-  color: rgba(195, 200, 212, 1); /* Grey/100 */
+  color: rgba(195, 200, 212, 1);
+  /* Grey/100 */
   font-size: 16px;
   line-height: 24px;
   font-weight: 500;
@@ -448,7 +479,7 @@
   width: 100%;
 }
 
-.movie-card{
+.movie-card {
   position: relative;
   width: 504px !important;
   height: 736px;
@@ -457,7 +488,7 @@
   cursor: grab;
 }
 
-.movie-card img{
+.movie-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -465,7 +496,7 @@
 }
 
 /* textlerin hamisi burda yerlesir */
-.card-overlay{
+.card-overlay {
   position: absolute;
   left: 24px;
   right: 24px;
@@ -477,7 +508,7 @@
 }
 
 /* FIGMA TAG */
-.category-name{
+.category-name {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -495,13 +526,102 @@
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
 
-  width: fit-content; /* hug kimi */
+  width: fit-content;
+  /* hug kimi */
 }
 
-.movie-name{
+.movie-name {
   color: #fff;
   font-size: 32px;
   line-height: 40px;
   font-weight: 500;
   margin: 0;
+}
+
+
+/* Modal fonu (backdrop) daha tünd olsun istəyirsənsə */
+.modal-backdrop.show {
+  opacity: 0.75;
+}
+
+/* Modal content-i şəffaf et, border-shadow-u özümüz verək */
+.playModal__content {
+  background: transparent;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Hero sahəsi */
+.playModal__hero {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  /* istəyə görə */
+}
+
+/* Şəkil tam otursun */
+.playModal__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay */
+.playModal__overlay {
+  position: absolute;
+  inset: 0;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, .85), rgba(0, 0, 0, .10));
+}
+
+/* Title */
+.playModal__title {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 32px;
+  color: #fff;
+}
+
+/* Button */
+.playModal__btn {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 8px 26px;
+  border-radius: 4px;
+  border: 0;
+  background: #fff;
+  color: #000;
+
+  font-family: "Netflix Sans", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.playModal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 0;
+
+  background: rgba(0, 0, 0, .6);
+  color: #fff;
+  cursor: pointer;
 }
