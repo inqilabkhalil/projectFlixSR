@@ -12,9 +12,6 @@ main {
   flex: 1;
   background-color: var(--bg-color);
 }
-.sideBar-text {
-  font-size: 17px !important;
-}
 
 /* TABLE SECTION */
 .section {
@@ -71,6 +68,9 @@ table .title-movie p {
 .operation i:nth-child(2) {
   color: red;
 }
+
+
+
 
 /* ===========================
    MODAL

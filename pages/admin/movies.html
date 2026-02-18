@@ -21,6 +21,7 @@
     <!-- CSS ler -->
     <link rel="stylesheet" href="../../assets/css/global.css">
     <link rel="stylesheet" href="../../assets/css/movies.css">
+    <link rel="stylesheet" href="../../assets/css/variables.css">
 
 </head>
 
@@ -88,7 +89,10 @@
 
                 <div class="rightHeaderSection">
 
-                    <button class="create-btn" data-bs-toggle="modal" data-bs-target="#contentModal">Create</button>
+                    <button class="create-btn" 
+                    onclick="showEditModal()" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#editModal">Create</button>
 
 
                     <div class="rightSection">
@@ -149,9 +153,9 @@
 
                 <!-- Create and edit modal -->
 
-                <div class="modal fade edit-modal" id="editModal" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-centered modal-lg">
-                        <div class="modal-content edit-form" id="editModal">
+                <div class="modal backdrop fade edit-modal" id="editModal" tabindex="-1">
+                    <div class="modal-dialog backdrop modal-dialog-centered modal-lg">
+                        <div class="modal-content  edit-form" id="editModal">
 
                             <div class="editModal">
 
