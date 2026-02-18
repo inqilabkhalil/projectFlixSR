@@ -106,12 +106,22 @@
               </tr>
             </thead>
             <tbody id="categoryTableBody">
-              <tr>
+              <tr class="table-row">
                 <th scope="row">1</th>
                 <td>Comediya</td>
                 <td class="operation">
-                  <i class="fa-solid fa-pen-to-square edit-btn"></i>
-                  <i class="fa-solid fa-trash delete-btn"></i>
+                  <i
+                    class="fa-solid fa-pen-to-square edit-btn"
+                    style="cursor: pointer"
+                    onclick="showEditModal()"
+                  >
+                  </i>
+                  <i
+                    class="fa-solid fa-trash"
+                    onclick="showDeleteModal()"
+                    style="cursor: pointer"
+                  >
+                  </i>
                 </td>
               </tr>
             </tbody>
