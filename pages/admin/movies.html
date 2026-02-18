@@ -109,6 +109,58 @@
                     <button class="create-btn" type="submit">Submit</button>
                   </div>
                 </div>
+            </header>
+
+            <section class="section">
+              
+
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Overview</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">IMDB</th>
+                            <th scope="col">Operation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-row">
+                            <th scope="row">1</th>
+
+                            <td class="title-movie">
+                                <img src="../../assets/img/table-inner-img.svg" alt="icon">
+                                <p>Lost in space</p>
+                            </td>
+
+                            <td>Lorem ipsum test...</td>
+
+                            <td>Action</td>
+
+                            <td><span>7.6</span></td>
+
+                            <td class="operation">
+                                <i class="fa-solid fa-pen-to-square edit-btn" style="cursor:pointer;"
+                                    onclick="showEditModal()">
+                                </i>
+
+
+                                <i class="fa-solid fa-trash" onclick="showDeleteModal()" style="cursor:pointer;">
+                                </i>
+                            </td>
+
+
+                        </tr>
+
+
+
+
+                    </tbody>
+                </table>
+
+
+                <!-- Create and edit modal -->
 
                 <div class="modal backdrop fade edit-modal" id="editModal" tabindex="-1">
                     <div class="modal-dialog backdrop modal-dialog-centered modal-lg">
