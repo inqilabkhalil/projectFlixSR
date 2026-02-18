@@ -3,8 +3,15 @@
 const deleteModalElement = document.getElementById('deleteModal');
 const deleteModal = new bootstrap.Modal(deleteModalElement);
 
-function showDeleteModal(id) {
-  deleteModal.show();
+
+const deleteModalElement = document.getElementById('deleteModal')
+const deleteModal = new bootstrap.Modal(deleteModalElement)
+
+currentEditId = null;
+
+function showDeleteModal(id){
+    currentEditId = id;
+    deleteModal.show()
 }
 
 const editModalElement = document.getElementById('editModal');

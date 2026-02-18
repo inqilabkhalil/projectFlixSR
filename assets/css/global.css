@@ -67,9 +67,9 @@ a{
     background-color: var(--sidebar-card-color);
 }
 
-.sideBar-item:hover img {
+/* .sideBar-item:hover img {
     filter: brightness(0) invert(1);
-}
+} */
 
 .lowerAside {
     display: flex;
@@ -90,13 +90,14 @@ a{
 .logout-text {
     margin: 0;
     font-size: 14px;
-    color: inherit;
+    /* color: inherit; */
 }
 
 .lowerAside img {
     width: 18px;
     height: 18px;
-    transition: filter 0.35s ease;
+    /* transition: filter 0.35s ease; */
+    /* color: var(--sidebar-text-color); */
 }
 
 .lowerAside:hover {
@@ -104,9 +105,6 @@ a{
     color: #fff;
 }
 
-.lowerAside:hover img {
-    filter: brightness(0) invert(1);
-}
 
 
 p {
@@ -139,6 +137,16 @@ p {
     cursor: pointer;
     transition: background-color 0.35s ease, color 0.35s ease;
 }
+
+
+
+
+
+
+
+
+
+
 
 /*  Aside end */
 
@@ -228,4 +236,9 @@ p {
 .active{
     background-color: var(--sidebar-card-color);
     color: var(--card-number-color);
+}
+
+
+.sideBar-item.active img {
+  filter: brightness(0) invert(1);
 }
