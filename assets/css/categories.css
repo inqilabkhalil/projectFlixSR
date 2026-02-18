@@ -1,3 +1,7 @@
+* {
+  font-family: 'Raleway', sans-serif !important;
+}
+
 .movies-container {
   display: flex;
   width: 100%;

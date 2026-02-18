@@ -180,14 +180,15 @@ body {
 .action-card {
   flex: 0 0 auto;
   width: 292px;
+  height: 440px;
   border-radius: 14px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.06);
+  position: relative;
+  background: transparent;
 }
 
 .action-card img {
   width: 100%;
-  height: 440px;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
@@ -195,15 +196,79 @@ body {
 /* ===== COMEDY CARD (AYRI) ===== */
 .comedy-card {
   flex: 0 0 auto;
-  width: 504px; /* bunu böyütmək istəyirsənsə burada artır */
+  width: 504px;
+  height: 736px;
   border-radius: 14px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.06);
+  position: relative;
+  background: transparent;
 }
 
 .comedy-card img {
   width: 100%;
-  height: 736px; /* Comedy şəkilləri böyüsün deyirsənsə bunu artır */
+  height: 100%; /* Comedy şəkilləri böyüsün deyirsənsə bunu artır */
   object-fit: cover;
   display: block;
+}
+.category-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(15, 239, 253);
+  background: rgba(29, 29, 29, 0.5);
+
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+
+  width: fit-content;
+  position: absolute;
+  left: 14px;
+  bottom: 60px;
+  z-index: 3;
+
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 500;
+
+  color: rgb(15, 239, 253);
+  background: rgba(0, 0, 0, 0.6);
+
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+
+  width: fit-content;
+  /* hug kimi */
+}
+
+.movie-name {
+  color: #fff;
+  font-size: 24px;
+  line-height: 40px;
+  font-weight: 500;
+  margin: 0;
+  position: absolute;
+  left: 14px;
+  bottom: 20px;
+  z-index: 3;
+  color: #fff;
+  font-weight: 600;
+}
+.action-card {
+  overflow: hidden;
+}
+/* category yeri */
+.action-card .category-name,
+.comedy-card .category-name {
+  left: 14px;
+  bottom: 62px;
+}
+
+/* movie name yeri */
+.action-card .movie-name,
+.comedy-card .movie-name {
+  left: 14px;
+  bottom: 14px;
 }
