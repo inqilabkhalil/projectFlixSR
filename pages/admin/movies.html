@@ -1,248 +1,244 @@
-
-
 <!doctype html>
 
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movies</title>
-    <link rel="stylesheet" href="../../assets/css/variables.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/variables.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <!-- CSS ler -->
-    <link rel="stylesheet" href="../../assets/css/global.css">
-    <link rel="stylesheet" href="../../assets/css/movies.css">
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/movies.css" />
+  </head>
 
-</head>
+  <body>
+    <div class="movies-container">
+      <aside class="asideContainer">
+        <div class="upperAside">
+          <div class="logoArea">
+            <img src="../../assets/img/filmalisalogo.png" alt="" />
+            <p class="aside-text">filmalisa</p>
+          </div>
 
+          <!-- SIDEBAR (DIV -> A) -->
+          <a href="../admin/dashboard.html" class="sideBar-item dashBoardItem">
+            <img src="../../assets/img/dashboard.svg" alt="" />
+            <span class="sideBar-text">Dashboard</span>
+          </a>
 
+          <a href="../admin/movies.html" class="sideBar-item movieItem">
+            <img src="../../assets/img/Group.svg" alt="" />
+            <span class="sideBar-text">Movies</span>
+          </a>
 
+          <a
+            href="../admin/categories.html"
+            class="sideBar-item categoriesItem"
+          >
+            <img src="../../assets/img/star.svg" alt="" />
+            <span class="sideBar-text">Categories</span>
+          </a>
 
+          <a href="#" class="sideBar-item usersItem">
+            <img src="../../assets/img/user.png" alt="" />
+            <span class="sideBar-text">Users</span>
+          </a>
 
+          <a href="./comment.html" class="sideBar-item commentsItem">
+            <img src="../../assets/img/comment.png" alt="" />
+            <span class="sideBar-text">Comments</span>
+          </a>
 
+          <a href="../admin/contactUs.html" class="sideBar-item contactItem">
+            <img src="../../assets/img/faq.svg" alt="" />
+            <span class="sideBar-text">Contact</span>
+          </a>
+        </div>
 
-<body>
+        <div class="lowerAside">
+          <img src="../../assets/img/logout.svg" alt="" />
+          <p class="logout-text">Logout</p>
+        </div>
+      </aside>
+      <main>
+        <header class="header">
+          <div class="leftHeaderSection">
+            <p class="admin-text">Hi Admin</p>
+            <p class="page-text">Movies</p>
+          </div>
 
-    <div class="movies-container ">
-        <aside class="asideContainer ">
-            <div class="upperAside ">
-                <div class="logoArea">
-                    <img src="../../assets/img/filmalisalogo.png" alt="">
-                    <p class="aside-text">filmalisa</p>
+          <div class="rightHeaderSection">
+            <button
+              class="create-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#contentModal"
+            >
+              Create
+            </button>
 
-                </div>
-
-                <!-- SIDEBAR (DIV -> A) -->
-                <a href="../admin/dashboard.html" class="sideBar-item dashBoardItem">
-                    <img src="../../assets/img/dashboard.svg" alt="">
-                    <span class="sideBar-text">Dashboard</span>
-                </a>
-
-                <a href="../admin/movies.html" class="sideBar-item movieItem">
-                    <img src="../../assets/img/Group.svg" alt="">
-                    <span class="sideBar-text">Movies</span>
-                </a>
-
-                <a href="../admin/categories.html" class="sideBar-item categoriesItem">
-                    <img src="../../assets/img/star.svg" alt="">
-                    <span class="sideBar-text">Categories</span>
-                </a>
-
-                <a href="#" class="sideBar-item usersItem">
-                    <img src="../../assets/img/user.png" alt="">
-                    <span class="sideBar-text">Users</span>
-                </a>
-
-                <a href="./comment.html" class="sideBar-item commentsItem">
-                    <img src="../../assets/img/comment.png" alt="">
-                    <span class="sideBar-text">Comments</span>
-                </a>
-
-                <a href="../admin/contactUs.html" class="sideBar-item contactItem">
-                    <img src="../../assets/img/faq.svg" alt="">
-                    <span class="sideBar-text">Contact</span>
-                </a>
+            <div class="rightSection">
+              <img src="../../assets/img/adminman.svg" alt="" />
+              <p class="profileName">Admin</p>
             </div>
+          </div>
+        </header>
 
+        <section class="section">
+          <table class="table">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Overview</th>
+                <th scope="col">Category</th>
+                <th scope="col">IMDB</th>
+                <th scope="col">Operation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-row">
+                <th scope="row">1</th>
 
-            <div class="lowerAside">
-                <img src="../../assets/img/logout.svg" alt="">
-                <p class="logout-text">Logout</p>
+                <td class="title-movie">
+                  <img src="../../assets/img/table-inner-img.svg" alt="icon" />
+                  <p>Lost in space</p>
+                </td>
+
+                <td>Lorem ipsum test...</td>
+
+                <td>Action</td>
+
+                <td><span>7.6</span></td>
+
+                <td class="operation">
+                  <i
+                    class="fa-solid fa-pen-to-square edit-btn"
+                    style="cursor: pointer"
+                    onclick="showEditModal()"
+                  >
+                  </i>
+
+                  <i
+                    class="fa-solid fa-trash"
+                    onclick="showDeleteModal()"
+                    style="cursor: pointer"
+                  >
+                  </i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Create and edit modal -->
+
+          <div class="modal fade edit-modal" id="editModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content edit-form" id="editModal">
+                <div class="editModal">
+                  <input type="text" placeholder="title" />
+                  <textarea name="" id="">overview</textarea>
+                  <input type="text" placeholder="cover url" />
+
+                  <input
+                    type="text"
+                    placeholder="fragman (youtube embed url)"
+                  />
+                  <input type="text" placeholder="watch url" />
+                  <input type="text" placeholder="imdb" />
+                  <input type="text" placeholder="runtime minute" />
+                  <select id="catSelect" class="form-select dark-select">
+                    <option>Action</option>
+                    <option>Drama</option>
+                    <option>Comedy</option>
+                    <option>Sci-Fi</option>
+                    <option>Horror</option>
+                  </select>
+
+                  <div class="footer-div">
+                    <div class="left">
+                      <p>Adult</p>
+                      <input type="checkbox" name="" id="" />
+                    </div>
+
+                    <button class="create-btn" type="submit">Submit</button>
+                  </div>
+                </div>
+
+                <div class="edit-right">
+                  <img
+                    src="https://qqcdnpictest.mxplay.com/pic/cc1f9610b1cc638cf9b60f305ee1b4d6/en/2x3/312x468/test_pic1759756606210_badged_1761714017652.webp"
+                    alt=""
+                  />
+                </div>
+              </div>
             </div>
-        </aside>
-        <main>
-            <header class="header">
-                <div class="leftHeaderSection">
-                    <p class="admin-text">Hi Admin</p>
-                    <p class="page-text">Movies</p>
+          </div>
+
+          <!--Delete modal-->
+          <div
+            class="modal fade"
+            id="deleteModal"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            <div
+              class="modal-dialog modal-dialog-centered"
+              style="max-width: 400px"
+            >
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Delete Content</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                  ></button>
                 </div>
-
-                <div class="rightHeaderSection">
-
-                    <button class="create-btn" data-bs-toggle="modal" data-bs-target="#contentModal">Create</button>
-
-
-                    <div class="rightSection">
-                        <img src="../../assets/img/adminman.svg" alt="">
-                        <p class="profileName">Admin</p>
-                    </div>
-
+                <div class="modal-body">
+                  <span id="deleteModalText"
+                    >Are you sure you want to delete
+                    <strong id="deleteItemName" style="color: #fff"></strong>?
+                    This action cannot be undone.</span
+                  >
                 </div>
-            </header>
-
-            <section class="section">
-
-                <table class="table">
-                    <thead class="table-dark">
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Overview</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">IMDB</th>
-                            <th scope="col">Operation</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="table-row">
-                            <th scope="row">1</th>
-
-                            <td class="title-movie">
-                                <img src="../../assets/img/table-inner-img.svg" alt="icon">
-                                <p>Lost in space</p>
-                            </td>
-
-                            <td>Lorem ipsum test...</td>
-
-                            <td>Action</td>
-
-                            <td><span>7.6</span></td>
-
-                            <td class="operation">
-                                <i class="fa-solid fa-pen-to-square edit-btn" style="cursor:pointer;"
-                                    onclick="showEditModal()">
-                                </i>
-
-
-                                <i class="fa-solid fa-trash" onclick="showDeleteModal()" style="cursor:pointer;">
-                                </i>
-                            </td>
-
-
-                        </tr>
-
-
-
-
-                    </tbody>
-                </table>
-
-
-                <!-- Create and edit modal -->
-
-                <div class="modal fade edit-modal" id="editModal" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-centered modal-lg">
-                        <div class="modal-content edit-form" id="editModal">
-
-                            <div class="editModal">
-
-
-                                <input type="text" placeholder="title">
-                                <textarea name="" id="">overview</textarea>
-                                <input type="text" placeholder="cover url">
-
-                                <input type="text" placeholder="fragman (youtube embed url)">
-                                <input type="text" placeholder="watch url">
-                                <input type="text" placeholder="imdb">
-                                <input type="text" placeholder="runtime minute">
-                                <select id="catSelect" class="form-select dark-select">
-                                    <option>Action</option>
-                                    <option>Drama</option>
-                                    <option>Comedy</option>
-                                    <option>Sci-Fi</option>
-                                    <option>Horror</option>
-                                </select>
-
-                                <div class="footer-div">
-                                    <div class="left">
-                                        <p>Adult</p>
-                                        <input type="checkbox" name="" id="">
-                                    </div>
-
-                                    <button class="create-btn" type="submit">Submit</button>
-                                </div>
-
-                            </div>
-
-                            <div class="edit-right">
-                                <img src="https://qqcdnpictest.mxplay.com/pic/cc1f9610b1cc638cf9b60f305ee1b4d6/en/2x3/312x468/test_pic1759756606210_badged_1761714017652.webp" alt="">
-
-                            </div>
-
-
-
-
-
-
-                        </div>
-                    </div>
+                <div class="modal-footer d-flex justify-content-end">
+                  <button class="btn-cancel" data-bs-dismiss="modal">
+                    Cancel
+                  </button>
+                  <button class="btn-delete-confirm" data-bs-dismiss="modal">
+                    Delete
+                  </button>
                 </div>
-
-
-
-
-
-
-                <!--Delete modal-->
-                <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" style="max-width:400px;">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Delete Content</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                            </div>
-                            <div class="modal-body">
-                                <span id="deleteModalText">Are you sure you want to delete <strong id="deleteItemName"
-                                        style="color:#fff;"></strong>? This action cannot be undone.</span>
-                            </div>
-                            <div class="modal-footer d-flex justify-content-end">
-                                <button class="btn-cancel" data-bs-dismiss="modal">Cancel</button>
-                                <button class="btn-delete-confirm" data-bs-dismiss="modal">Delete</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-        </main>
-
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
-
-
-
-
-
-
-
 
     <!-- js  active-->
      <script src="../../assets/js/admin page script/tokencheck.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../assets/js/admin page script/active.js"></script>
 
-
     <script src="../../assets/js/admin page script/movies-page.js"></script>
-
-
-</body>
-
+  </body>
 </html>
