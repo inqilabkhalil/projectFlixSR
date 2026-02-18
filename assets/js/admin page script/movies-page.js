@@ -1,7 +1,4 @@
-//   delete modal
 
-const deleteModalElement = document.getElementById('deleteModal');
-const deleteModal = new bootstrap.Modal(deleteModalElement);
 
 
 const deleteModalElement = document.getElementById('deleteModal')
