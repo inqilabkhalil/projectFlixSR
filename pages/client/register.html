@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
 
-    <link rel="stylesheet" href="../../assets/css/variables.css">
+    <link rel="stylesheet" href="../../assets/css/variables.css" />
     <link rel="stylesheet" href="../../assets/css/client/register.css" />
   </head>
 
   <body>
     <div class="register-page">
       <div class="register-box">
-
         <!-- Logo -->
         <div class="register-logo">
           <img src="../../assets/img/admin.logo.svg" alt="Logo" />
@@ -23,6 +22,7 @@
 
         <!-- Register title -->
         <h2 class="register-title">register</h2>
+        <p id="warning" style="display: none; color: red; margin: 10px 0"></p>
 
         <!-- Form -->
         <form class="register-form">
@@ -31,7 +31,7 @@
             <span class="input-icon">
               <img src="../../assets/img/admin.username.svg" alt="user icon" />
             </span>
-            <input type="text" placeholder="full name" required />
+            <input id="fullname" type="text" placeholder="full name" required />
           </div>
 
           <!-- Email -->
@@ -39,26 +39,35 @@
             <span class="input-icon">
               <img src="../../assets/img/admin.username.svg" alt="email icon" />
             </span>
-            <input type="email" placeholder="email" required />
+            <input id="email" type="email" placeholder="email" required />
           </div>
 
           <!-- Password -->
           <div class="form-group">
             <span class="input-icon">
-              <img src="../../assets/img/admin.password.svg" alt="password icon" />
+              <img
+                src="../../assets/img/admin.password.svg"
+                alt="password icon"
+              />
             </span>
 
-            <input type="password" placeholder="password" id="password" required />
+            <input
+              type="password"
+              placeholder="password"
+              id="password"
+              required
+            />
             <span class="toggle-eye" id="togglePassword">👁</span>
           </div>
 
           <!-- Helper -->
-            
-            <a href="./login.html" class="helper-link"> Do you have a account?Login here</a>
+
+          <a href="./login.html" class="helper-link">
+            Do you have a account?Login here</a
+          >
 
           <button type="submit" class="register-button">register</button>
         </form>
-
       </div>
     </div>
 
