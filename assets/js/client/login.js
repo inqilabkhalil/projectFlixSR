@@ -58,7 +58,7 @@ async function login(event) {
 
     // Uğurlu giriş: Tokeni al və yadda saxla
     const accessToken = responseData.data.tokens.access_token;
-    localStorage.setItem("access_token", accessToken);
+    localStorage.setItem("login_token", accessToken);
     
     window.location.href = "./home.html"; 
 
