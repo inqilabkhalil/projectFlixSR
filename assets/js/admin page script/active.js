@@ -13,6 +13,7 @@ const currentPage = window.location.pathname.toLowerCase();
 
 if (currentPage.includes("dashboard")) {
   dashboardItem?.classList.add("active");
+  
 }
 else if (currentPage.includes("movie")) {
   movieItem?.classList.add("active"); 

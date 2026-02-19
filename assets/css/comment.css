@@ -21,6 +21,7 @@ main {
     text-align: center;
     width: 90%;
     margin: 24px;
+    background-color: white;
 
     img {
         width: 30px;
@@ -177,4 +178,9 @@ table .title-movie {
 
 .edit-modal .btn-primary:hover {
   background: #6f4bdb;
+}
+.comment-user{
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

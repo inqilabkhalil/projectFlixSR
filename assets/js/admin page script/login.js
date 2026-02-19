@@ -7,15 +7,15 @@ function showWarning(text) {
   warningEl.style.display = "block";
 }
 
-function hideWarning() {
-  warningEl.textContent = "";
-  warningEl.style.display = "none";
-}
+// function hideWarning() {
+//   warningEl.textContent = "";
+//   warningEl.style.display = "none";
+// }
 
 async function login(event) {
   event.preventDefault(); 
 
-  hideWarning();
+//   hideWarning();
 
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
