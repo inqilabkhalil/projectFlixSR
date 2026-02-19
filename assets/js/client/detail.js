@@ -8,7 +8,8 @@ const watchBtn = document.querySelector(".watchBtn");
 const modalEl = document.getElementById("playModal");
 const modal = new bootstrap.Modal(modalEl);
 const closeBtn = modalEl.querySelector(".playModal__close");
-
+const detailMovieImg = document.querySelector(".detailMovieImg");
+const detailPlayBtn = document.querySelector(".detail-play-btn");
 function closePlayModal() {
   modal.hide();
 }
@@ -18,4 +19,5 @@ function openPlayModal() {
   modal.show();
 }
 
-watchBtn.addEventListener("click", openPlayModal);
+detailMovieImg.addEventListener("click", openPlayModal);
+detailPlayBtn.addEventListener("click", openPlayModal);
