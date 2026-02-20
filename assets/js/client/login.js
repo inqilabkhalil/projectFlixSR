@@ -1,6 +1,6 @@
 // 1. SƏHİFƏ YÜKLƏNƏNDƏ TOKEN YOXLANIŞI: 
 // Əgər token varsa, birbaşa home.html-ə yönləndir
-if (localStorage.getItem("access_token")) {
+if (localStorage.getItem("login_token")) {
   window.location.href = "./home.html"; 
   
 }
@@ -51,14 +51,14 @@ async function login(event) {
     const responseData = await response.json();
     
     // API-dən xəta gələrsə
-    if (!responseData.result && !response.ok) {
+    if (!responseData.result ||!response.ok) {
       showWarning(responseData.message || "İstifadəçi adı və ya şifrə yanlışdır.");
       return;
     }
 
     // Uğurlu giriş: Tokeni al və yadda saxla
-    const accessToken = responseData.data.tokens.access_token;
-    localStorage.setItem("login_token", accessToken);
+    const loginTokken = responseData.data.tokens.access_token;
+    localStorage.setItem("login_token", loginTokken);
     
     window.location.href = "./home.html"; 
 

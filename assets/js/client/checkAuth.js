@@ -1,6 +1,6 @@
 
 function checkAuth() {
-  const token = localStorage.getItem("access_token");
+  const token = localStorage.getItem("login_token");
   
   // Əgər token yoxdursa (kimsə birbaşa linklə girməyə çalışırsa), loginə at
   if (!token) {
@@ -13,7 +13,7 @@ checkAuth();
 
 // Əlavə qoruma: Başqa tabda token silinərsə
 window.addEventListener('storage', (event) => {
-  if (event.key === 'access_token' && !event.newValue) {
+  if (event.key === 'login_token' && !event.newValue) {
     window.location.replace("./login.html");
   }
 });
