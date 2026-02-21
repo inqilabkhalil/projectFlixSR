@@ -2,222 +2,200 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/global/variables.css">
-    <link rel="stylesheet" href="../../assets/css/client/detail.css">
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/css/global/variables.css">
+  <link rel="stylesheet" href="../../assets/css/client/detail.css">
 </head>
 
 <body>
-    <div class="detailContainer">
-        <div class="headSection">
-            <nav class="menu">
-                <a class="menu__item" href="#">
-                    <img src="../../assets/img/Play.svg" alt="" />
-                </a>
+  <div class="detailContainer">
+    <div class="headSection">
+      <nav class="menu">
+          <a class="menu__item" href="#">
+        <img src="../../assets/img/icon1..svg" class="image" alt="" />
+      </a>
 
-                <a class="menu__item homeIcon" href="./home.html">
-                    <img src="../../assets/img/home.icon2.svg" alt="Home" />
-                </a>
+        <a class="menu__item homeIcon" href="./home.html">
+          <img src="../../assets/img/home.icon2.svg" alt="Home" />
+        </a>
 
-                <a class="menu__item" href="./movies.html">
-                    <img src="../../assets/img/home.icon3.svg" alt="Movies" />
-                </a>
+        <a class="menu__item" href="./movies.html">
+          <img src="../../assets/img/home.icon3.svg" alt="Movies" />
+        </a>
 
-                <a class="menu__item">
-                    <img src="../../assets/img/home.icon4.svg" alt="Series" />
-                </a>
+        <a class="menu__item">
+          <img src="../../assets/img/home.icon4.svg" alt="Series" />
+        </a>
 
-                <a class="menu__item">
-                    <img src="../../assets/img/home.icon5.svg" alt="My List" />
-                </a>
-            </nav>
-            <div class="detail-body-section">
-                <section class="movieImgSection">
-                    <img src="../../assets/img/detailimg.jpg" alt="movie image" class="movieImg" />
-                    <img src="../../assets/img/sarkhanmuellim.svg" alt="Sarkhan Muellim" class="teacher-name" />
-                </section>
+        <a class="menu__item">
+          <img src="../../assets/img/home.icon5.svg" alt="My List" />
+        </a>
+      </nav>
 
-            </div>
-        </div>
-        <div class="movieInfo">
-            <div class="movieInfoHeader">
-                <p class="movieTitle">MaileHereko/ <span class="movieTitleSpan">Tv Shows</span></p>
+      <div class="detail-body-section">
+        <section class="movieImgSection">
+          <!-- API dolduracaq -->
+          <img src="" alt="movie image" class="movieImg" />
 
-                <h3 class="movieName">lost In space</h3>
-            </div>
-
-            <div class="movieDetailSection">
-
-                <div class="detail-img-wrapper">
-                    <img src="../../assets/img/detailimg.jpg" alt="movie image" class="detailMovieImg" />
-
-                    <button class="detail-play-btn">
-                        ▶
-                    </button>
-                </div>
-                <div class="detail-right-section">
-                    <div class="detail-rigth-section-header">
-                        <div class="detail-header-left">
-                            <h1 class="detail-header-left-h1">have you seen our robot?</h1>
-                            <button class="watchBtn">Watch Link</button>
-                        </div>
-                        <button class="addMyListBtn">+</button>
-                    </div>
-                    <p class="detail-description"> The mission to save Scarecrow takes an unexpected turn, throwing the
-                        Resolute into chaos. Judy hatches a plan to get a ship to Alpha Centauri.</p>
-                    <p class="detail-rating"><i class="fa-solid fa-star"></i> 8.5</p>
-                    <div class="aboutMovie">
-                        <div class="aboutMovie-item">
-                            <span class="data-span">Type</span>
-                            <p class="data-text">TV Show</p>
-                        </div>
-                        <div class="aboutMovie-item">
-                            <span class="data-span">Status</span>
-                            <p class="data-text">Returning Series</p>
-                        </div>
-                        <div class="aboutMovie-item episodes">
-                            <span class="data-span">No. of episodes</span>
-                            <p class="data-text">20</p>
-                        </div>
-                        <div class="aboutMovie-item">
-                            <span class="data-span">First air date</span>
-                            <p class="data-text">2018-04-13</p>
-                        </div>
-                        <div class="aboutMovie-item">
-                            <span class="data-span">Last air date</span>
-                            <p class="data-text">2019-04-24</p>
-                        </div>
-                        <div class="aboutMovie-item episodeRunTime">
-                            <span class="data-span">Episode run time</span>
-                            <p class="data-text">56 min</p>
-                        </div>
-                    </div>
-                    <p class="genres-text">Genres</p>
-                    <p class="genres-name">Genres: Action, Adventure, Sci-Fi</p>
-                    <div class="actors-section">
-                        <p class="actors-text">Top Cast</p>
-
-                        <div class="actors-list">
-                            <div class="actor-card">
-                                <img src="../../assets/img/actors.jpg" alt="actor" />
-                                <p class="actor-name">maxwell jenkins</p>
-                                <span class="actor-role">tony slack</span>
-                            </div>
-
-                            <div class="actor-card">
-                                <img src="../../assets/img/actors.jpg" alt="actor" />
-                                <p class="actor-name">maxwell jenkins</p>
-                                <span class="actor-role">tony slack</span>
-                            </div>
-
-                            <div class="actor-card">
-                                <img src="../../assets/img/actors.jpg" alt="actor" />
-                                <p class="actor-name">maxwell jenkins</p>
-                                <span class="actor-role">tony slack</span>
-                            </div>
-
-                            <div class="actor-card">
-                                <img src="../../assets/img/actors.jpg" alt="actor" />
-                                <p class="actor-name">maxwell jenkins</p>
-                                <span class="actor-role">tony slack</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <section class="comment-section">
-                <div class="commentBar">
-                    <input type="text" class="commentInput" placeholder="Add a comment..." />
-                    <button class="commentBtn"><img src="../../assets/img/send.svg" alt="send"></button>
-                </div>
-                <div class="comment-title">
-                    <div class="comment-header">
-                        <img src="../../assets/img/sarkhanmuellim.svg" alt="user" class="comment-user-img" />
-                        <p class="comment-user-name">Sarkhan Rahimli</p>
-                    </div>
-                    <p class="comment-text">Woah, your project looks awesome! How long have you been coding for? I’m
-                        still new, but think I want to dive into React as well soon. Perhaps you can give me an insight
-                        on where I can learn React? Thanks!</p>
-                </div>
-            </section>
-
-            <section class="similar-movie-section">
-                <h3 class="section-title">similar movies ></h3>
-
-                <div class="swiper similarSwiper">
-                    <div class="swiper-wrapper">
-
-                        <div class="swiper-slide movie-card">
-                            <img src="../../assets/img/gameofthrones.png" alt="">
-                            <div class="card-overlay">
-                                <p class="category-name">Action, Adventure, Drama</p>
-                                <p class="movie-name">Game of Thrones</p>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide movie-card">
-                            <img src="../../assets/img/falcon.png" alt="">
-                            <div class="card-overlay">
-                                <p class="category-name">Action, Adventure, Sci-Fi</p>
-                                <p class="movie-name">The Falcon and the Winter Soldier</p>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide movie-card">
-                            <img src="../../assets/img/wandavision.jpg" alt="">
-                            <div class="card-overlay">
-                                <p class="category-name">Action, Adventure, Sci-Fi</p>
-                                <p class="movie-name">WandaVision</p>
-                            </div>
-
-
-                        </div>
-                    </div>
-            </section>
-
-        </div>
-
-
+          <!-- bunu statik saxladım -->
+          <img src="../../assets/img/sarkhanmuellim.svg" alt="Sarkhan Muellim" class="teacher-name" />
+        </section>
+      </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade playModal" id="playModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content playModal__content">
+    <div class="movieInfo">
+      <div class="movieInfoHeader">
+        <p class="movieTitle">MaileHereko/ <span class="movieTitleSpan"></span></p>
+        <h3 class="movieName"></h3>
+      </div>
 
-                <button type="button" class="playModal__close">
-                    ✕
-                </button>
+      <div class="movieDetailSection">
+        <div class="detail-img-wrapper">
+          <!-- API dolduracaq -->
+          <img src="" alt="movie image" class="detailMovieImg" />
 
-                <div class="playModal__hero">
-                    <img class="playModal__img" src="../../assets/img/detailimg.jpg" alt="Lose in Space">
-
-                    <div class="playModal__overlay">
-                        <h2 class="playModal__title">LOSE IN SPACE</h2>
-
-                        <button class="playModal__btn">
-                            <span class="playModal__icon">▶</span>
-                            Play
-                        </button>
-                    </div>
-                </div>
-
-            </div>
+          <button class="detail-play-btn">▶</button>
         </div>
+
+        <div class="detail-right-section">
+          <div class="detail-rigth-section-header">
+            <div class="detail-header-left">
+              <h1 class="detail-header-left-h1"></h1>
+              <button class="watchBtn">Watch Link</button>
+            </div>
+            <button class="addMyListBtn">+</button>
+          </div>
+
+          <p class="detail-description"></p>
+          <p class="detail-rating"><i class="fa-solid fa-star"></i> -</p>
+
+          <div class="aboutMovie">
+            <div class="aboutMovie-item">
+              <span class="data-span">Type</span>
+              <p class="data-text"></p>
+            </div>
+
+            <!-- Bunlar API-dən gəlmirsə: istəsən boşaltsın, istəsən qalsın.
+                 Sən demişdin "gelmeyenler oldugu kimi qalsin", ona görə bunları olduğu kimi saxladım -->
+            <div class="aboutMovie-item">
+              <span class="data-span">Status</span>
+              <p class="data-text">Returning Series</p>
+            </div>
+
+            <div class="aboutMovie-item episodes">
+              <span class="data-span">No. of episodes</span>
+              <p class="data-text">20</p>
+            </div>
+
+            <div class="aboutMovie-item">
+              <span class="data-span">First air date</span>
+              <p class="data-text">2018-04-13</p>
+            </div>
+
+            <div class="aboutMovie-item">
+              <span class="data-span">Last air date</span>
+              <p class="data-text">2019-04-24</p>
+            </div>
+
+            <div class="aboutMovie-item episodeRunTime">
+              <span class="data-span">Episode run time</span>
+              <p class="data-text"></p>
+            </div>
+          </div>
+
+          <p class="genres-text">Genres</p>
+          <p class="genres-name"></p>
+
+          <div class="actors-section">
+            <p class="actors-text">Top Cast</p>
+            <div class="actors-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMMENT-SECTION və sonrası olduğu kimi qaldı -->
+      <section class="comment-section">
+        <div class="commentBar ">
+          <input type="text" class="commentInput" placeholder="Add a comment..." />
+          <button class="commentBtn" type="button">
+            <img src="../../assets/img/send.svg" alt="send">
+        </button>
+        </div>
+        <div class="comment-title">
+         
+        </div>
+      </section>
+
+      <section class="similar-movie-section">
+        <h3 class="section-title">similar movies ></h3>
+
+        <div class="swiper similarSwiper">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide movie-card">
+              <img src="../../assets/img/gameofthrones.png" alt="">
+              <div class="card-overlay">
+                <p class="category-name">Action, Adventure, Drama</p>
+                <p class="movie-name">Game of Thrones</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide movie-card">
+              <img src="../../assets/img/falcon.png" alt="">
+              <div class="card-overlay">
+                <p class="category-name">Action, Adventure, Sci-Fi</p>
+                <p class="movie-name">The Falcon and the Winter Soldier</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide movie-card">
+              <img src="../../assets/img/wandavision.jpg" alt="">
+              <div class="card-overlay">
+                <p class="category-name">Action, Adventure, Sci-Fi</p>
+                <p class="movie-name">WandaVision</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../assets/js/client/detail.js"></script>
+  </div>
 
+  <!-- Modal -->
+  <div class="modal fade playModal" id="playModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content playModal__content">
+        <button type="button" class="playModal__close">✕</button>
 
+        <div class="playModal__hero">
+          <!-- API dolduracaq -->
+          <img class="playModal__img" src="" alt="Lose in Space">
+
+          <iframe class="playModal__iframe" width="100%" height="500" src="" frameborder="0" allowfullscreen></iframe>
+
+          <div class="playModal__overlay">
+            <h2 class="playModal__title"></h2>
+            <button class="playModal__btn">
+              <span class="playModal__icon">▶</span>
+              Play
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/client/detail.js"></script>
 </body>
 
 </html>

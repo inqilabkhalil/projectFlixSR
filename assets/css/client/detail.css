@@ -42,10 +42,14 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-.menu__item img {
-  width: 22px;
-  height: 22px;
-  display: block;
+.menu__item.active {
+  background: rgba(255, 255, 255, 0.12);
+  outline: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.menu__item img.image {
+  width: 50px;
+  height: 50px;
 }
 
 .homeIcon img {
@@ -447,6 +451,14 @@
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
+}.single-comment{
+  margin-top: 24px;
+  width: 100%;
+  border-radius: 12px;
+  padding: 16px;
+
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(50, 59, 84, 1);
 }
 
 .comment-user-name {
@@ -675,4 +687,31 @@
 .detail-img-wrapper:hover .detail-play-btn {
   opacity: 1;
   transform: scale(1);
+}
+
+.comment-title{
+  margin-top: 24px;
+  width: 715px;
+  max-width: 100%;
+  padding: 0;            /* əvvəlki paddingi sil */
+  border: 0;             /* əvvəlki borderi sil */
+  background: transparent; /* əvvəlki bg-ni sil */
+}
+
+.single-comment{
+  margin-top: 16px;
+  width: 100%;
+  border-radius: 12px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(50, 59, 84, 1);
+}
+
+.single-comment:first-child{
+  margin-top: 0;
+}
+
+.comment-header{
+  display: flex;
+  align-items: center;
 }
