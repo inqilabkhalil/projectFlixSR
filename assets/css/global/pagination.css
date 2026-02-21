@@ -1,0 +1,36 @@
+.pagination-bar {
+  width: 90%;
+  margin: 0 24px 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+}
+
+.pager-btn {
+  border: 1px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.pager-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.pager-btn:disabled {
+  opacity: 0.45;
+  cursor: pointer;
+}
+
+.pager-info {
+  min-width: 72px;
+  text-align: center;
+  color: #fff;
+  /* dark bg-də oxunması üçün */
+  font-weight: 600;
+}
