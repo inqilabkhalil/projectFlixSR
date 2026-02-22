@@ -1,4 +1,16 @@
 // =====================
+// PAGINATION STATE
+// =====================
+let allItems = [];
+let currentPage = 1;
+let pageSize = 8; // ✅ hər səhifə 8 item
+
+// Pagination DOM
+const prevPageBtn = document.getElementById('prevPage');
+const nextPageBtn = document.getElementById('nextPage');
+const pageInfoEl = document.getElementById('pageInfo');
+
+// =====================
 // API URLS
 // =====================
 const BASE_URL = 'https://api.sarkhanrahimli.dev';
@@ -42,17 +54,19 @@ function handleUnauthorized(response) {
 }
 
 // =====================
-// RENDER
+// RENDER TABLE
 // =====================
 function renderCategories(categories) {
   tableBody.innerHTML = '';
+
+  const startIndex = (currentPage - 1) * pageSize; // ✅ global index üçün
 
   categories.forEach((category, index) => {
     const row = document.createElement('tr');
     row.dataset.id = category.id;
 
     row.innerHTML = `
-      <th scope="row">${index + 1}</th>
+      <th scope="row">${startIndex + index + 1}</th>
       <td>${category.name}</td>
       <td class="operation">
         <i class="fa-solid fa-pen-to-square edit-btn"></i>
@@ -65,9 +79,54 @@ function renderCategories(categories) {
 }
 
 // =====================
-// GET
+// PAGINATION UI + PAGE RENDER
 // =====================
-async function getCategories() {
+function getTotalPages() {
+  return Math.ceil(allItems.length / pageSize) || 1;
+}
+
+function renderPage() {
+  const totalPages = getTotalPages();
+
+  if (currentPage > totalPages) currentPage = totalPages;
+  if (currentPage < 1) currentPage = 1;
+
+  const start = (currentPage - 1) * pageSize;
+  const end = start + pageSize;
+
+  const pageData = allItems.slice(start, end);
+  renderCategories(pageData);
+
+  // pager text
+  pageInfoEl.textContent = `${currentPage} / ${totalPages}`;
+
+  // disable buttons
+  prevPageBtn.disabled = currentPage === 1;
+  nextPageBtn.disabled = currentPage === totalPages;
+}
+
+// Prev / Next
+prevPageBtn.addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    renderPage();
+  }
+});
+
+nextPageBtn.addEventListener('click', () => {
+  const totalPages = getTotalPages();
+  if (currentPage < totalPages) {
+    currentPage++;
+    renderPage();
+  }
+});
+
+// =====================
+// GET
+// keepPage: true -> edit/delete zamanı səhifə dəyişməsin
+// keepPage: false -> normal load (1-ci səhifə)
+// =====================
+async function getCategories({ keepPage = false } = {}) {
   const response = await fetch(CATEGORY_LIST_URL, {
     headers: {
       Authorization: `Bearer ${getToken()}`,
@@ -82,7 +141,19 @@ async function getCategories() {
     throw new Error(result?.message || 'GET alınmadı');
   }
 
-  renderCategories(result.data || []);
+  allItems = result.data || [];
+
+  // səhifə davranışı:
+  if (!keepPage) currentPage = 1;
+
+  // əgər delete-dən sonra currentPage boş qalarsa (məs: son səhifə boşaldı)
+  if (keepPage) {
+    const totalPages = getTotalPages();
+    if (currentPage > totalPages) currentPage = totalPages;
+    if (currentPage < 1) currentPage = 1;
+  }
+
+  renderPage();
 }
 
 // =====================
@@ -160,7 +231,7 @@ async function deleteCategory(categoryId) {
 // =====================
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    await getCategories();
+    await getCategories({ keepPage: false }); // ilk açılış -> 1-ci səhifə
   } catch (err) {
     alert(err.message);
   }
@@ -177,7 +248,7 @@ createBtn.addEventListener('click', () => {
 });
 
 // =====================
-// SUBMIT
+// SUBMIT (CREATE / EDIT)
 // =====================
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -188,12 +259,22 @@ form.addEventListener('submit', async (e) => {
   try {
     if (mode === 'create') {
       await createCategory(value);
+
+      // data yenilə
+      await getCategories({ keepPage: true });
+
+      // ✅ CREATE zamanı avtomatik SON səhifəyə keç
+      currentPage = getTotalPages();
+      renderPage();
     } else {
       if (!editingId) return alert('Edit ID tapılmadı');
+
       await updateCategory(editingId, value);
+
+      // ✅ EDIT zamanı səhifə yerində qalsın
+      await getCategories({ keepPage: true });
     }
 
-    await getCategories();
     input.value = '';
     modal.close();
   } catch (err) {
@@ -202,7 +283,7 @@ form.addEventListener('submit', async (e) => {
 });
 
 // =====================
-// DELETE + EDIT
+// DELETE + EDIT (TABLE)
 // =====================
 tableBody.addEventListener('click', async (e) => {
   const row = e.target.closest('tr');
@@ -218,7 +299,9 @@ tableBody.addEventListener('click', async (e) => {
 
     try {
       await deleteCategory(categoryId);
-      await getCategories();
+
+      // ✅ DELETE zamanı səhifə yerində qalsın (amma boş qalsa geriyə düşəcək)
+      await getCategories({ keepPage: true });
     } catch (err) {
       alert(err.message || 'Delete xətası');
     }
@@ -232,4 +315,3 @@ tableBody.addEventListener('click', async (e) => {
     modal.showModal();
   }
 });
-// son hali
