@@ -192,10 +192,6 @@ p {
 
 /* header end */
 
-.active {
-  background-color: var(--sidebar-card-color);
-  color: var(--card-number-color);
-}
 
 .sideBar-item.active img {
   filter: brightness(0) invert(1);
