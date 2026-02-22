@@ -1,0 +1,85 @@
+/* Favorite page - minimal overrides, uses home.css for layout */
+.section--favorite {
+  margin-top: 30px;
+}
+.section--favorite .section__title{
+font-weight: 500;
+font-size: 35px;
+line-height: 24px;
+letter-spacing: 0%;
+margin-top: 100px;
+margin-bottom: 55px;
+
+}
+/* Card overlay: equal margin between category, rating, name */
+.favorite-card-info {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 24px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Reset home.css absolute positioning for favorite cards */
+.comedy__wrapper{
+margin-bottom: 188px;
+}
+
+.favorite-card .category-name,
+.favorite-card .movie-name {
+  position: static;
+  left: auto;
+  bottom: auto;
+}
+
+/* Rating stars */
+.favorite-card .movie-rating {
+  position: static;
+  left: auto;
+  bottom: auto;
+  display: flex;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.favorite-card .movie-rating .fa-solid {
+  color: #fff;
+}
+
+.favorite-card .movie-rating .fa-regular {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Category link - clickable */
+.favorite-card .category-link {
+  text-decoration: none;
+  cursor: pointer;
+  width: fit-content;
+  display: inline-flex;
+  transition: opacity 0.2s;
+}
+
+.favorite-card .category-link:hover {
+  opacity: 0.9;
+}
+
+/* Movie name link - clickable */
+.favorite-card .movie-name-link {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+
+.favorite-card .movie-name-link:hover {
+  opacity: 0.9;
+}
+
+.favorite-card .movie-name-link .movie-name {
+  color: #fff;
+  margin: 0;
+}

@@ -4,18 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>categories</title>
+  <title>Actors</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
 
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
 
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-
-
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -24,7 +20,7 @@
 
   <link rel="stylesheet" href="../../assets/css/global/variables.css" />
   <link rel="stylesheet" href="../../assets/css/global/global.css" />
-  <link rel="stylesheet" href="../../assets/css/admin/categories.css" />
+  <link rel="stylesheet" href="../../assets/css/admin/actors.css" />
 
 </head>
 
@@ -46,7 +42,7 @@
           <span class="sideBar-text">Movies</span>
         </a>
 
-        <a href="./categories.html" class="sideBar-item categoriesItem active">
+        <a href="./categories.html" class="sideBar-item categoriesItem">
           <img src="../../assets/img/star.svg" alt="" />
           <span class="sideBar-text">Categories</span>
         </a>
@@ -61,12 +57,13 @@
           <span class="sideBar-text">Comments</span>
         </a>
 
-        <a href="#" class="sideBar-item contactItem">
+        <a href="./contactUs.html" class="sideBar-item contactItem">
           <img src="../../assets/img/faq.svg" alt="" />
           <span class="sideBar-text">Contact</span>
         </a>
+
         <a href="./actors.html" class="sideBar-item actorsItem">
-          <img src="../../assets/img/faq.svg" alt="">
+          <img src="../../assets/img/faq.svg" alt="" />
           <span class="sideBar-text">Actors</span>
         </a>
       </div>
@@ -75,14 +72,15 @@
         <a class="logout-text">Logout</a>
       </div>
     </aside>
+
     <main>
       <header class="header">
         <div class="leftHeaderSection">
           <p class="admin-text">Hi Admin</p>
-          <p class="page-text">Categories</p>
+          <p class="page-text">Actors</p>
         </div>
         <div class="rightHeaderSection">
-          <button class="create-btn" type="button" onclick="categoryModal.showModal()">
+          <button class="create-btn" type="button" onclick="createActorModal.showModal()">
             Create
           </button>
 
@@ -98,42 +96,46 @@
           <thead class="table-dark">
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Category Name</th>
+              <th scope="col">Actor Name</th>
               <th scope="col">Operation</th>
             </tr>
           </thead>
-          <tbody id="categoryTableBody">
+          <tbody id="actorTableBody">
             <tr>
               <th scope="row">1</th>
-              <td>Comediya</td>
+              <td>Sample Actor</td>
               <td class="operation">
                 <i class="fa-solid fa-pen-to-square edit-btn"></i>
                 <i class="fa-solid fa-trash delete-btn"></i>
-
               </td>
             </tr>
           </tbody>
         </table>
       </section>
 
-
-      <dialog id="categoryModal" class="categoryModal" onclick="
-            if (event.target.id === 'categoryModal') categoryModal.close();
-          ">
-        <form method="dialog" class="modalBox">
-          <input type="text" placeholder="category name" class="modalInput" required />
-
+      <dialog id="createActorModal" class="actorModal" onclick="
+        if (event.target.id === 'createActorModal') createActorModal.close();
+      ">
+        <form method="dialog" class="modalBox" id="createActorForm">
+          <input type="text" placeholder="Actor name" class="modalInput" id="createActorInput" required />
           <button type="submit" class="modalSubmit">Submit</button>
+        </form>
+      </dialog>
+
+      <dialog id="editActorModal" class="actorModal" onclick="
+        if (event.target.id === 'editActorModal') editActorModal.close();
+      ">
+        <form method="dialog" class="modalBox" id="editActorForm">
+          <input type="text" placeholder="Actor name" class="modalInput" id="editActorInput" required />
+          <button type="submit" class="modalSubmit">Update</button>
         </form>
       </dialog>
     </main>
   </div>
 
-
-
-
   <script src="../../assets/js/admin page script/tokencheck.js"></script>
-  <script src="../../assets/js/admin page script/categories.js"></script>
+  <script src="../../assets/js/admin page script/active.js"></script>
+  <script src="../../assets/js/admin page script/actors.js"></script>
 </body>
 
 </html>
