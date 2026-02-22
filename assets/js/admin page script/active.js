@@ -1,6 +1,5 @@
 const sidebarItems = document.querySelectorAll(".sideBar-item");
-console.log("active")
-console.log("ACTIVE JS RUNNING", window.location.pathname);
+
 
 const dashboardItem  = document.querySelector(".dashBoardItem");
 const movieItem      = document.querySelector(".movieItem");

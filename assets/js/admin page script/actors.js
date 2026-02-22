@@ -1,80 +1,200 @@
-const createModal = document.getElementById('createActorModal');
-const createForm = document.getElementById('createActorForm');
-const createInput = document.getElementById('createActorInput');
+const token = localStorage.getItem("access_token");
 
-const editModal = document.getElementById('editActorModal');
-const editForm = document.getElementById('editActorForm');
-const editInput = document.getElementById('editActorInput');
+const API_LIST = "https://api.sarkhanrahimli.dev/api/filmalisa/admin/actors";
+const API_ONE = "https://api.sarkhanrahimli.dev/api/filmalisa/admin/actor";
 
-const tableBody = document.getElementById('actorTableBody');
+const actorTableBody = document.getElementById("actorTableBody");
 
-let id = tableBody.children.length + 1;
-let currentEditRow = null;
+// modallar
+const createActorModal = document.getElementById("createActorModal");
+const editActorModal = document.getElementById("editActorModal");
+const deleteActorModal = document.getElementById("deleteActorModal");
 
-/* =====================
-   CREATE
-===================== */
+// formlar
+const createActorForm = document.getElementById("createActorForm");
+const editActorForm = document.getElementById("editActorForm");
 
-createForm.addEventListener('submit', function (e) {
+// inputlar
+const createName = document.getElementById("createName");
+const createSurname = document.getElementById("createSurname");
+const editName = document.getElementById("editName");
+const editSurname = document.getElementById("editSurname");
+
+// delete btn-lər
+const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
+const cancelDeleteBtn = document.getElementById("cancelDeleteBtn");
+
+// create btn
+const openCreateModalBtn = document.getElementById("openCreateModalBtn");
+
+// pager
+const prevBtn = document.getElementById("prevPage");
+const nextBtn = document.getElementById("nextPage");
+const pageInfo = document.getElementById("pageInfo");
+
+let currentEditId = null;
+let currentDeleteId = null;
+
+// pagination state
+let allActors = [];
+let page = 1;
+const pageSize = 8;
+
+/* ======================
+  MODAL FUNCS
+====================== */
+function openCreateModal() {
+  createActorModal.showModal();
+}
+function openEditModal(id, name, surname) {
+  currentEditId = id;
+  editName.value = (name || "").trim();
+  editSurname.value = (surname || "").trim();
+  editActorModal.showModal();
+}
+function openDeleteModal(id) {
+  currentDeleteId = id;
+  deleteActorModal.showModal();
+}
+function closeDeleteModal() {
+  currentDeleteId = null;
+  deleteActorModal.close();
+}
+
+openCreateModalBtn.addEventListener("click", openCreateModal);
+cancelDeleteBtn.addEventListener("click", closeDeleteModal);
+
+// inline onclick işləsin deyə
+window.openEditModal = openEditModal;
+window.openDeleteModal = openDeleteModal;
+
+/* ======================
+  FETCH
+====================== */
+async function fetchActors() {
+  const res = await fetch(`${API_LIST}?t=${Date.now()}`, {
+    headers: { Authorization: `Bearer ${token}` },
+    cache: "no-store",
+  });
+
+  const result = await res.json();
+
+  allActors = result.data || [];
+  page = 1;
+  renderPage();
+}
+
+function renderPage() {
+  const totalPages = Math.ceil(allActors.length / pageSize) || 1;
+  if (page > totalPages) page = totalPages;
+  if (page < 1) page = 1;
+
+  const start = (page - 1) * pageSize;
+  const pageItems = allActors.slice(start, start + pageSize);
+
+  actorTableBody.innerHTML = pageItems
+    .map(
+      (actor) => `
+        <tr>
+          <th scope="row">${actor.id}</th>
+          <td>${actor.name}</td>
+          <td>${actor.surname}</td>
+          <td class="operation">
+            <i class="fa-solid fa-pen-to-square edit-btn"
+              onclick="openEditModal(${actor.id}, '${actor.name}', '${actor.surname}')"></i>
+
+            <i class="fa-solid fa-trash delete-btn"
+              onclick="openDeleteModal(${actor.id})"></i>
+          </td>
+        </tr>
+      `
+    )
+    .join("");
+
+  renderPager(totalPages);
+}
+
+function renderPager(totalPages) {
+  pageInfo.textContent = `${page} / ${totalPages}`;
+
+  prevBtn.disabled = page === 1;
+  nextBtn.disabled = page === totalPages;
+
+  prevBtn.onclick = () => {
+    page--;
+    renderPage();
+  };
+
+  nextBtn.onclick = () => {
+    page++;
+    renderPage();
+  };
+}
+
+/* ======================
+  CREATE
+====================== */
+async function createActor(e) {
   e.preventDefault();
 
-  const value = createInput.value.trim();
-  if (value === '') return;
+  const name = createName.value.trim();
+  const surname = createSurname.value.trim();
+  if (!name || !surname) return;
 
-  const row = document.createElement('tr');
+  await fetch(API_ONE, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, surname, img_url: null }),
+  });
 
-  row.innerHTML = `
-    <th scope="row">${id}</th>
-    <td>${value}</td>
-    <td class="operation">
-      <i class="fa-solid fa-pen-to-square edit-btn"></i>
-      <i class="fa-solid fa-trash delete-btn"></i>
-    </td>
-  `;
+  createActorForm.reset();
+  createActorModal.close();
+  await fetchActors();
+}
+createActorForm.addEventListener("submit", createActor);
 
-  tableBody.appendChild(row);
-
-  id++;
-  createInput.value = '';
-  createModal.close();
-});
-
-/* =====================
-   EDIT
-===================== */
-
-editForm.addEventListener('submit', function (e) {
+/* ======================
+  UPDATE
+====================== */
+async function updateActor(e) {
   e.preventDefault();
 
-  const value = editInput.value.trim();
-  if (value === '' || !currentEditRow) return;
+  const name = editName.value.trim();
+  const surname = editSurname.value.trim();
+  if (!name || !surname) return;
 
-  const nameCell = currentEditRow.children[1];
-  nameCell.textContent = value;
+  await fetch(`${API_ONE}/${currentEditId}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, surname, img_url: null }),
+  });
 
-  currentEditRow = null;
-  editInput.value = '';
-  editModal.close();
-});
+  editActorModal.close();
+  currentEditId = null;
+  await fetchActors();
+}
+editActorForm.addEventListener("submit", updateActor);
 
-/* =====================
-   DELETE + EDIT (open modal)
-===================== */
+/* ======================
+  DELETE
+====================== */
+async function deleteActor() {
+  if (!currentDeleteId) return;
 
-tableBody.addEventListener('click', function (e) {
-  // DELETE
-  if (e.target.classList.contains('delete-btn')) {
-    const row = e.target.closest('tr');
-    row.remove();
-  }
+  await fetch(`${API_ONE}/${currentDeleteId}`, {
+    method: "DELETE",
+    headers: { Authorization: `Bearer ${token}` },
+  });
 
-  // EDIT - open modal instead of prompt
-  if (e.target.classList.contains('edit-btn')) {
-    const row = e.target.closest('tr');
-    const nameCell = row.children[1];
+  closeDeleteModal();
+  await fetchActors();
+}
+confirmDeleteBtn.addEventListener("click", deleteActor);
 
-    currentEditRow = row;
-    editInput.value = nameCell.textContent;
-    editModal.showModal();
-  }
-});
+fetchActors();
