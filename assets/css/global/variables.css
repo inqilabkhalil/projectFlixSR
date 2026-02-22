@@ -1,26 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Numans&family=Poppins:wght@600&family=Raleway:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Numans&family=Poppins:wght@600&family=Raleway:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --font-primary: 'Raleway', sans-serif;
-  
-  --primary-color: #9B51E0; /* Purple main color */
-  --text-placeholder: #475069; /* Admin inputların placeholder (daxili) rəngi */
-  --bg-color: rgba(23, 22, 22, 1);/* Background rəngi */
-      --sidebar-bg: rgba(30, 30, 30, 1); /* sidebar background */
-  --sidebar-text-color: #AEAEAE; /* Sidebar-da elementlərin mətni rəngi */
-  --card-number-color: #FFFFFF; /* Card-ların içindəki rəqəmlərin rəngi */
-  --input-bg-color: #323B54; /* Create/Update modal-larda inputların background rəngi */
-   --sidebar-card-color: rgba(88, 32, 157, 1); /* sidebar card hover rengi */
-    --card-bg: rgba(45, 45, 45, 1);        /* boz card */
-  --card-bg-purple: rgba(101, 47, 141, 1); /* purple card */
-  --header-name-color: #CCCCCC;
-  --landing-page-logo-color: #C3C8D4;
-  --border-color: #808080;
-  --input-text-color: #BCBCBC;
-  --detail-page-bg: rgba(29, 29, 29, 1);
+  --font-primary: "Raleway", sans-serif;
 
-  
+  --primary-color: #9b51e0; /* Purple main color */
+  --text-placeholder: #475069; /* Admin inputların placeholder (daxili) rəngi */
+  --bg-color: rgba(23, 22, 22, 1); /* Background rəngi */
+  --sidebar-bg: rgba(30, 30, 30, 1); /* sidebar background */
+  --sidebar-text-color: #aeaeae; /* Sidebar-da elementlərin mətni rəngi */
+  --card-number-color: #ffffff; /* Card-ların içindəki rəqəmlərin rəngi */
+  --input-bg-color: #323b54; /* Create/Update modal-larda inputların background rəngi */
+  --sidebar-card-color: rgba(88, 32, 157, 1); /* sidebar card hover rengi */
+  --card-bg: rgba(45, 45, 45, 1); /* boz card */
+  --card-bg-purple: rgba(101, 47, 141, 1); /* purple card */
+  --header-name-color: #cccccc;
+  --landing-page-logo-color: #c3c8d4;
+  --border-color: #808080;
+  --input-text-color: #bcbcbc;
+  --detail-page-bg: rgba(29, 29, 29, 1);
 
   /*admin hisse rengler */
 }
-

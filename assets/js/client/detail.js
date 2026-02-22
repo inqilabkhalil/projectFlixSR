@@ -5,7 +5,9 @@ new Swiper('.swiper', {
 });
 
 // ✅ TOKEN LOCAL STORAGE-DƏN
-const token = localStorage.getItem("access_token");
+
+
+const token = localStorage.getItem("client_token");
 if (!token) window.location.href = "./login.html";
 
 const watchBtn = document.querySelector(".watchBtn");
@@ -42,10 +44,11 @@ const commentInput = document.querySelector(".commentInput");
 const commentBtn = document.querySelector(".commentBtn");
 
 const commentsContainer = document.querySelector(".comment-title");
+const addMyFavoriteBtn = document.querySelector(".addMyListBtn");
 
 // ===== URL PARAM =====
 const params = new URLSearchParams(window.location.search);
-const currentId = params.get("id") || "343";
+const currentId = params.get("id");
 
 function closePlayModal() {
   modal.hide();
@@ -74,7 +77,21 @@ async function GetByIdMovie() {
 
   const url = `https://api.sarkhanrahimli.dev/api/filmalisa/movies/${currentId}`;
   const response = await fetch(url, { method: "GET", headers: option });
+
+  // ✅ 404: server cavabı OK deyilsə (məs: 404, 500)
+  if (!response.ok) {
+    window.location.href = "/404.html";
+    return;
+  }
+
   const movie = await response.json();
+
+  // ✅ 404: API result=false və ya data boşdursa
+  if (!movie?.result || !movie?.data) {
+    window.location.href = "/404.html";
+    return;
+  }
+
   const filteredData = movie.data;
 
   movieImg.src = filteredData.cover_url;
@@ -119,6 +136,11 @@ GetByIdMovie();
 
 // ================= GET COMMENTS =================
 async function getAllComments() {
+  // ✅ 404: id yoxdursa
+  if (!currentId) {
+    window.location.href = "/404.html";
+    return;
+  }
 
   const option = {
     Authorization: `Bearer ${token}`,
@@ -170,6 +192,11 @@ getAllComments();
 
 // ================= ADD COMMENT =================
 async function addComment(e) {
+  if (!currentId) {
+    window.location.href = "/404.html";
+    return;
+  }
+
   if (e) e.preventDefault();
 
   const commentText = commentInput.value.trim();
@@ -202,3 +229,28 @@ commentBtn.addEventListener("click", addComment);
 commentInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") addComment(e);
 });
+
+async function addToFavorite() {
+  // ✅ 404: id yoxdursa
+  if (!currentId) {
+    window.location.href = "/404.html";
+    return;
+  }
+
+  const url = `https://api.sarkhanrahimli.dev/api/filmalisa/movie/${currentId}/favorite`;
+
+  const option = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await fetch(url, option);
+  if (response.ok) {
+    addMyFavoriteBtn.textContent = "-";
+  }
+}
+
+addMyFavoriteBtn.addEventListener("click", addToFavorite);
