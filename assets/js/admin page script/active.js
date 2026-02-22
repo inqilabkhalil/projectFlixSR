@@ -6,6 +6,7 @@ const categoriesItem = document.querySelector(".categoriesItem");
 const usersItem      = document.querySelector(".usersItem");
 const commentsItem   = document.querySelector(".commentsItem");
 const contactItem    = document.querySelector(".contactItem");
+const actorsItem     = document.querySelector(".actorsItem");
 
 sidebarItems.forEach(item => item.classList.remove("active"));
 
@@ -29,4 +30,7 @@ else if (currentPage.includes("comment")) {
 }
 else if (currentPage.includes("contact")) {
   contactItem?.classList.add("active");
+}
+else if (currentPage.includes("actor")) {
+  actorsItem?.classList.add("active");
 }
