@@ -1,12 +1,11 @@
 <!doctype html>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact US</title>
-    <link rel="stylesheet" href="../../assets/css/global/variables.css" />
+    <title>Contact Us</title>
 
+    <link rel="stylesheet" href="../../assets/css/global/variables.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
@@ -15,8 +14,6 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-
-    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -25,58 +22,74 @@
       referrerpolicy="no-referrer"
     />
 
-    <!-- CSS ler -->
-    <link rel="stylesheet" href="../../assets/css/global/global.css" />
     <link rel="stylesheet" href="../../assets/css/admin/contactUS.css" />
-    <script src="../../assets/js/admin page script/auth.js"></script>
+    <link rel="stylesheet" href="../../assets/css/global/global.css" />
   </head>
 
   <body>
     <div class="contact-us-container">
+      <!-- SIDEBAR -->
+      <aside class="asideContainer">
+        <div class="upperAside">
+          <div class="logoArea">
+            <img src="../../assets/img/filmalisalogo.png" alt="" />
+            <p class="aside-text">filmalisa</p>
+          </div>
 
+          <a href="./dashboard.html" class="sideBar-item dashBoardItem">
+            <img src="../../assets/img/dashboard.svg" alt="" />
+            <span class="sideBar-text">Dashboard</span>
+          </a>
 
-        <aside class="asideContainer ">
-            <div class="upperAside ">
-                <div class="logoArea">
-                    <img src="../../assets/img/filmalisalogo.png" alt="">
-                    <p class="aside-text">filmalisa</p>
+          <a href="./movies.html" class="sideBar-item movieItem">
+            <img src="../../assets/img/Group.svg" alt="" />
+            <span class="sideBar-text">Movies</span>
+          </a>
 
-                </div>
+          <a href="./categories.html" class="sideBar-item categoriesItem">
+            <img src="../../assets/img/star.svg" alt="" />
+            <span class="sideBar-text">Categories</span>
+          </a>
 
-                <!-- SIDEBAR (DIV -> A) -->
-                <a href="../admin/dashboard.html" class="sideBar-item dashBoardItem">
-                    <img src="../../assets/img/dashboard.svg" alt="">
-                    <span class="sideBar-text">Dashboard</span>
-                </a>
+          <a href="#" class="sideBar-item usersItem">
+            <img src="../../assets/img/user.png" alt="" />
+            <span class="sideBar-text">Users</span>
+          </a>
 
-                <a href="../admin/movies.html" class="sideBar-item movieItem">
-                    <img src="../../assets/img/Group.svg" alt="">
-                    <span class="sideBar-text">Movies</span>
-                </a>
+          <a href="./comment.html" class="sideBar-item commentsItem">
+            <img src="../../assets/img/comment.png" alt="" />
+            <span class="sideBar-text">Comments</span>
+          </a>
 
-                <a href="../admin/categories.html" class="sideBar-item categoriesItem">
-                    <img src="../../assets/img/star.svg" alt="">
-                    <span class="sideBar-text">Categories</span>
-                </a>
+          <a href="./contactUs.html" class="sideBar-item contactItem">
+            <img src="../../assets/img/faq.svg" alt="" />
+            <span class="sideBar-text">Contact</span>
+          </a>
 
-                <a href="#" class="sideBar-item usersItem">
-                    <img src="../../assets/img/user.png" alt="">
-                    <span class="sideBar-text">Users</span>
-                </a>
+          <a href="./actors.html" class="sideBar-item actorsItem">
+            <img src="../../assets/img/actorss.svg" alt="" />
+            <span class="sideBar-text">Actors</span>
+          </a>
+        </div>
 
-                <a href="./comment.html" class="sideBar-item commentsItem">
-                    <img src="../../assets/img/comment.png" alt="">
-                    <span class="sideBar-text">Comments</span>
-                </a>
+        <div class="lowerAside">
+          <img src="../../assets/img/logout.svg" alt="" />
+          <a class="logout-text" href="#" id="logoutBtn">Logout</a>
+        </div>
+      </aside>
 
-                <a href="../admin/contactUs.html" class="sideBar-item contactItem">
-                    <img src="../../assets/img/faq.svg" alt="">
-                    <span class="sideBar-text">Contact</span>
-                </a>
-                <a href="../admin/actors.html" class="sideBar-item actorsItem">
-                    <img src="../../assets/img/actorss.svg" alt="">
-                    <span class="sideBar-text">Actors</span>
-                </a>
+      <!-- MAIN -->
+      <main>
+        <header class="header">
+          <div class="leftHeaderSection">
+            <p class="admin-text">Hi Admin</p>
+            <p class="page-text">Contact us</p>
+          </div>
+
+          <div class="rightHeaderSection">
+            <div class="rightSection">
+              <img src="../../assets/img/adminman.svg" alt="" />
+              <p class="profileName">Admin</p>
             </div>
           </div>
         </header>
@@ -88,66 +101,45 @@
                 <th scope="col">ID</th>
                 <th scope="col">Username</th>
                 <th scope="col">Email</th>
-                <th scope="col">Commet</th>
+                <th scope="col">Comment</th>
                 <th scope="col">Remove</th>
               </tr>
             </thead>
             <tbody>
               <tr class="table-row">
                 <th scope="row">1</th>
-
                 <td>Xeyyam Elizade</td>
-
                 <td>Xeyyamelizade5@gmail.com</td>
-
                 <td>Super</td>
-
                 <td class="operation">
                   <i
                     class="fa-solid fa-trash"
                     onclick="showDeleteModal()"
                     style="cursor: pointer"
-                  >
-                  </i>
+                  ></i>
                 </td>
               </tr>
             </tbody>
           </table>
 
-          <!--Delete modal-->
-          <div
-            class="modal fade"
-            id="deleteModal"
-            tabindex="-1"
-            aria-hidden="true"
-          >
-            <div
-              class="modal-dialog modal-dialog-centered"
-              style="max-width: 400px"
-            >
+          <!-- Delete modal -->
+          <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" style="max-width: 400px">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Delete Content</h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                  ></button>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                  <span id="deleteModalText"
-                    >Are you sure you want to delete
+                  <span id="deleteModalText">
+                    Are you sure you want to delete
                     <strong id="deleteItemName" style="color: #fff"></strong>?
-                    This action cannot be undone.</span
-                  >
+                    This action cannot be undone.
+                  </span>
                 </div>
                 <div class="modal-footer d-flex justify-content-end">
-                  <button class="btn-cancel" data-bs-dismiss="modal">
-                    Cancel
-                  </button>
-                  <button class="btn-delete-confirm" data-bs-dismiss="modal">
-                    Delete
-                  </button>
+                  <button class="btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                  <button class="btn-delete-confirm" data-bs-dismiss="modal">Delete</button>
                 </div>
               </div>
             </div>
@@ -157,9 +149,9 @@
     </div>
 
     <script src="../../assets/js/admin page script/tokencheck.js"></script>
+    <script src="../../assets/js/admin page script/auth.js"></script>
     <script src="../../assets/js/admin page script/active.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <script src="../../assets/js/admin page script/contactUS-page.js"></script>
   </body>
 </html>
