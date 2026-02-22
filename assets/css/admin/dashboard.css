@@ -238,10 +238,7 @@ p {
     filter: brightness(0) invert(1);
 }
 
-.sideBar-item.active {
-    background-color: var(--sidebar-card-color);
-    color: #fff;
-}
+
 
 .sideBar-item.active img {
     filter: brightness(0) invert(1);

@@ -1,4 +1,6 @@
 const sidebarItems = document.querySelectorAll(".sideBar-item");
+console.log("active")
+console.log("ACTIVE JS RUNNING", window.location.pathname);
 
 const dashboardItem  = document.querySelector(".dashBoardItem");
 const movieItem      = document.querySelector(".movieItem");
@@ -10,27 +12,27 @@ const actorsItem     = document.querySelector(".actorsItem");
 
 sidebarItems.forEach(item => item.classList.remove("active"));
 
-const currentPage = window.location.pathname.toLowerCase();
+const currentPageActive = window.location.pathname.toLowerCase();
 
-if (currentPage.includes("dashboard")) {
+if (currentPageActive.includes("dashboard")) {
   dashboardItem?.classList.add("active");
   
 }
-else if (currentPage.includes("movie")) {
+else if (currentPageActive.includes("movie")) {
   movieItem?.classList.add("active"); 
 }
-else if (currentPage.includes("category")) {
+else if (currentPageActive.includes("categories")) {
   categoriesItem?.classList.add("active");
 }
-else if (currentPage.includes("user")) {
+else if (currentPageActive.includes("user")) {
   usersItem?.classList.add("active");
 }
-else if (currentPage.includes("comment")) {
+else if (currentPageActive.includes("comment")) {
   commentsItem?.classList.add("active");
 }
-else if (currentPage.includes("contact")) {
+else if (currentPageActive.includes("contact")) {
   contactItem?.classList.add("active");
 }
-else if (currentPage.includes("actor")) {
+else if (currentPageActive.includes("actor")) {
   actorsItem?.classList.add("active");
 }
