@@ -232,3 +232,4 @@ tableBody.addEventListener('click', async (e) => {
     modal.showModal();
   }
 });
+// son hali
