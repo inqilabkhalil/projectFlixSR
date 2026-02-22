@@ -2,12 +2,12 @@
 // API URLS
 // =====================
 const BASE_URL = 'https://api.sarkhanrahimli.dev';
-const CATEGORY_LIST_URL = `${BASE_URL}/api/filmalisa/admin/categories`; // GET
-const CATEGORY_CREATE_URL = `${BASE_URL}/api/filmalisa/admin/category`; // POST
+const CATEGORY_LIST_URL = `${BASE_URL}/api/filmalisa/admin/categories`;
+const CATEGORY_CREATE_URL = `${BASE_URL}/api/filmalisa/admin/category`;
 const CATEGORY_DELETE_URL = (id) =>
-  `${BASE_URL}/api/filmalisa/admin/category/${id}`; // DELETE
+  `${BASE_URL}/api/filmalisa/admin/category/${id}`;
 const CATEGORY_UPDATE_URL = (id) =>
-  `${BASE_URL}/api/filmalisa/admin/category/${id}`; // PUT (assumed)
+  `${BASE_URL}/api/filmalisa/admin/category/${id}`;
 
 // =====================
 // DOM ELEMENTS
@@ -20,8 +20,26 @@ const createBtn = document.querySelector('.create-btn');
 
 // Mode
 let mode = 'create';
-let editingRow = null;
 let editingId = null;
+
+// =====================
+// TOKEN HELPER
+// =====================
+function getToken() {
+  return localStorage.getItem('access_token');
+}
+
+// =====================
+// HANDLE 401
+// =====================
+function handleUnauthorized(response) {
+  if (response.status === 401) {
+    localStorage.removeItem('access_token');
+    window.location.replace('/Pages/Admin/login.html');
+    return true;
+  }
+  return false;
+}
 
 // =====================
 // RENDER
@@ -50,16 +68,15 @@ function renderCategories(categories) {
 // GET
 // =====================
 async function getCategories() {
-  const token = localStorage.getItem('token');
-
   const response = await fetch(CATEGORY_LIST_URL, {
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${getToken()}`,
     },
   });
 
+  if (handleUnauthorized(response)) return;
+
   const result = await response.json();
-  console.log('GET result:', result);
 
   if (!response.ok) {
     throw new Error(result?.message || 'GET alınmadı');
@@ -72,19 +89,18 @@ async function getCategories() {
 // POST
 // =====================
 async function createCategory(name) {
-  const token = localStorage.getItem('token');
-
   const response = await fetch(CATEGORY_CREATE_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${getToken()}`,
     },
     body: JSON.stringify({ name }),
   });
 
+  if (handleUnauthorized(response)) return;
+
   const result = await response.json();
-  console.log('POST result:', result);
 
   if (!response.ok) {
     throw new Error(result?.message || 'Create alınmadı');
@@ -94,22 +110,21 @@ async function createCategory(name) {
 }
 
 // =====================
-// PUT (UPDATE)
+// PUT
 // =====================
 async function updateCategory(categoryId, name) {
-  const token = localStorage.getItem('token');
-
   const response = await fetch(CATEGORY_UPDATE_URL(categoryId), {
-    method: 'PUT', // bəzən PATCH olur, API-nə görə dəyişə bilər
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${getToken()}`,
     },
     body: JSON.stringify({ name }),
   });
 
+  if (handleUnauthorized(response)) return;
+
   const result = await response.json();
-  console.log('PUT result:', result);
 
   if (!response.ok) {
     throw new Error(result?.message || 'Update alınmadı');
@@ -122,17 +137,16 @@ async function updateCategory(categoryId, name) {
 // DELETE
 // =====================
 async function deleteCategory(categoryId) {
-  const token = localStorage.getItem('token');
-
   const response = await fetch(CATEGORY_DELETE_URL(categoryId), {
     method: 'DELETE',
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${getToken()}`,
     },
   });
 
+  if (handleUnauthorized(response)) return;
+
   const result = await response.json().catch(() => ({}));
-  console.log('DELETE result:', result);
 
   if (!response.ok) {
     throw new Error(result?.message || 'Delete alınmadı');
@@ -148,7 +162,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     await getCategories();
   } catch (err) {
-    console.error(err);
     alert(err.message);
   }
 });
@@ -158,37 +171,32 @@ document.addEventListener('DOMContentLoaded', async () => {
 // =====================
 createBtn.addEventListener('click', () => {
   mode = 'create';
-  editingRow = null;
   editingId = null;
   input.value = '';
   modal.showModal();
 });
 
 // =====================
-// SUBMIT (CREATE / EDIT)
+// SUBMIT
 // =====================
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const value = input.value.trim();
-  if (value === '') return;
+  if (!value) return;
 
   try {
     if (mode === 'create') {
       await createCategory(value);
-      await getCategories();
     } else {
-      // EDIT -> PUT
       if (!editingId) return alert('Edit ID tapılmadı');
-
       await updateCategory(editingId, value);
-      await getCategories();
     }
 
+    await getCategories();
     input.value = '';
     modal.close();
   } catch (err) {
-    console.error(err);
     alert(err.message || 'Xəta baş verdi');
   }
 });
@@ -197,13 +205,14 @@ form.addEventListener('submit', async (e) => {
 // DELETE + EDIT
 // =====================
 tableBody.addEventListener('click', async (e) => {
+  const row = e.target.closest('tr');
+  if (!row) return;
+
+  const categoryId = row.dataset.id;
+  if (!categoryId) return;
+
   // DELETE
   if (e.target.classList.contains('delete-btn')) {
-    const row = e.target.closest('tr');
-    const categoryId = row?.dataset?.id;
-
-    if (!categoryId) return alert('ID tapılmadı');
-
     const ok = confirm('Silmək istəyirsən?');
     if (!ok) return;
 
@@ -211,22 +220,16 @@ tableBody.addEventListener('click', async (e) => {
       await deleteCategory(categoryId);
       await getCategories();
     } catch (err) {
-      console.error(err);
-      alert(err.message || 'Delete xətası!');
+      alert(err.message || 'Delete xətası');
     }
   }
 
   // EDIT
   if (e.target.classList.contains('edit-btn')) {
-    const row = e.target.closest('tr');
-
     mode = 'edit';
-    editingRow = row;
-    editingId = row?.dataset?.id;
-
-    if (!editingId) return alert('Edit ID tapılmadı');
-
+    editingId = categoryId;
     input.value = row.children[1].textContent.trim();
     modal.showModal();
   }
 });
+// son hali
