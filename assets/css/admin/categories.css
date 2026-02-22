@@ -1,5 +1,8 @@
 body {
   font-family: 'Raleway', sans-serif !important;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .movies-container {
@@ -68,9 +71,6 @@ table .title-movie p {
 .operation i:nth-child(2) {
   color: red;
 }
-
-
-
 
 /* ===========================
    MODAL
@@ -145,8 +145,65 @@ table .title-movie p {
   transform: scale(0.98);
 }
 .lowerAside {
-  margin-bottom: 10px;
+  margin-top: auto;
+  margin-bottom: 0;
+  background: transparent;
 }
 .logout-text {
+  font-size: 16px;
+}
+.asideContainer {
+  background-color: var(--sidebar-bg);
+  width: 250px;
+  flex-shrink: 0;
+
+  /* PROBLEM FIX */
+  min-height: 100vh;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+}
+/* Pagination bar */
+.pagination-bar {
+  width: 95%;
+  margin: 18px 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+}
+
+.pager-btn {
+  padding: 10px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(140, 82, 255, 0.6);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.pager-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(140, 82, 255, 0.18);
+}
+
+.pager-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.pager-info {
+  min-width: 70px;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  user-select: none;
+}
+
+.pager-page {
   font-size: 16px;
 }
