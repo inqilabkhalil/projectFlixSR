@@ -29,9 +29,9 @@
     />
 
     <link rel="stylesheet" href="../../assets/css/global/variables.css" />
- 
+
     <link rel="stylesheet" href="../../assets/css/admin/categories.css" />
-       <link rel="stylesheet" href="../../assets/css/global/global.css" />
+    <link rel="stylesheet" href="../../assets/css/global/global.css" />
   </head>
 
   <body>
@@ -54,9 +54,7 @@
             <span class="sideBar-text">Movies</span>
           </a>
 
-          <a
-            href="./categories.html"
-            class="sideBar-item categoriesItem">
+          <a href="./categories.html" class="sideBar-item categoriesItem">
             <img src="../../assets/img/star.svg" alt="" />
             <span class="sideBar-text">Categories</span>
           </a>
@@ -132,7 +130,9 @@
         <dialog
           id="categoryModal"
           class="categoryModal"
-          onclick="if (event.target.id === 'categoryModal') categoryModal.close();"
+          onclick="
+            if (event.target.id === 'categoryModal') categoryModal.close();
+          "
         >
           <form class="modalBox" id="categoryForm">
             <input
@@ -144,6 +144,31 @@
             />
             <button type="submit" class="modalSubmit">Submit</button>
           </form>
+        </dialog>
+        <!-- DELETE MODAL -->
+        <dialog
+          id="deleteModal"
+          class="categoryModal"
+          onclick="if (event.target.id === 'deleteModal') deleteModal.close();"
+        >
+          <div class="modalBox">
+            <h5 style="margin-bottom: 15px">Silmək istəyirsən?</h5>
+
+            <div style="display: flex; gap: 10px; justify-content: flex-end">
+              <button type="button" id="cancelDeleteBtn" class="modalSubmit">
+                Cancel
+              </button>
+
+              <button
+                type="button"
+                id="confirmDeleteBtn"
+                class="modalSubmit"
+                style="background: #dc3545; color: white"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
         </dialog>
       </main>
     </div>

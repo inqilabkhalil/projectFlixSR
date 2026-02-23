@@ -3,9 +3,8 @@
 // =====================
 let allItems = [];
 let currentPage = 1;
-let pageSize = 8; // ✅ hər səhifə 8 item
+let pageSize = 8;
 
-// Pagination DOM
 const prevPageBtn = document.getElementById('prevPage');
 const nextPageBtn = document.getElementById('nextPage');
 const pageInfoEl = document.getElementById('pageInfo');
@@ -30,20 +29,22 @@ const input = document.getElementById('categoryInput');
 const tableBody = document.getElementById('categoryTableBody');
 const createBtn = document.querySelector('.create-btn');
 
-// Mode
+// DELETE MODAL
+const deleteModal = document.getElementById('deleteModal');
+const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+let selectedDeleteId = null;
+
 let mode = 'create';
 let editingId = null;
 
 // =====================
-// TOKEN HELPER
+// TOKEN
 // =====================
 function getToken() {
   return localStorage.getItem('access_token');
 }
 
-// =====================
-// HANDLE 401
-// =====================
 function handleUnauthorized(response) {
   if (response.status === 401) {
     localStorage.removeItem('access_token');
@@ -54,12 +55,11 @@ function handleUnauthorized(response) {
 }
 
 // =====================
-// RENDER TABLE
+// RENDER
 // =====================
 function renderCategories(categories) {
   tableBody.innerHTML = '';
-
-  const startIndex = (currentPage - 1) * pageSize; // ✅ global index üçün
+  const startIndex = (currentPage - 1) * pageSize;
 
   categories.forEach((category, index) => {
     const row = document.createElement('tr');
@@ -79,7 +79,7 @@ function renderCategories(categories) {
 }
 
 // =====================
-// PAGINATION UI + PAGE RENDER
+// PAGINATION
 // =====================
 function getTotalPages() {
   return Math.ceil(allItems.length / pageSize) || 1;
@@ -97,15 +97,12 @@ function renderPage() {
   const pageData = allItems.slice(start, end);
   renderCategories(pageData);
 
-  // pager text
   pageInfoEl.textContent = `${currentPage} / ${totalPages}`;
 
-  // disable buttons
   prevPageBtn.disabled = currentPage === 1;
   nextPageBtn.disabled = currentPage === totalPages;
 }
 
-// Prev / Next
 prevPageBtn.addEventListener('click', () => {
   if (currentPage > 1) {
     currentPage--;
@@ -123,8 +120,6 @@ nextPageBtn.addEventListener('click', () => {
 
 // =====================
 // GET
-// keepPage: true -> edit/delete zamanı səhifə dəyişməsin
-// keepPage: false -> normal load (1-ci səhifə)
 // =====================
 async function getCategories({ keepPage = false } = {}) {
   const response = await fetch(CATEGORY_LIST_URL, {
@@ -136,28 +131,19 @@ async function getCategories({ keepPage = false } = {}) {
   if (handleUnauthorized(response)) return;
 
   const result = await response.json();
-
-  if (!response.ok) {
-    throw new Error(result?.message || 'GET alınmadı');
-  }
+  if (!response.ok) throw new Error(result?.message || 'GET alınmadı');
 
   allItems = result.data || [];
-
-  // səhifə davranışı:
   if (!keepPage) currentPage = 1;
 
-  // əgər delete-dən sonra currentPage boş qalarsa (məs: son səhifə boşaldı)
-  if (keepPage) {
-    const totalPages = getTotalPages();
-    if (currentPage > totalPages) currentPage = totalPages;
-    if (currentPage < 1) currentPage = 1;
-  }
+  const totalPages = getTotalPages();
+  if (currentPage > totalPages) currentPage = totalPages;
 
   renderPage();
 }
 
 // =====================
-// POST
+// CREATE
 // =====================
 async function createCategory(name) {
   const response = await fetch(CATEGORY_CREATE_URL, {
@@ -170,21 +156,15 @@ async function createCategory(name) {
   });
 
   if (handleUnauthorized(response)) return;
-
   const result = await response.json();
-
-  if (!response.ok) {
-    throw new Error(result?.message || 'Create alınmadı');
-  }
-
-  return result;
+  if (!response.ok) throw new Error(result?.message || 'Create alınmadı');
 }
 
 // =====================
-// PUT
+// UPDATE
 // =====================
-async function updateCategory(categoryId, name) {
-  const response = await fetch(CATEGORY_UPDATE_URL(categoryId), {
+async function updateCategory(id, name) {
+  const response = await fetch(CATEGORY_UPDATE_URL(id), {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -194,21 +174,15 @@ async function updateCategory(categoryId, name) {
   });
 
   if (handleUnauthorized(response)) return;
-
   const result = await response.json();
-
-  if (!response.ok) {
-    throw new Error(result?.message || 'Update alınmadı');
-  }
-
-  return result;
+  if (!response.ok) throw new Error(result?.message || 'Update alınmadı');
 }
 
 // =====================
 // DELETE
 // =====================
-async function deleteCategory(categoryId) {
-  const response = await fetch(CATEGORY_DELETE_URL(categoryId), {
+async function deleteCategory(id) {
+  const response = await fetch(CATEGORY_DELETE_URL(id), {
     method: 'DELETE',
     headers: {
       Authorization: `Bearer ${getToken()}`,
@@ -216,29 +190,49 @@ async function deleteCategory(categoryId) {
   });
 
   if (handleUnauthorized(response)) return;
-
-  const result = await response.json().catch(() => ({}));
-
-  if (!response.ok) {
-    throw new Error(result?.message || 'Delete alınmadı');
-  }
-
-  return result;
+  if (!response.ok) throw new Error('Delete alınmadı');
 }
+
+// =====================
+// DELETE MODAL LOGIC
+// =====================
+function openDeleteModal(id) {
+  selectedDeleteId = id;
+  deleteModal.showModal();
+}
+
+cancelDeleteBtn.addEventListener('click', () => {
+  selectedDeleteId = null;
+  deleteModal.close();
+});
+
+confirmDeleteBtn.addEventListener('click', async () => {
+  if (!selectedDeleteId) return;
+
+  try {
+    await deleteCategory(selectedDeleteId);
+    await getCategories({ keepPage: true });
+  } catch (err) {
+    alert(err.message || 'Delete xətası');
+  } finally {
+    selectedDeleteId = null;
+    deleteModal.close();
+  }
+});
 
 // =====================
 // ON LOAD
 // =====================
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    await getCategories({ keepPage: false }); // ilk açılış -> 1-ci səhifə
+    await getCategories();
   } catch (err) {
     alert(err.message);
   }
 });
 
 // =====================
-// OPEN CREATE MODAL
+// CREATE BUTTON
 // =====================
 createBtn.addEventListener('click', () => {
   mode = 'create';
@@ -248,34 +242,24 @@ createBtn.addEventListener('click', () => {
 });
 
 // =====================
-// SUBMIT (CREATE / EDIT)
+// FORM SUBMIT
 // =====================
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-
   const value = input.value.trim();
   if (!value) return;
 
   try {
     if (mode === 'create') {
       await createCategory(value);
-
-      // data yenilə
       await getCategories({ keepPage: true });
-
-      // ✅ CREATE zamanı avtomatik SON səhifəyə keç
       currentPage = getTotalPages();
       renderPage();
     } else {
-      if (!editingId) return alert('Edit ID tapılmadı');
-
       await updateCategory(editingId, value);
-
-      // ✅ EDIT zamanı səhifə yerində qalsın
       await getCategories({ keepPage: true });
     }
 
-    input.value = '';
     modal.close();
   } catch (err) {
     alert(err.message || 'Xəta baş verdi');
@@ -283,34 +267,21 @@ form.addEventListener('submit', async (e) => {
 });
 
 // =====================
-// DELETE + EDIT (TABLE)
+// TABLE EVENTS
 // =====================
-tableBody.addEventListener('click', async (e) => {
+tableBody.addEventListener('click', (e) => {
   const row = e.target.closest('tr');
   if (!row) return;
 
-  const categoryId = row.dataset.id;
-  if (!categoryId) return;
+  const id = row.dataset.id;
 
-  // DELETE
   if (e.target.classList.contains('delete-btn')) {
-    const ok = confirm('Silmək istəyirsən?');
-    if (!ok) return;
-
-    try {
-      await deleteCategory(categoryId);
-
-      // ✅ DELETE zamanı səhifə yerində qalsın (amma boş qalsa geriyə düşəcək)
-      await getCategories({ keepPage: true });
-    } catch (err) {
-      alert(err.message || 'Delete xətası');
-    }
+    openDeleteModal(id);
   }
 
-  // EDIT
   if (e.target.classList.contains('edit-btn')) {
     mode = 'edit';
-    editingId = categoryId;
+    editingId = id;
     input.value = row.children[1].textContent.trim();
     modal.showModal();
   }
