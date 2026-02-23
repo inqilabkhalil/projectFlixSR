@@ -1,0 +1,58 @@
+/* 404 page - centered content, matches favorite layout offset */
+.page-404 {
+  margin-left: 56px;
+  min-height: calc(100vh - 30px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.page-404__content {
+  text-align: center;
+  max-width: 480px;
+}
+
+.page-404__illustration {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 24px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-404__title {
+  font-size: 42px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.page-404__text {
+  font-size: 16px;
+  color: rgba(142, 149, 169, 1);
+  margin: 0 0 32px;
+  line-height: 1.5;
+}
+
+.page-404__btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.page-404__btn:hover {
+  background: var(--card-bg-purple);
+  transform: translateY(-2px);
+}
