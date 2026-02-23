@@ -97,7 +97,7 @@ p {
     background-color: var(--sidebar-bg);
     width: 250px;
     flex-shrink: 0;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
