@@ -1,11 +1,11 @@
-new Swiper('.swiper', {
+
+const similarSwiper = new Swiper(".similarSwiper", {
   slidesPerView: 3,
   spaceBetween: 16,
   grabCursor: true,
 });
 
 // ✅ TOKEN LOCAL STORAGE-DƏN
-
 
 const token = localStorage.getItem("client_token");
 if (!token) window.location.href = "./login.html";
@@ -254,3 +254,49 @@ async function addToFavorite() {
 }
 
 addMyFavoriteBtn.addEventListener("click", addToFavorite);
+
+
+const similarWrapper = document.querySelector(".similarSwiper .swiper-wrapper");
+
+async function getSimiliMovies() {
+  const url = `https://api.sarkhanrahimli.dev/api/filmalisa/movies`;
+
+  const movieOptions = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await fetch(url, movieOptions);
+  if (!response.ok) return;
+
+  const movies = await response.json();
+  if (!movies?.result) return;
+  const filteredMovieData = movies.data
+
+  const filtData = filteredMovieData
+    .map((item) => {
+      return `
+        <div class="swiper-slide movie-card" onclick="openMovieDetail(${item.id})">
+          <img src="${item.cover_url}" alt="${item.title || ""}">
+          <div class="card-overlay">
+            <p class="category-name">${item.category?.name || "—"}</p>
+            <p class="movie-name">${item.title || ""}</p>
+          </div>
+        </div>
+      `;
+    })
+    .join("");
+
+  similarWrapper.innerHTML = filtData;
+
+  // yeni slideları görsün
+  similarSwiper.update();
+}
+
+getSimiliMovies();
+function openMovieDetail(id) {
+  window.location.href = `${location.pathname}?id=${id}`;
+}
