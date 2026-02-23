@@ -147,7 +147,7 @@ async function createActor(e) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ name, surname, img_url: null }),
+    body: JSON.stringify({ name, surname, img_url: " " }),
   });
 
   createActorForm.reset();
@@ -167,12 +167,12 @@ async function updateActor(e) {
   if (!name || !surname) return;
 
   await fetch(`${API_ONE}/${currentEditId}`, {
-    method: "POST",
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ name, surname, img_url: null }),
+    body: JSON.stringify({ name, surname, img_url: " " }),
   });
 
   editActorModal.close();
