@@ -15,6 +15,6 @@ if (logoutBtn) {
     e.preventDefault();
 
     localStorage.removeItem('access_token');
-    window.location.replace('/pages/client/login.html');
+    window.location.replace('/pages/admin/login.html');
   });
 }
