@@ -70,80 +70,81 @@
         <img src="../../assets/img/logout.svg" alt="logout icon" />
         <p class="logout-text">Logout</p>
       </div>
-      </aside>
+    </aside>
 
-      <main>
-        <header class="header">
-          <div class="leftHeaderSection">
-            <p class="admin-text">Hi Admin</p>
-            <p class="page-text">Actors</p>
+    <main>
+      <header class="header">
+        <div class="leftHeaderSection">
+          <p class="admin-text">Hi Admin</p>
+          <p class="page-text">Actors</p>
+        </div>
+
+        <div class="rightHeaderSection">
+          <!-- onclick silindi -->
+          <button class="create-btn" type="button" id="openCreateModalBtn">
+            Create
+          </button>
+        </div>
+      </header>
+
+      <section class="section">
+        <table class="table">
+          <thead class="table-dark">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>Operation</th>
+            </tr>
+          </thead>
+          <tbody id="actorTableBody"></tbody>
+        </table>
+        <div class="pagination-bar" id="pager">
+          <button class="pager-btn" id="prevPage" type="button">Prev</button>
+
+          <div class="pager-info">
+            <span class="pager-page" id="pageInfo">1 / 1</span>
           </div>
 
-          <div class="rightHeaderSection">
-            <!-- onclick silindi -->
-            <button class="create-btn" type="button" id="openCreateModalBtn">
-              Create
-            </button>
+          <button class="pager-btn" id="nextPage" type="button">Next</button>
+        </div>
+      </section>
+
+      <!-- CREATE MODAL -->
+      <dialog id="createActorModal" class="actorModal" onclick="if(event.target===this)this.close();">
+        <form class="modalBox" id="createActorForm">
+          <input type="text" placeholder="Name" class="modalInput" id="createName" required />
+          <input type="text" placeholder="Surname" class="modalInput" id="createSurname" required />
+          <button type="submit" class="modalSubmit">Submit</button>
+        </form>
+      </dialog>
+
+      <!-- EDIT MODAL -->
+      <dialog id="editActorModal" class="actorModal" onclick="if(event.target===this)this.close();">
+        <form class="modalBox" id="editActorForm">
+          <input type="text" placeholder="Name" class="modalInput" id="editName" required />
+          <input type="text" placeholder="Surname" class="modalInput" id="editSurname" required />
+          <button type="submit" class="modalSubmit">Update</button>
+        </form>
+      </dialog>
+      <dialog id="deleteActorModal" class="actorModal" onclick="if(event.target===this)this.close();">
+        <div class="modalBox">
+          <p style="margin-bottom:12px;">Silinsin?</p>
+
+          <div style="display:flex; gap:10px; justify-content:flex-end;">
+            <button type="button" class="modalSubmit" id="cancelDeleteBtn">Cancel</button>
+            <button type="button" class="modalSubmit" id="confirmDeleteBtn">Delete</button>
           </div>
-        </header>
+        </div>
+      </dialog>
 
-        <section class="section">
-          <table class="table">
-            <thead class="table-dark">
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Operation</th>
-              </tr>
-            </thead>
-            <tbody id="actorTableBody"></tbody>
-          </table>
-          <div class="pagination-bar" id="pager">
-            <button class="pager-btn" id="prevPage" type="button">Prev</button>
-
-            <div class="pager-info">
-              <span class="pager-page" id="pageInfo">1 / 1</span>
-            </div>
-
-            <button class="pager-btn" id="nextPage" type="button">Next</button>
-          </div>
-        </section>
-
-        <!-- CREATE MODAL -->
-        <dialog id="createActorModal" class="actorModal" onclick="if(event.target===this)this.close();">
-          <form class="modalBox" id="createActorForm">
-            <input type="text" placeholder="Name" class="modalInput" id="createName" required />
-            <input type="text" placeholder="Surname" class="modalInput" id="createSurname" required />
-            <button type="submit" class="modalSubmit">Submit</button>
-          </form>
-        </dialog>
-
-        <!-- EDIT MODAL -->
-        <dialog id="editActorModal" class="actorModal" onclick="if(event.target===this)this.close();">
-          <form class="modalBox" id="editActorForm">
-            <input type="text" placeholder="Name" class="modalInput" id="editName" required />
-            <input type="text" placeholder="Surname" class="modalInput" id="editSurname" required />
-            <button type="submit" class="modalSubmit">Update</button>
-          </form>
-        </dialog>
-        <dialog id="deleteActorModal" class="actorModal" onclick="if(event.target===this)this.close();">
-          <div class="modalBox">
-            <p style="margin-bottom:12px;">Silinsin?</p>
-
-            <div style="display:flex; gap:10px; justify-content:flex-end;">
-              <button type="button" class="modalSubmit" id="cancelDeleteBtn">Cancel</button>
-              <button type="button" class="modalSubmit" id="confirmDeleteBtn">Delete</button>
-            </div>
-          </div>
-        </dialog>
-
-      </main>
+    </main>
   </div>
 
   <script src="../../assets/js/admin page script/tokencheck.js"></script>
   <script src="../../assets/js/admin page script/active.js"></script>
   <script src="../../assets/js/admin page script/actors.js"></script>
+  <script src="../../assets/js/admin page script/auth.js"></script>
 </body>
 
 </html>
