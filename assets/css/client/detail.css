@@ -715,3 +715,15 @@
   display: flex;
   align-items: center;
 }
+.similarSwiper {
+  width: 100%;
+  overflow: hidden; /* swiper üçün vacib */
+}
+
+.similarSwiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.similarSwiper .swiper-slide {
+  height: auto;
+}
