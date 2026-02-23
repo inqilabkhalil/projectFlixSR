@@ -66,7 +66,7 @@ detailPlayBtn.addEventListener("click", openPlayModal);
 // ================= MOVIE =================
 async function GetByIdMovie() {
   if (!currentId) {
-    window.location.href = "/404.html";
+    window.location.href = "./404.html";
     return;
   }
 
@@ -80,7 +80,7 @@ async function GetByIdMovie() {
 
   // ✅ 404: server cavabı OK deyilsə (məs: 404, 500)
   if (!response.ok) {
-    window.location.href = "/404.html";
+    window.location.href = "./404.html";
     return;
   }
 
@@ -88,7 +88,7 @@ async function GetByIdMovie() {
 
   // ✅ 404: API result=false və ya data boşdursa
   if (!movie?.result || !movie?.data) {
-    window.location.href = "/404.html";
+    window.location.href = "./404.html";
     return;
   }
 
@@ -138,7 +138,7 @@ GetByIdMovie();
 async function getAllComments() {
   // ✅ 404: id yoxdursa
   if (!currentId) {
-    window.location.href = "/404.html";
+    window.location.href = "./404.html";
     return;
   }
 
@@ -193,7 +193,7 @@ getAllComments();
 // ================= ADD COMMENT =================
 async function addComment(e) {
   if (!currentId) {
-    window.location.href = "/404.html";
+    window.location.href = "./404.html";
     return;
   }
 
@@ -233,7 +233,7 @@ commentInput.addEventListener("keydown", (e) => {
 async function addToFavorite() {
   // ✅ 404: id yoxdursa
   if (!currentId) {
-    window.location.href = "/404.html";
+    window.location.href = "./404.html";
     return;
   }
 
