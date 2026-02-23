@@ -22,10 +22,6 @@
     transition: 0.2s;
   }
   
-  .menu__item:hover {
-    background: rgba(255, 255, 255, 0.08);
-  }
-  
   
   .menu__item img {
     width: 32px;
