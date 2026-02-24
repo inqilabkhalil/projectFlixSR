@@ -1,5 +1,5 @@
 body {
-  font-family: 'Raleway', sans-serif !important;
+  font-family: "Raleway", sans-serif !important;
 }
 
 .movies-container {
@@ -69,10 +69,170 @@ table .title-movie p {
   color: red;
 }
 
-
-
-
 /* ===========================
    MODAL
 =========================== */
 
+#movieForm {
+  padding: 57px 27px;
+}
+.modal-content {
+  background-color: #171616;
+  border-radius: 20px;
+  align-items: center;
+  width: 100%;
+}
+.input {
+  border: 1px solid #323b54;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #171616;
+  color: #fff;
+  width: 550px;
+}
+.input::placeholder {
+  color: #7281a8;
+}
+.input:hover {
+  border: 1px solid #a1baff;
+  background-color: #2b2929;
+}
+.input:focus {
+  border: 1px solid #a1baff;
+  background-color: #2b2929;
+}
+.modal-body {
+  display: flex;
+  flex-direction: row;
+}
+#createMovieModal #modal-img{
+  padding: 35px !important;
+  width: 310px !important;
+  height: 350px !important;
+  object-fit: cover !important;
+  margin-left: 50px !important;
+  border-radius: 30px !important;
+}
+.modal-adultCheck {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.adultCheck {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #5c6b96;
+}
+.modal-adultCheck button {
+  width: 100px;
+  padding: 8px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #9b51e0;
+}
+
+.modal-adultCheck button:hover {
+  background-color: #c184f9;
+  transition: background-color 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: none;
+}
+.input {
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.modal-dialog{
+  width: 75vw;        /* ekranın 75%-i */
+  max-width: 75vw;    /* bootstrap max-width-i üstələsin */
+  margin: 0 auto;
+}
+
+#movieForm{
+  width: 100%;
+}
+
+/* DELETE MODAL */
+#deleteMovieModal .modal-dialog{
+  width: min(420px, 95vw);   /* desktopda 420px, mobil-də ekranın 95%-i */
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+#deleteMovieModal .modal-content{
+  background: #171616;
+  color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid #2c2c2c;
+}
+
+#deleteMovieModal .modal-body{
+  padding: 0;               /* çünki modal-content-a padding verdik */
+}
+
+#deleteMovieModal .modal-body p{
+  margin: 0;
+  color: #b7c0da;
+  font-size: 18px;
+  line-height: 1.4;
+  text-align: left;
+
+}
+
+#deleteMovieModal .modal-footer{
+  padding: 16px 0 0;
+  border-top: 1px solid #2c2c2c;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  
+}
+
+/* Buttonlar */
+#deleteMovieModal .btn{
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+
+#deleteMovieModal .btn-secondary{
+  background: #2b2929;
+  border: 1px solid #3a3a3a;
+}
+
+#deleteMovieModal .btn-secondary:hover{
+  background: #3a3a3a;
+}
+
+#deleteMovieModal .btn-danger{
+  background: #e74c3c;
+  border: none;
+}
+
+#deleteMovieModal .btn-danger:hover{
+  background: #ff6b5c;
+}
+/* DELETE modal üçün düzəliş */
+#deleteMovieModal .modal-content{
+  align-items: stretch;  
+   /* center-i ləğv et */
+}
+
+#deleteMovieModal .modal-body{
+  display: block;     
+  margin-bottom: 20px;
+      /* flex-i ləğv et */
+}
+
+#deleteMovieModal .modal-body p{
+  width: 100%;
+  text-align: left;
+  margin: 0;
+}
