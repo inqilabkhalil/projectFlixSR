@@ -98,7 +98,6 @@ p {
     width: 250px;
     flex-shrink: 0;
     min-height: 100vh; 
-    /* burda height idi eslinde height sizin ekran olcusune uygun height verir meselen tutaq ki 1000px di bu yigdimiz 1100px edib  * sizin ekranin boyutun kecib bizde background rengi heighte uygun veririk deye a/
     display: flex;
     flex-direction: column;
 }
