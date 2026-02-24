@@ -107,7 +107,6 @@
               <tr>
                 <th scope="col">ID</th>
                 <th scope="col">User Name</th>
-                <th scope="col">Operation</th>
               </tr>
             </thead>
             <tbody id="userTableBody"></tbody>
@@ -123,33 +122,6 @@
             <button class="pager-btn" id="nextPage" type="button">Next</button>
           </div>
         </section>
-
-        <dialog
-          id="userEditModal"
-          class="userModal"
-          onclick="if (event.target.id === 'userEditModal') userEditModal.close();"
-        >
-          <form class="modalBox" id="userEditForm">
-            <input
-              id="userNameInput"
-              type="text"
-              placeholder="User name"
-              class="modalInput"
-              required
-            />
-            <button type="submit" class="modalSubmit">Update</button>
-          </form>
-        </dialog>
-
-        <dialog id="userDeleteModal" class="userModal" onclick="if(event.target===this)this.close();">
-          <div class="modalBox">
-            <p style="margin-bottom:12px;">Silinsin?</p>
-            <div style="display:flex; gap:10px; justify-content:flex-end;">
-              <button type="button" class="modalSubmit" id="cancelDeleteBtn">Cancel</button>
-              <button type="button" class="modalSubmit" id="confirmDeleteBtn">Delete</button>
-            </div>
-          </div>
-        </dialog>
       </main>
     </div>
     <script src="../../assets/js/admin page script/tokencheck.js"></script>
