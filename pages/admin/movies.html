@@ -1,35 +1,41 @@
 <!doctype html>
-<html lang="en">
+<html lang="az">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard</title>
+  <title>Movies</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="../../assets/css/global/variables.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-  <link rel="stylesheet" href="../../assets/css/admin/dashboard.css" />
   <link rel="stylesheet" href="../../assets/css/global/global.css" />
+  <link rel="stylesheet" href="../../assets/css/admin/movies.css" />
+
 </head>
 
 <body>
-  <div class="dashBoardContainer">
+  <div class="movies-container">
     <aside class="asideContainer">
       <div class="upperAside">
         <div class="logoArea">
           <img src="../../assets/img/filmalisalogo.png" alt="" />
           <p class="aside-text">filmalisa</p>
         </div>
-
-        <!-- SIDEBAR -->
         <a href="./dashboard.html" class="sideBar-item dashBoardItem">
           <img src="../../assets/img/dashboard.svg" alt="" />
           <span class="sideBar-text">Dashboard</span>
         </a>
 
-        <a href="./movies.html" class="sideBar-item movieItem">
+        <a href="./movies.html" class="sideBar-item movieItem active">
           <img src="../../assets/img/Group.svg" alt="" />
           <span class="sideBar-text">Movies</span>
         </a>
@@ -49,7 +55,7 @@
           <span class="sideBar-text">Comments</span>
         </a>
 
-        <a href="./contactUs.html" class="sideBar-item contactItem">
+        <a href="#" class="sideBar-item contactItem">
           <img src="../../assets/img/faq.svg" alt="" />
           <span class="sideBar-text">Contact</span>
         </a>
@@ -58,19 +64,16 @@
           <span class="sideBar-text">Actors</span>
         </a>
       </div>
-
       <div class="lowerAside">
         <img src="../../assets/img/logout.svg" alt="" />
-        <span class="logout-text">Logout</span>
+        <a class="logout-text">Logout</a>
       </div>
-
     </aside>
-
-    <!-- MAIN -->
     <main>
 
+      
     </main>
-    <script src="../../assets/js/admin page script/active.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/admin page script/movies-page.js"></script>
 </body>
-</html>
