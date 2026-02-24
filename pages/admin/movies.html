@@ -1,35 +1,41 @@
 <!doctype html>
-<html lang="en">
+<html lang="az">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard</title>
+  <title>Movies</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="../../assets/css/global/variables.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-  <link rel="stylesheet" href="../../assets/css/admin/dashboard.css" />
   <link rel="stylesheet" href="../../assets/css/global/global.css" />
+  <link rel="stylesheet" href="../../assets/css/admin/movies.css" />
+
 </head>
 
 <body>
-  <div class="dashBoardContainer">
+  <div class="movies-container">
     <aside class="asideContainer">
       <div class="upperAside">
         <div class="logoArea">
           <img src="../../assets/img/filmalisalogo.png" alt="" />
           <p class="aside-text">filmalisa</p>
         </div>
-
-        <!-- SIDEBAR -->
         <a href="./dashboard.html" class="sideBar-item dashBoardItem">
           <img src="../../assets/img/dashboard.svg" alt="" />
           <span class="sideBar-text">Dashboard</span>
         </a>
 
-        <a href="./movies.html" class="sideBar-item movieItem">
+        <a href="./movies.html" class="sideBar-item movieItem active">
           <img src="../../assets/img/Group.svg" alt="" />
           <span class="sideBar-text">Movies</span>
         </a>
@@ -39,7 +45,7 @@
           <span class="sideBar-text">Categories</span>
         </a>
 
-        <a href="./users.html" class="sideBar-item usersItem">
+        <a href="#" class="sideBar-item usersItem">
           <img src="../../assets/img/user.png" alt="" />
           <span class="sideBar-text">Users</span>
         </a>
@@ -49,28 +55,116 @@
           <span class="sideBar-text">Comments</span>
         </a>
 
-        <a href="./contactUs.html" class="sideBar-item contactItem">
+        <a href="#" class="sideBar-item contactItem">
           <img src="../../assets/img/faq.svg" alt="" />
           <span class="sideBar-text">Contact</span>
         </a>
         <a href="../admin/actors.html" class="sideBar-item actorsItem">
-          <img src="../../assets/img/actorss.svg" alt="">
+          <img src="../../assets/img/faq.svg" alt="">
           <span class="sideBar-text">Actors</span>
         </a>
       </div>
-
       <div class="lowerAside">
         <img src="../../assets/img/logout.svg" alt="" />
-        <span class="logout-text">Logout</span>
+        <a class="logout-text">Logout</a>
       </div>
-
     </aside>
-
-    <!-- MAIN -->
     <main>
+      <header class="header">
+        <div class="leftHeaderSection">
+          <p class="admin-text">Hi Admin</p>
+          <p class="page-text">Movies</p>
+        </div>
+        <div class="rightHeaderSection">
+          <button class="create-btn" type="button" data-bs-toggle="modal" data-bs-target="#createMovieModal">
+            Create
+          </button>
+
+          <div class="rightSection">
+            <img src="../../assets/img/adminman.svg" alt="" />
+            <p class="profileName">Admin</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="section">
+        <table class="table">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Title</th>
+              <th scope="col">Overview</th>
+              <th scope="col">Category</th>
+              <th scope="col">IMDB</th>
+              <th scope="col" class="operation">Operation</th>
+            </tr>
+          </thead>
+          <tbody id="movieTableBody">
+            <tr>
+              <th scope="row">1</th>
+              <td>Lost in space</td>
+              <td>Lorem ritatis dicta...</td>
+              <td>Action</td>
+              <td>7.6</td>
+              <td class="operation">
+                <i class="fa-solid fa-pen-to-square edit-btn"></i>
+                <i class="fa-solid fa-trash delete-btn"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      <!-- create and edit Modal -->
+
+       <div class="modal fade" id="createMovieModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body">
+              <form id="movieForm">
+                <input type="text" class="input form-control mb-3" name="title" placeholder="Title" required />
+                <textarea class="input form-control mb-3" name="overview" rows="3" placeholder="Overview" required></textarea>
+                <input type="text" class="input form-control mb-3" name="coverUrl" placeholder="Cover url" required />
+                <input type="text" class="input form-control mb-3" name="trailerUrl" placeholder="Fragman (youtube embed url)" required />
+                <input type="text" class="input form-control mb-3" name="watchUrl" placeholder="Watch url" required />
+                <input type="text" class="input form-control mb-3" name="imdb" placeholder="IMDB" required />
+                <input type="text" class="input form-control mb-3" name="runtime" placeholder="Run time minute" required />
+                <div class="modal-adultCheck">
+                    <div class="adultCheck">
+                      <span class="txt">Adult</span>
+                      <input class="cb" type="checkbox" checked />
+                      <span class="box" aria-hidden="true"></span>
+                    </div>
+                  <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Submit</button>
+                </div>
+              </form>
+              <img id="modal-img" src="../../assets/img/lostinspace.svg" alt="">
+            </div>
+          </div>
+        </div>
+        </div>
+      <div class="modal fade" id="deleteMovieModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p class="mb-0" >
+              Are you sure you want to delete <strong></strong>?
+            </p>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </div>
+
+        </div>
+      </div>
+       </div>
+      </section>
 
     </main>
-    <script src="../../assets/js/admin page script/active.js"></script>
+  </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/admin page script/movies-page.js"></script>
 </body>
-</html>
+

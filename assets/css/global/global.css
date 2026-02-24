@@ -63,7 +63,7 @@ a {
     border-radius: 8px;
     background-color: transparent;
     color: var(--sidebar-text-color);
-    margin-top: 280px;
+    margin-top: 280px; 
     cursor: pointer;
     transition:
         background-color 0.35s ease,
@@ -97,7 +97,7 @@ p {
     background-color: var(--sidebar-bg);
     width: 250px;
     flex-shrink: 0;
-    min-height: 100vh;
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
 }
