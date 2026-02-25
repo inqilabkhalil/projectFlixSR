@@ -1,0 +1,4 @@
+.menu__item.active img {
+  filter: brightness(0) saturate(100%) invert(73%) sepia(94%) 
+          saturate(1043%) hue-rotate(133deg) brightness(103%) contrast(103%);
+}

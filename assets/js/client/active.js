@@ -3,14 +3,14 @@ const seriesItem = document.querySelector(".series-item");
 const accountItem = document.querySelector(".account-item");
 const favoriteItem = document.querySelector(".favorite-item");
 
-window.location.pathname.toLowerCase();
+let path = window.location.pathname.toLowerCase();
 
-if (window.location.pathname.includes("home.html")) {
+if (path.includes("home.html")) {
   homeItem.classList.add("active");
-} else if (window.location.pathname.includes("searchPanel.html")) {
+} else if (path .includes("series.html")) {
   seriesItem.classList.add("active");
-} else if (window.location.pathname.includes("account.html")) {
+} else if (path.includes("account.html")) {
   accountItem.classList.add("active");
-} else if (window.location.pathname.includes("favorite.html")) {
+} else if (path.includes("favorite.html")) {
   favoriteItem.classList.add("active");
 }
