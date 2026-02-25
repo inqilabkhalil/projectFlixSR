@@ -1,6 +1,5 @@
-const client_token = localStorage.getItem("client_token");
 const login_url =
-  "https://api.sarkhanrahimli.dev/api/filmalisa/auth/client/login";
+  "https://api.sarkhanrahimli.dev/api/filmalisa/auth/login";
 const form = document.querySelector(".login-form");
 const warningEl = document.getElementById("warning");
 
@@ -31,7 +30,7 @@ async function login(event) {
     const response = await fetch(login_url, options);
     const responseData = await response.json();
     if (!responseData.result) {
-      showWarning(responseData.message);
+      showWarning("server xətası");
       return;
     }
     const accessToken = responseData.data.tokens.access_token;
