@@ -200,3 +200,255 @@ p {
 .sideBar-item.active img {
   filter: brightness(0) invert(1);
 }
+
+/* =====================================================
+   UNIFIED DELETE MODAL STYLES (all admin pages)
+   Targets: #deleteModal, #deleteActorModal, #deleteMovieModal
+   Works with both Bootstrap .modal and <dialog>
+===================================================== */
+
+/* ── Bootstrap modal backdrop ── */
+.modal-backdrop.show {
+  background-color: rgba(0, 0, 0, 0.65) !important;
+  backdrop-filter: none !important;
+}
+
+/* ── <dialog> based delete modals ── */
+#deleteActorModal,
+#deleteModal[open] {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+#deleteActorModal::backdrop,
+dialog#deleteModal::backdrop {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+/* ── Bootstrap modal sizing ── */
+#deleteModal .modal-dialog,
+#deleteMovieModal .modal-dialog {
+  max-width: 440px;
+  width: calc(100% - 32px);
+  margin: 16px auto;
+}
+
+/* ── Shared modal content box ── */
+#deleteModal .modal-content,
+#deleteMovieModal .modal-content,
+#deleteActorModal .modalBox,
+.deleteModalBox {
+  background: #121212 !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
+  color: #ffffff;
+  padding: 20px 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: stretch;
+}
+
+#deleteActorModal .modalBox,
+.deleteModalBox {
+  width: 440px;
+  max-width: calc(100vw - 40px);
+  padding: 20px 30px 16px;
+  gap: 14px;
+}
+
+/* ── Header ── */
+#deleteModal .modal-header,
+#deleteMovieModal .modal-header {
+  border: none;
+  padding: 0 30px 4px;
+}
+
+#deleteModal .modal-title,
+#deleteMovieModal .modal-title,
+#deleteActorModal .modalBox p,
+.deleteModal-title {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  margin: 0;
+}
+
+#deleteModal .btn-close,
+#deleteMovieModal .btn-close {
+  filter: invert(1);
+  opacity: 0.65;
+  box-shadow: none !important;
+}
+
+/* ── Body ── */
+#deleteModal .modal-body,
+#deleteMovieModal .modal-body {
+  padding: 8px 30px 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(156, 163, 175, 1);
+  display: block;
+}
+
+#deleteModal .modal-body strong,
+#deleteMovieModal .modal-body strong {
+  color: #ffffff;
+}
+
+#deleteMovieModal .modal-body p {
+  margin: 0;
+  color: rgba(156, 163, 175, 1);
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* ── Footer / Button container ── */
+#deleteModal .modal-footer,
+#deleteMovieModal .modal-footer {
+  border: none !important;
+  padding: 0 30px 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+#deleteActorModal .modalBox > div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 0;
+  width: 100%;
+}
+
+.deleteModal-footer {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* ── Cancel buttons (all variants) ── */
+#deleteModal .btn-secondary,
+#deleteMovieModal .btn-secondary,
+.btn-cancel,
+.deleteModal-cancel,
+#cancelDeleteBtn.modalSubmit {
+  background: transparent !important;
+  color: rgba(203, 213, 225, 1) !important;
+  border: 1px solid rgba(100, 116, 139, 0.45) !important;
+  padding: 10px 20px;
+  border-radius: 12px !important;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: none !important;
+  transition: none !important;
+  transform: none !important;
+  width: auto;
+  min-width: 100px;
+  height: auto;
+}
+
+#deleteModal .btn-secondary:hover,
+#deleteMovieModal .btn-secondary:hover,
+.btn-cancel:hover,
+.deleteModal-cancel:hover,
+#cancelDeleteBtn.modalSubmit:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(148, 163, 184, 0.7) !important;
+  color: #ffffff !important;
+}
+
+/* ── Delete/Confirm buttons (all variants) ── */
+#deleteModal .btn-danger,
+#deleteMovieModal .btn-danger,
+.btn-delete-confirm,
+.deleteModal-confirm,
+#confirmDeleteBtn.modalSubmit {
+  background: #9b59ff !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 10px 24px;
+  border-radius: 12px !important;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: none !important;
+  transition: none !important;
+  transform: none !important;
+  width: auto;
+  min-width: 100px;
+  height: auto;
+}
+
+#deleteModal .btn-danger:hover,
+#deleteMovieModal .btn-danger:hover,
+.btn-delete-confirm:hover,
+.deleteModal-confirm:hover,
+#confirmDeleteBtn.modalSubmit:hover {
+  background: #9b59ff !important;
+  filter: none;
+}
+
+#deleteModal .btn-danger:active,
+#deleteMovieModal .btn-danger:active,
+.btn-delete-confirm:active,
+.deleteModal-confirm:active,
+#confirmDeleteBtn.modalSubmit:active {
+  transform: none !important;
+}
+
+/* ── Mobile ── */
+@media (max-width: 576px) {
+  #deleteModal .modal-dialog,
+  #deleteMovieModal .modal-dialog {
+    max-width: 100%;
+    width: calc(100% - 20px);
+  }
+
+  #deleteModal .modal-header,
+  #deleteModal .modal-body,
+  #deleteModal .modal-footer,
+  #deleteMovieModal .modal-header,
+  #deleteMovieModal .modal-body,
+  #deleteMovieModal .modal-footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  #deleteActorModal .modalBox,
+  .deleteModalBox {
+    width: 100%;
+    padding: 16px 16px 12px;
+  }
+
+  #deleteModal .btn-secondary,
+  #deleteModal .btn-danger,
+  #deleteMovieModal .btn-secondary,
+  #deleteMovieModal .btn-danger,
+  .btn-cancel,
+  .btn-delete-confirm,
+  .deleteModal-cancel,
+  .deleteModal-confirm,
+  #cancelDeleteBtn.modalSubmit,
+  #confirmDeleteBtn.modalSubmit {
+    width: 100% !important;
+    min-width: 0;
+  }
+
+  #deleteModal .modal-footer,
+  #deleteMovieModal .modal-footer,
+  #deleteActorModal .modalBox > div,
+  .deleteModal-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #deleteModal .modal-title,
+  #deleteMovieModal .modal-title,
+  #deleteActorModal .modalBox p,
+  .deleteModal-title {
+    font-size: 18px !important;
+  }
+}

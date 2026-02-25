@@ -1,19 +1,22 @@
+/* =========================
+   LAYOUT
+========================= */
+
 .commentContainer {
   background-color: var(--bg-color);
   display: flex;
-  font-family: 'Raleway', sans-serif;
-}
-
-.commentContainer {
-  display: flex;
+  font-family: var(--font-primary);
   min-height: 100vh;
 }
 
 main {
   flex: 1;
   min-width: 0;
-  /* overflow/eni problemi olmasın */
 }
+
+/* =========================
+   TABLE
+========================= */
 
 .table {
   border-radius: 8px;
@@ -21,18 +24,14 @@ main {
   text-align: center;
   width: 90%;
   margin: 24px;
-  background-color: white;
-
-  img {
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
-
-  }
-
+  background-color: #ffffff;
 }
 
-
+.table img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
 
 .table td,
 .table th {
@@ -40,17 +39,20 @@ main {
   height: 60px;
 }
 
-
 table .title-movie {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-
-  p {
-    margin: 0;
-  }
 }
+
+table .title-movie p {
+  margin: 0;
+}
+
+/* =========================
+   OPERATION ICONS
+========================= */
 
 .operation i:first-child {
   margin-right: 15px;
@@ -58,6 +60,7 @@ table .title-movie {
 
 .operation i {
   cursor: pointer;
+  font-size: 16px;
 }
 
 .operation i:nth-child(1) {
@@ -70,7 +73,7 @@ table .title-movie {
 
 /* =========================
    EDIT / UPDATE MODAL
-   ========================= */
+========================= */
 
 .edit-modal .modal-dialog {
   max-width: 900px;
@@ -85,7 +88,6 @@ table .title-movie {
   color: #fff;
 }
 
-/* header */
 .edit-modal .modal-header {
   border: none;
   padding: 0 0 16px 0;
@@ -101,19 +103,16 @@ table .title-movie {
   opacity: 0.7;
 }
 
-/* body */
 .edit-modal .modal-body {
   padding: 0;
 }
 
-/* labels */
 .edit-modal label {
   font-size: 13px;
   color: #b7b7b7;
   margin-bottom: 6px;
 }
 
-/* inputs & textarea */
 .edit-modal input,
 .edit-modal textarea,
 .edit-modal select {
@@ -139,13 +138,11 @@ table .title-movie {
   background: #0f0f12;
 }
 
-/* textarea height */
 .edit-modal textarea {
   min-height: 120px;
   resize: none;
 }
 
-/* footer */
 .edit-modal .modal-footer {
   border: none;
   padding: 20px 0 0 0;
@@ -154,17 +151,12 @@ table .title-movie {
   gap: 12px;
 }
 
-/* buttons */
 .edit-modal .btn-secondary {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #cfcfcf;
   border-radius: 10px;
   padding: 10px 18px;
-}
-
-.edit-modal .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.08);
 }
 
 .edit-modal .btn-primary {
@@ -175,17 +167,3 @@ table .title-movie {
   padding: 10px 22px;
   font-weight: 500;
 }
-
-.edit-modal .btn-primary:hover {
-  background: #6f4bdb;
-}
-
-.comment-user {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-
-
-
