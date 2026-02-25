@@ -149,3 +149,12 @@ body {
   display: none;
   color: red;
 }
+.warning-alert.active {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+#warning{
+  color: red;
+}
