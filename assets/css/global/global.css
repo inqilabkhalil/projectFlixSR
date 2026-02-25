@@ -200,3 +200,7 @@ p {
 .sideBar-item.active img {
   filter: brightness(0) invert(1);
 }
+.active {
+  background-color: var(--sidebar-card-color);
+  color: var(--card-number-color);
+}
