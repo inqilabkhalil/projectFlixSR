@@ -7,7 +7,8 @@ const similarSwiper = new Swiper(".similarSwiper", {
 
 // ✅ TOKEN LOCAL STORAGE-DƏN
 
-const token = localStorage.getItem("client_token");
+ const token = localStorage.getItem("client_token");
+
 if (!token) window.location.href = "./login.html";
 
 const watchBtn = document.querySelector(".watchBtn");
