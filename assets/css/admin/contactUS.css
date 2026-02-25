@@ -1,119 +1,61 @@
-
-
-body{
-    margin: 0;
-    padding: 0;
-    font-family: var(--font-primary);
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
 }
 
 main {
-    background-color: var(--bg-color);
+  background-color: var(--bg-color);
 }
 
-
-.contact-us-container{
-    display: flex;
-    
-
+.contact-us-container {
+  display: flex;
 }
-
 
 .table {
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    width: 90%;
-    margin: 24px;
-
-
-
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  width: 90%;
+  margin: 24px;
 }
-
-
 
 .table td,
 .table th {
-    vertical-align: middle;
-    height: 60px;
+  vertical-align: middle;
+  height: 60px;
 }
-
-
-
-
 
 .operation i:nth-child(1) {
-    color: red;
+  color: red;
 }
 
-
-
-
-
-
-/* Delete modal */
-
-
-/* Delete confirm modal */
-#deleteModal .modal-content {
-    background: #1e1e30;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
+/* ================= TOAST ================= */
+#appToast {
+  background: #121212;
+  color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+  min-width: 280px;
 }
 
-#deleteModal .modal-header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-    padding: 16px 20px;
+#appToast.success { border-left: 4px solid #22c55e; }
+#appToast.error   { border-left: 4px solid #ef4444; }
+#appToast.info    { border-left: 4px solid rgba(15, 239, 253, 1); }
+
+#appToast .btn-close {
+  filter: invert(1) opacity(0.7);
 }
 
-#deleteModal .modal-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: #fff;
+.toast-progress {
+  height: 3px;
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(1);
+  background: rgba(255, 255, 255, 0.25);
 }
 
-#deleteModal .btn-close {
-    filter: invert(1) opacity(0.5);
-}
-
-#deleteModal .modal-body {
-    padding: 20px;
-    color: #aaa;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-#deleteModal .modal-footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
-    padding: 12px 20px;
-    gap: 8px;
-}
-
-.btn-cancel {
-    background: #2a2a3e;
-    color: #ccc;
-    border: 1px solid #3a3a52;
-    padding: 7px 18px;
-    border-radius: 6px;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-.btn-cancel:hover {
-    background: #333350;
-    color: #fff;
-}
-
-.btn-delete-confirm {
-    background: #ef4444;
-    color: #fff;
-    border: none;
-    padding: 7px 18px;
-    border-radius: 6px;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-.btn-delete-confirm:hover {
-    background: #dc2626;
-}
-
+#appToast.success .toast-progress { background: #22c55e; }
+#appToast.error .toast-progress   { background: #ef4444; }
+#appToast.info .toast-progress    { background: rgba(15, 239, 253, 1); }

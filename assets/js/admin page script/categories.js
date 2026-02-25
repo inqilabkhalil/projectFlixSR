@@ -211,9 +211,10 @@ confirmDeleteBtn.addEventListener('click', async () => {
 
   try {
     await deleteCategory(selectedDeleteId);
+    showToast?.("Category deleted successfully", "success");
     await getCategories({ keepPage: true });
   } catch (err) {
-    alert(err.message || 'Delete xətası');
+    showToast?.("Delete failed", "error");
   } finally {
     selectedDeleteId = null;
     deleteModal.close();
