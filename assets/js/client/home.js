@@ -113,7 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ================= CARD =================
-
+function goToDetail(id) {
+  window.location.href = `./detail.html?id=${id}`;
+}
   function createCard(movie, cardClass) {
     const article = document.createElement('article');
     article.className = cardClass;
@@ -143,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     article.append(img, cat, title, rating);
 
-    article.addEventListener('click', () => openTrailer(movie));
+    article.addEventListener('click', () => goToDetail(movie?.id));
 
     return article;
   }
