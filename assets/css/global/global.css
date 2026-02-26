@@ -127,7 +127,8 @@ p {
   align-items: center;
   justify-content: space-between;
   padding: 30px 116px 70px 24px;
-  width: calc(100vw - 250px);
+  width: 100%;
+  box-sizing: border-box;
   background-color: var(--bg-color);
 }
 
