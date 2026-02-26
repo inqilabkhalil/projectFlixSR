@@ -8,22 +8,25 @@ const commentTableBody = document.querySelector(".comment-table-body");
 const token = localStorage.getItem("access_token");
 const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
 
-  const prevBtn = document.getElementById("prevPage");
-  const nextBtn = document.getElementById("nextPage");
-  const pageInfo = document.getElementById("pageInfo");
+const prevBtn = document.getElementById("prevPage");
+const nextBtn = document.getElementById("nextPage");
+const pageInfo = document.getElementById("pageInfo");
 
 /* ======================
    Pagination (NEW)
 ====================== */
 let allComments = [];
 let page = 1;
-const pageSize = 10; // ✅ 10-10
+const pageSize = 8; // ✅ 10-10
 
 function showDeleteModal(movieId, commentId) {
   currentMovieId = movieId;
   currentId = commentId;
   modal.show();
 }
+
+// inline onclick işləsin deyə
+window.showDeleteModal = showDeleteModal;
 
 async function fetchDatas() {
   const options = {
@@ -41,15 +44,15 @@ async function fetchDatas() {
     );
 
     const result = await response.json();
-    const info = result.data; 
+    const info = result.data;
 
     allComments = info;
     page = 1;
 
-    RenderData()
-
+    RenderData();
   } catch (error) {
     console.error("Error fetching comments:", error);
+    showToast?.("Comments loading failed", "error");
   }
 }
 
@@ -102,8 +105,6 @@ function RenderData() {
 }
 
 function renderPager(totalPages) {
-
-
   pageInfo.textContent = `${page} / ${totalPages}`;
 
   prevBtn.disabled = page === 1;
@@ -136,11 +137,15 @@ async function deleteComment() {
     );
 
     if (response.ok) {
-      fetchDatas();
+      showToast?.("Comment deleted successfully", "success"); // ✅ TOAST
       modal.hide();
+      fetchDatas();
+    } else {
+      showToast?.("Delete failed", "error"); // ✅ TOAST
     }
   } catch (error) {
     console.error("Error deleting comment:", error);
+    showToast?.("Delete failed", "error"); // ✅ TOAST
   }
 }
 

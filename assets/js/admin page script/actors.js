@@ -17,8 +17,11 @@ const editActorForm = document.getElementById("editActorForm");
 // inputlar
 const createName = document.getElementById("createName");
 const createSurname = document.getElementById("createSurname");
+const createImgUrl = document.getElementById("createImgUrl"); // ✅ əlavə
+
 const editName = document.getElementById("editName");
 const editSurname = document.getElementById("editSurname");
+const editImgUrl = document.getElementById("editImgUrl"); // ✅ əlavə
 
 // delete btn-lər
 const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
@@ -46,16 +49,20 @@ const pageSize = 8;
 function openCreateModal() {
   createActorModal.showModal();
 }
-function openEditModal(id, name, surname) {
+
+function openEditModal(id, name, surname, img_url) { // ✅ img_url əlavə
   currentEditId = id;
   editName.value = (name || "").trim();
   editSurname.value = (surname || "").trim();
+  if (editImgUrl) editImgUrl.value = (img_url || "").trim(); // ✅ input dolsun
   editActorModal.showModal();
 }
+
 function openDeleteModal(id) {
   currentDeleteId = id;
   deleteActorModal.showModal();
 }
+
 function closeDeleteModal() {
   currentDeleteId = null;
   deleteActorModal.close();
@@ -101,7 +108,7 @@ function renderPage() {
           <td>${actor.surname}</td>
           <td class="operation">
             <i class="fa-solid fa-pen-to-square edit-btn"
-              onclick="openEditModal(${actor.id}, '${actor.name}', '${actor.surname}')"></i>
+              onclick="openEditModal(${actor.id}, '${actor.name}', '${actor.surname}', '${actor.img_url || ""}')"></i>
 
             <i class="fa-solid fa-trash delete-btn"
               onclick="openDeleteModal(${actor.id})"></i>
@@ -141,14 +148,18 @@ async function createActor(e) {
   const surname = createSurname.value.trim();
   if (!name || !surname) return;
 
+  const img_url = (createImgUrl?.value || "").trim(); // ✅ inputdan al
+
   await fetch(API_ONE, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ name, surname, img_url: " " }),
+    body: JSON.stringify({ name, surname, img_url: img_url || " " }), // ✅ dəyişdi
   });
+
+  showAppToast?.("Actor created successfully", "success");
 
   createActorForm.reset();
   createActorModal.close();
@@ -166,13 +177,15 @@ async function updateActor(e) {
   const surname = editSurname.value.trim();
   if (!name || !surname) return;
 
+  const img_url = (editImgUrl?.value || "").trim(); // ✅ inputdan al
+
   await fetch(`${API_ONE}/${currentEditId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ name, surname, img_url: " " }),
+    body: JSON.stringify({ name, surname, img_url: img_url || " " }), // ✅ dəyişdi
   });
 
   editActorModal.close();
@@ -191,6 +204,8 @@ async function deleteActor() {
     method: "DELETE",
     headers: { Authorization: `Bearer ${token}` },
   });
+
+  showAppToast?.("Actor deleted successfully", "success");
 
   closeDeleteModal();
   await fetchActors();

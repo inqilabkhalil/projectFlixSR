@@ -151,19 +151,18 @@
           class="categoryModal"
           onclick="if (event.target.id === 'deleteModal') deleteModal.close();"
         >
-          <div class="modalBox">
-            <h5 style="margin-bottom: 15px">Silmək istəyirsən?</h5>
+          <div class="deleteModalBox">
+            <h5 class="deleteModal-title"> Are you sure you want to delete </h5>
 
-            <div style="display: flex; gap: 10px; justify-content: flex-end">
-              <button type="button" id="cancelDeleteBtn" class="modalSubmit">
+            <div class="deleteModal-footer">
+              <button type="button" id="cancelDeleteBtn" class="deleteModal-cancel">
                 Cancel
               </button>
 
               <button
                 type="button"
                 id="confirmDeleteBtn"
-                class="modalSubmit"
-                style="background: #dc3545; color: white"
+                class="deleteModal-confirm"
               >
                 Delete
               </button>
@@ -172,9 +171,16 @@
         </dialog>
       </main>
     </div>
+
+    <div id="appToast" class="app-toast">
+      <div class="app-toast__text" id="appToastText"></div>
+      <div class="app-toast__bar" id="appToastBar"></div>
+    </div>
     <script src="../../assets/js/admin page script/tokencheck.js"></script>
+    <script src="../../assets/js/admin page script/toast.js"></script>
     <script src="../../assets/js/admin page script/categories.js"></script>
     <script src="../../assets/js/admin page script/active.js"></script>
     <script src="../../assets/js/admin page script/auth.js"></script>
+     <script src="../../assets/js/admin page script/adminProfile.js"></script>
   </body>
 </html>

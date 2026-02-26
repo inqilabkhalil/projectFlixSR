@@ -10,8 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="../../assets/css/global/variables.css" />
   <link rel="stylesheet" href="../../assets/css/global/global.css" />
@@ -65,7 +64,6 @@
         </a>
       </div>
 
-      <!-- BURASI SİLİNMİŞDİ -->
       <div class="lowerAside">
         <img src="../../assets/img/logout.svg" alt="logout icon" />
         <p class="logout-text">Logout</p>
@@ -80,10 +78,13 @@
         </div>
 
         <div class="rightHeaderSection">
-          <!-- onclick silindi -->
           <button class="create-btn" type="button" id="openCreateModalBtn">
             Create
           </button>
+          <div class="rightSection">
+              <img src="../../assets/img/adminman.svg" alt="" />
+              <p class="profileName">Admin</p>
+            </div>
         </div>
       </header>
 
@@ -99,38 +100,43 @@
           </thead>
           <tbody id="actorTableBody"></tbody>
         </table>
+
         <div class="pagination-bar" id="pager">
           <button class="pager-btn" id="prevPage" type="button">Prev</button>
-
           <div class="pager-info">
             <span class="pager-page" id="pageInfo">1 / 1</span>
           </div>
-
           <button class="pager-btn" id="nextPage" type="button">Next</button>
         </div>
       </section>
 
       <!-- CREATE MODAL -->
-      <dialog id="createActorModal" class="actorModal" onclick="if(event.target===this)this.close();">
+      <dialog id="createActorModal" class="actorModal"
+        onclick="if(event.target===this)this.close();">
         <form class="modalBox" id="createActorForm">
           <input type="text" placeholder="Name" class="modalInput" id="createName" required />
           <input type="text" placeholder="Surname" class="modalInput" id="createSurname" required />
+          <input type="text" placeholder="Image URL" class="modalInput" id="createImgUrl" />
           <button type="submit" class="modalSubmit">Submit</button>
         </form>
       </dialog>
 
       <!-- EDIT MODAL -->
-      <dialog id="editActorModal" class="actorModal" onclick="if(event.target===this)this.close();">
+      <dialog id="editActorModal" class="actorModal"
+        onclick="if(event.target===this)this.close();">
         <form class="modalBox" id="editActorForm">
           <input type="text" placeholder="Name" class="modalInput" id="editName" required />
           <input type="text" placeholder="Surname" class="modalInput" id="editSurname" required />
+          <input type="text" placeholder="Image URL" class="modalInput" id="editImgUrl" />
           <button type="submit" class="modalSubmit">Update</button>
         </form>
       </dialog>
-      <dialog id="deleteActorModal" class="actorModal" onclick="if(event.target===this)this.close();">
-        <div class="modalBox">
-          <p style="margin-bottom:12px;">Silinsin?</p>
 
+      <!-- DELETE MODAL -->
+      <dialog id="deleteActorModal" class="actorModal"
+        onclick="if(event.target===this)this.close();">
+        <div class="modalBox">
+          <p style="margin-bottom:12px;"> Are you sure you want to delete ?</p>
           <div style="display:flex; gap:10px; justify-content:flex-end;">
             <button type="button" class="modalSubmit" id="cancelDeleteBtn">Cancel</button>
             <button type="button" class="modalSubmit" id="confirmDeleteBtn">Delete</button>
@@ -139,12 +145,21 @@
       </dialog>
 
     </main>
+
+    <!-- Toast -->
+    <div id="appToast" class="app-toast" aria-live="polite" aria-atomic="true">
+      <div class="app-toast__text" id="appToastText">Success</div>
+      <div class="app-toast__bar" id="appToastBar"></div>
+    </div>
+
   </div>
 
+  <script src="../../assets/js/admin page script/toast.js"></script>
   <script src="../../assets/js/admin page script/tokencheck.js"></script>
   <script src="../../assets/js/admin page script/active.js"></script>
   <script src="../../assets/js/admin page script/actors.js"></script>
   <script src="../../assets/js/admin page script/auth.js"></script>
-</body>
+  <script src="../../assets/js/admin page script/adminProfile.js"></script>
 
+</body>
 </html>

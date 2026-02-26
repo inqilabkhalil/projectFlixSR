@@ -43,6 +43,7 @@ async function getAllContacts() {
     RenderData();
   } catch (error) {
     console.error("Error fetching contacts:", error);
+    showToast?.("Failed to load contacts", "error");
   }
 }
 
@@ -56,7 +57,7 @@ function RenderData() {
   const pageItems = allContacts.slice(start, start + pageSize);
 
   const rows = pageItems
-    .map((item, index) => {
+    .map((item) => {
       return `
         <tr class="table-row">
           <th scope="row">${item.id}</th>
@@ -112,12 +113,17 @@ async function deleteContact() {
 
   try {
     const response = await fetch(url, options);
+
     if (response.ok) {
       deleteModal.hide();
-      getAllContacts();
+      showToast?.("Deleted successfully", "success"); // ✅ TOAST
+      await getAllContacts();
+    } else {
+      showToast?.("Delete failed", "error");
     }
   } catch (error) {
     console.error("Error deleting contact:", error);
+    showToast?.("Network error", "error");
   }
 }
 
