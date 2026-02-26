@@ -1,67 +1,62 @@
 <!doctype html>
 <html lang="az">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
 
-    <link rel="stylesheet" href="../../assets/css/global/variables.css" />
-    <link rel="stylesheet" href="../../assets/css/client/login.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
 
-  <body>
-    <div class="login-page">
-      <div class="login-box">
-        <!-- Logo -->
-        <div class="login-logo">
-          <img src="../../assets/img/admin.logo.svg" alt="Logo" />
+  <link rel="stylesheet" href="../../assets/css/global/variables.css" />
+  <link rel="stylesheet" href="../../assets/css/client/login.css" />
+</head>
+
+<body>
+  <div class="login-page">
+    <div class="login-box">
+      <!-- Logo -->
+      <div class="login-logo">
+        <img src="../../assets/img/admin.logo.svg" alt="Logo" />
+      </div>
+
+      <!-- Brand -->
+      <h1 class="brand-title">filmalisa</h1>
+
+      <!-- Title -->
+      <h2 class="login-title">login</h2>
+
+      <!-- Form -->
+      <form class="login-form" id="loginForm">
+        <!-- Email -->
+        <div class="form-group">
+          <span class="input-icon">
+            <img src="../../assets/img/admin.username.svg" alt="email icon" />
+          </span>
+          <input type="email" id="email" placeholder="email" required />
         </div>
 
-        <!-- Brand -->
-        <h1 class="brand-title">filmalisa</h1>
+        <!-- Password -->
+        <div class="form-group">
+          <span class="input-icon">
+            <img src="../../assets/img/admin.password.svg" alt="password icon" />
+          </span>
 
-        <!-- Title -->
-        <h2 class="login-title">login</h2>
+          <input type="password" placeholder="password" id="password" required />
+          <span class="toggle-eye" id="togglePassword">👁</span>
+        </div>
 
-        <!-- Form -->
-        <form class="login-form" id="loginForm">
-          <!-- Email -->
-          <div class="form-group">
-            <span class="input-icon">
-              <img src="../../assets/img/admin.username.svg" alt="email icon" />
-            </span>
-            <input type="email" id="email" placeholder="email" required />
-          </div>
+        <!-- Helper -->
+        <div id="warning" style="display: none"></div>
 
-          <!-- Password -->
-          <div class="form-group">
-            <span class="input-icon">
-              <img
-                src="../../assets/img/admin.password.svg"
-                alt="password icon"
-              />
-            </span>
+        <a href="./register.html" class="helper-link">Register here</a>
 
-            <input
-              type="password"
-              placeholder="password"
-              id="password"
-              required
-            />
-            <span class="toggle-eye" id="togglePassword">👁</span>
-          </div>
-
-          <!-- Helper -->
-          <div id="warning" style="display: none"></div>
-
-          <a href="./register.html" class="helper-link">Register here</a>
-
-          <button type="submit" class="login-button">login</button>
-        </form>
-      </div>
+        <button type="submit" class="login-button">login</button>
+      </form>
     </div>
+  </div>
 
-    <!-- JS sonradan qoşulacaq -->
-    <script src="../../assets/js/client/login.js"></script>
-  </body>
+  <!-- JS sonradan qoşulacaq -->
+  <script src="../../assets/js/client/login.js"></script>
+  <script src="../../assets/js/client/authClientGuard.js"></script>
+</body>
+
 </html>
