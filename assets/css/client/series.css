@@ -116,7 +116,6 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 292px); /* ✅ 2 sütun, hər biri 292px */
   gap: 20px;
-  justify-content: center; /* ortalasın */
 }
 
 /* ================= CARD (292x440) ================= */
