@@ -56,6 +56,21 @@ main {
   background: rgba(255, 255, 255, 0.25);
 }
 
+.contact-us-container {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.contact-us-container main {
+  flex: 1;
+  min-width: 0;
+  background-color: var(--bg-color);
+}
+
+/* əlavə təhlükəsizlik: body fonu ağ qalmasın */
+body {
+  background-color: var(--bg-color);
+}
 #appToast.success .toast-progress { background: #22c55e; }
 #appToast.error .toast-progress   { background: #ef4444; }
 #appToast.info .toast-progress    { background: rgba(15, 239, 253, 1); }
