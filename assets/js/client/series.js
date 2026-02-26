@@ -1,4 +1,7 @@
 const ENDPOINT_MOVIES = 'https://api.sarkhanrahimli.dev/api/filmalisa/movies';
+function goToDetail(id) {
+  window.location.href = `./detail.html?id=${id}`;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.querySelector('.search-input');
@@ -36,9 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function createMovieCard(movie) {
     const imdbValue = Number(movie?.imdb);
     const imdbText = isNaN(imdbValue) ? 'N/A' : imdbValue.toFixed(1);
+    
 
     return `
-      <div class="movie-card">
+      <div class="movie-card" onclick="goToDetail(${movie?.id})" style="cursor:pointer;" >
         <img src="${movie?.cover_url}" 
              alt="${movie?.title}" 
              class="movie-poster" />
@@ -46,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="movie-informations">
             <div class="movie-category-container">
               <span class="movie-category">
-                ${movie?.category_name || 'FilmAlisa'}
+                ${movie?.category.name}
               </span>
             </div>
 
