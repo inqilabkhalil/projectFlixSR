@@ -67,7 +67,7 @@
   z-index: 99;
   position: absolute;
   top: 30px;
-  left: 550px;
+  right: 30px;
 }
 
 /* HEADER IMAGE SECTION (Figma: 1440x650) */
@@ -727,3 +727,4 @@
 .similarSwiper .swiper-slide {
   height: auto;
 }
+
