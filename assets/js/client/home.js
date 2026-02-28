@@ -113,7 +113,15 @@ document.addEventListener('DOMContentLoaded', () => {
   <span>${isNaN(imdbValue) ? 'N/A' : imdbValue.toFixed(1)}</span>
 `;
 
-      info.append(title, rating);
+      const desc = document.createElement('p');
+      desc.className = 'hero-desc';
+      desc.textContent =
+        movie?.overview ||
+        movie?.description ||
+        movie?.plot ||
+        'Açıqlama mövcud deyil.';
+
+      info.append(title, rating, desc);
 
       slide.append(img, info, btn);
       heroCarousel.appendChild(slide);
@@ -145,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cat = document.createElement('span');
     cat.className = 'category-name';
-    cat.textContent = movie ?.category?.name || 'Unknown';
+    cat.textContent = movie?.category?.name || 'Unknown';
 
     const title = document.createElement('h3');
     title.className = 'movie-name';
@@ -173,22 +181,25 @@ document.addEventListener('DOMContentLoaded', () => {
     actionWrapper.innerHTML = '';
     comedyWrapper.innerHTML = '';
 
-    const actionMovies = movies.slice(0, 10);
-    let comedyMovies = movies.slice(10);
-
-    if (comedyMovies.length === 0) {
-      comedyMovies = movies.slice(0, 5);
+    function getCategoryName(movie) {
+      return (movie?.category?.name || '').toString().toLowerCase().trim();
     }
 
-    actionMovies.forEach((m) =>
+    // Action section -> Triller
+    const trillerMovies = movies
+      .filter((m) => getCategoryName(m).includes('triller'))
+      .slice(0, 10);
+
+    // Comedy section -> Fantasy
+    const fantasyMovies = movies.slice(0, 10);
+    trillerMovies.forEach((m) =>
       actionWrapper.appendChild(createCard(m, 'action-card')),
     );
 
-    comedyMovies.forEach((m) =>
+    fantasyMovies.forEach((m) =>
       comedyWrapper.appendChild(createCard(m, 'comedy-card')),
     );
   }
-
   // ================= INIT =================
 
   (async function initHome() {
