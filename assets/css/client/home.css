@@ -8,7 +8,6 @@
   flex-direction: column;
   align-items: center;
   padding: 18px 0;
-  gap: 18px;
   background: #0f0f0f;
   z-index: 999;
   gap: 70px;
@@ -86,7 +85,7 @@ body {
 .hero-info {
   position: absolute;
   left: 80px;
-  bottom: 120px;
+  bottom: 180px;
   z-index: 2;
   width: min(520px, 80%);
 }
@@ -117,8 +116,8 @@ body {
 /* WATCH BUTTON */
 .watch-btn {
   position: absolute;
-  left: 200px;
-  bottom: 150px;
+  left: 80px;
+  bottom: 120px;
   padding: 12px 26px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 14px;
@@ -294,7 +293,7 @@ body {
 /* movie name yeri */
 .action-card .movie-name,
 .comedy-card .movie-name {
-  left: 14px;
+  left: 24px;
   bottom: 14px;
 }
 .movie-rating {
@@ -311,7 +310,9 @@ body {
   font-size: 14px;
   font-weight: 700;
 }
-
+.comedy-card .movie-rating {
+  right: 54px;
+}
 .movie-rating i {
   color: #f5c518; /* IMDB yellow */
 }
