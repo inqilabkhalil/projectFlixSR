@@ -87,7 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
     movieContainer.innerHTML = '';
 
     if (!movies.length) {
-      window.location.href = './404.html';
+      movieContainer.innerHTML = `
+    <div class="not-found">
+      <h3>Film tapılmadı</h3>
+      <p>Axtardığınız film mövcud deyil.</p>
+    </div>
+  `;
       return;
     }
     movies.forEach((movie) => {

@@ -200,3 +200,20 @@ body {
   margin: 0;
   color: #fff;
 }
+.not-found {
+  grid-column: 1 / -1; /* bütün grid eni */
+  text-align: center;
+  padding: 80px 0;
+  color: #fff;
+}
+
+.not-found h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.not-found p {
+  font-size: 14px;
+  opacity: 0.7;
+}
