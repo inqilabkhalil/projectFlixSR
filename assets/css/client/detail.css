@@ -27,6 +27,7 @@
   gap: 18px;
   background: #0f0f0f;
   z-index: 999;
+  gap: 70px;
 }
 
 .menu__item {
@@ -213,7 +214,6 @@
 
   cursor: pointer;
 }
-
 
 /* ADD BUTTON (Figma: 40x40, gap 10) */
 .addMyListBtn {
@@ -451,7 +451,8 @@
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
-}.single-comment{
+}
+.single-comment {
   margin-top: 24px;
   width: 100%;
   border-radius: 12px;
@@ -550,7 +551,6 @@
   margin: 0;
 }
 
-
 /* Modal fonu (backdrop) daha tünd olsun istəyirsənsə */
 .modal-backdrop.show {
   opacity: 0.75;
@@ -590,13 +590,13 @@
   flex-direction: column;
   justify-content: flex-end;
   gap: 16px;
-  background: linear-gradient(to top, rgba(0, 0, 0, .85), rgba(0, 0, 0, .10));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.1));
 }
 
 /* Title */
 .playModal__title {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 30px;
   line-height: 32px;
@@ -616,7 +616,7 @@
   background: #fff;
   color: #000;
 
-  font-family: "Netflix Sans", Arial, sans-serif;
+  font-family: 'Netflix Sans', Arial, sans-serif;
   font-weight: 500;
   font-size: 16px;
   cursor: pointer;
@@ -633,7 +633,7 @@
   border-radius: 50%;
   border: 0;
 
-  background: rgba(0, 0, 0, .6);
+  background: rgba(0, 0, 0, 0.6);
   color: #fff;
   cursor: pointer;
 }
@@ -670,10 +670,10 @@
 
 /* Qaranlıq overlay */
 .detail-img-wrapper::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgba(0, 0, 0, 0.45);
   border-radius: 20px;
   opacity: 0;
   transition: 0.3s ease;
@@ -689,16 +689,16 @@
   transform: scale(1);
 }
 
-.comment-title{
+.comment-title {
   margin-top: 24px;
   width: 715px;
   max-width: 100%;
-  padding: 0;            /* əvvəlki paddingi sil */
-  border: 0;             /* əvvəlki borderi sil */
+  padding: 0; /* əvvəlki paddingi sil */
+  border: 0; /* əvvəlki borderi sil */
   background: transparent; /* əvvəlki bg-ni sil */
 }
 
-.single-comment{
+.single-comment {
   margin-top: 16px;
   width: 100%;
   border-radius: 12px;
@@ -707,11 +707,11 @@
   border: 1px solid rgba(50, 59, 84, 1);
 }
 
-.single-comment:first-child{
+.single-comment:first-child {
   margin-top: 0;
 }
 
-.comment-header{
+.comment-header {
   display: flex;
   align-items: center;
 }
@@ -727,4 +727,3 @@
 .similarSwiper .swiper-slide {
   height: auto;
 }
-

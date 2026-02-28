@@ -96,7 +96,26 @@ document.addEventListener('DOMContentLoaded', () => {
         openTrailer(movie);
       });
 
-      slide.append(img, btn);
+      // === INFO BLOCK ===
+      const info = document.createElement('div');
+      info.className = 'hero-info';
+
+      const title = document.createElement('h2');
+      title.className = 'hero-title';
+      title.textContent = movie?.title || 'No title';
+
+      const imdbValue = Number(movie?.imdb);
+
+      const rating = document.createElement('div');
+      rating.className = 'hero-rating';
+      rating.innerHTML = `
+  <i class="fa-solid fa-star"></i>
+  <span>${isNaN(imdbValue) ? 'N/A' : imdbValue.toFixed(1)}</span>
+`;
+
+      info.append(title, rating);
+
+      slide.append(img, info, btn);
       heroCarousel.appendChild(slide);
 
       const dotBtn = document.createElement('button');
@@ -113,9 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ================= CARD =================
-function goToDetail(id) {
-  window.location.href = `./detail.html?id=${id}`;
-}
+  function goToDetail(id) {
+    window.location.href = `./detail.html?id=${id}`;
+  }
   function createCard(movie, cardClass) {
     const article = document.createElement('article');
     article.className = cardClass;
