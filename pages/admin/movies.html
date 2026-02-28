@@ -77,7 +77,7 @@
           <p class="page-text">Movies</p>
         </div>
         <div class="rightHeaderSection">
-          <button class="create-btn" type="button" data-bs-toggle="modal" data-bs-target="#createMovieModal">
+          <button class="create-btn" type="button" onclick="openCreateModal()">
             Create
           </button>
 
@@ -108,12 +108,13 @@
               <td>Action</td>
               <td>7.6</td>
               <td class="operation">
-                <i class="fa-solid fa-pen-to-square edit-btn"></i>
-                <i class="fa-solid fa-trash delete-btn"></i>
+                <i class="fa-solid fa-pen-to-square edit-btn" onclick="openEditModal(id)"></i>
+                <i class="fa-solid fa-trash delete-btn" onclick="openDeleteModal(id)"></i>
               </td>
             </tr>
           </tbody>
         </table>
+        
         <div class="pagination-bar" id="pager">
             <button class="pager-btn" id="prevPage" type="button">Prev</button>
 
@@ -131,20 +132,41 @@
           <div class="modal-content">
             <div class="modal-body">
               <form id="movieForm">
-                <input type="text" class="input form-control mb-3" name="title" placeholder="Title" required />
-                <textarea class="input form-control mb-3" name="overview" rows="3" placeholder="Overview" required></textarea>
-                <input type="text" class="input form-control mb-3" name="coverUrl" placeholder="Cover url" required />
-                <input type="text" class="input form-control mb-3" name="trailerUrl" placeholder="Fragman (youtube embed url)" required />
-                <input type="text" class="input form-control mb-3" name="watchUrl" placeholder="Watch url" required />
-                <input type="text" class="input form-control mb-3" name="imdb" placeholder="IMDB" required />
-                <input type="text" class="input form-control mb-3" name="runtime" placeholder="Run time minute" required />
+                <input type="text" id="movieTitle" class="input form-control mb-3" name="title" placeholder="Title" required />
+                <textarea id="movieOverview" class="input form-control mb-3" name="overview" rows="3" placeholder="Overview" required></textarea>
+                <input type="text" id="movieCoverUrl" class="input form-control mb-3" name="coverUrl" placeholder="Cover url" required />
+                <input type="text" id="movieTrailerUrl" class="input form-control mb-3" name="trailerUrl" placeholder="Fragman (youtube embed url)" required />
+                <input type="text" id="movieWatchUrl" class="input form-control mb-3" name="watchUrl" placeholder="Watch url" required />
+                <input type="text" id="movieImdb" class="input form-control mb-3" name="imdb" placeholder="IMDB" required />
+                <input type="text" id="movieRuntime" class="input form-control mb-3" name="runtime" placeholder="Run time minute" required />
+                <select class="selectOptions" id="actorsSelect" name="actorId" required  placeholder="select actor">
+                  <option value="">all</option>
+                  <option value="">all</option>
+                </select>
+
+                <select class="selectOptions" id="categorySelect" name="categoryId" required  placeholder="select category">
+                  <option value="">all</option>
+                  <option value="">all</option>
+                </select>
+
+                
+
+                <!-- Search -->
+                <!-- <input id="actorsSearch" class="form-control mb-2" placeholder="Search actor..." /> -->
+                
+                <!-- Selected chips -->
+                <!-- <div id="selectedActors" class="mb-2 d-flex flex-wrap gap-2"></div> -->
+
+                <!-- Checkbox list -->
+                <!-- <div id="actorsList" class="border rounded p-2" style="max-height:220px; overflow:auto;"></div> -->
+                 
                 <div class="modal-adultCheck">
-                    <div class="adultCheck">
+                    <label class="adultCheck" for="isAdult">
                       <span class="txt">Adult</span>
-                      <input class="cb" type="checkbox" checked />
+                      <input id="isAdult" class="cb" type="checkbox" />
                       <span class="box" aria-hidden="true"></span>
-                    </div>
-                  <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Submit</button>
+                    </label>
+                  <button class="submitButton btn btn-secondary" type="submit">Submit</button>
                 </div>
               </form>
               <img id="modal-img" src="../../assets/img/lostinspace.svg" alt="">
@@ -162,8 +184,8 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-danger">Delete</button>
+            <button id="cancelDeleteMovieBtn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button id="confirmDeleteMovieBtn" type="button" class="btn btn-danger">Delete</button>
           </div>
 
         </div>
@@ -178,4 +200,4 @@
   <script src="../../assets/js/admin page script/movies-page.js"></script>
    <script src="../../assets/js/admin page script/adminProfile.js"></script>
 </body>
-
+</html>
