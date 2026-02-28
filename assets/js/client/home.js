@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cat = document.createElement('span');
     cat.className = 'category-name';
-    cat.textContent = 'FilmAlisa';
+    cat.textContent = movie ?.category?.name || 'Unknown';
 
     const title = document.createElement('h3');
     title.className = 'movie-name';
