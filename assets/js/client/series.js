@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function createMovieCard(movie) {
     const imdbValue = Number(movie?.imdb);
     const imdbText = isNaN(imdbValue) ? 'N/A' : imdbValue.toFixed(1);
-    
 
     return `
       <div class="movie-card" onclick="goToDetail(${movie?.id})" style="cursor:pointer;" >
@@ -88,11 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
     movieContainer.innerHTML = '';
 
     if (!movies.length) {
-      movieContainer.innerHTML =
-        "<p style='color:#fff'>Heç bir nəticə tapılmadı.</p>";
+      window.location.href = './404.html';
       return;
     }
-
     movies.forEach((movie) => {
       movieContainer.innerHTML += createMovieCard(movie);
     });
@@ -104,7 +101,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const query = searchInput.value;
     searchMovies(query);
   });
-
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') searchMovies(searchInput.value);
+  });
   // ================= INIT =================
 
   (async function init() {
