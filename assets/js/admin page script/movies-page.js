@@ -4,7 +4,7 @@ const pageSize = 10;
 let allMovies = [];
 
 // ================== ELEMENTS ==================
-const prevPageBtn = document.getElementById("prevPage");
+const prevPageBtn = document.getElementById("prevPage"); // create eleyende modali bu zamn coverurlimi deyisende modal-img ye coverurlin linkini menimsetmek lazimdi onnu ele ver
 const nextPageBtn = document.getElementById("nextPage");
 const pageInfoEl = document.getElementById("pageInfo");
 const moviesTableBody = document.getElementById("movieTableBody");
@@ -19,6 +19,9 @@ const movieWatchUrl = document.getElementById("movieWatchUrl");
 const movieImdb = document.getElementById("movieImdb");
 const movieRuntime = document.getElementById("movieRuntime");
 const adultCheck = document.getElementById("isAdult");
+
+// Cover preview img (modal)
+const modalImg = document.getElementById("modal-img");
 
 // Selects
 const movieCategory = document.getElementById("categorySelect");
@@ -76,6 +79,12 @@ async function logError(context, response) {
   console.error(`[${context}] status=${response.status}`, text);
 }
 
+// cover preview helper
+function updateCoverPreview(url = "") {
+  if (!modalImg) return;
+  modalImg.src = String(url || "").trim();
+}
+
 // ================== CHOICES.JS ==================
 function initActorsChoices() {
   if (actorsChoices) return;
@@ -100,9 +109,10 @@ function resetFormState() {
   currentId = null;
   isEdit = false;
   if (actorsChoices) actorsChoices.removeActiveItems();
+  updateCoverPreview("");
 }
 
-// ================== LOAD CATEGORIES ==================
+//  ================== LOAD CATEGORIES ==================
 let categoriesLoaded = false;
 
 async function loadCategories() {
@@ -156,7 +166,7 @@ async function loadActors() {
   }
 }
 
-// ================== FETCH & RENDER MOVIES ==================
+//================== FETCH & RENDER MOVIES ==================
 async function fetchMovies() {
   const response = await fetch(MOVIES_LIST_URL, {
     headers: { Authorization: `Bearer ${getToken()}` },
@@ -250,6 +260,7 @@ async function openEditModal(id) {
     movieTitle.value = movie.title ?? "";
     movieOverview.value = movie.overview ?? "";
     movieCoverUrl.value = movie.cover_url ?? "";
+    updateCoverPreview(movie.cover_url ?? "");
     movieTrailerUrl.value = movie.fragman ?? "";
     movieWatchUrl.value = movie.watch_url ?? "";
     movieImdb.value = movie.imdb ?? "";
@@ -262,9 +273,7 @@ async function openEditModal(id) {
     }
 
     // actors preselect
-    const actorIds = (movie.actors || []).map((a) =>
-      String(a.id ?? a)
-    );
+    const actorIds = (movie.actors || []).map((a) => String(a.id ?? a));
     if (actorsChoices) {
       actorsChoices.removeActiveItems();
       actorIds.forEach((idStr) => actorsChoices.setChoiceByValue(idStr));
@@ -329,9 +338,7 @@ async function saveMovie() {
           lower.includes("invalid") ||
           lower.includes("unexpected"))
       ) {
-        console.warn(
-          "[saveMovie] Retrying without actors field…"
-        );
+        console.warn("[saveMovie] Retrying without actors field…");
         const { actors, ...payloadWithoutActors } = payload;
 
         response = await fetch(url, {
@@ -388,6 +395,14 @@ confirmDeleteMovieBtn?.addEventListener("click", deleteMovie);
 movieForm.addEventListener("submit", (e) => {
   e.preventDefault();
   saveMovie();
+});
+
+// cover url dəyişəndə modal-img yenilə
+movieCoverUrl.addEventListener("input", (e) => {
+  updateCoverPreview(e.target.value);
+});
+movieCoverUrl.addEventListener("change", (e) => {
+  updateCoverPreview(e.target.value);
 });
 
 prevPageBtn.addEventListener("click", () => {
