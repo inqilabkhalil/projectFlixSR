@@ -7,7 +7,7 @@ const similarSwiper = new Swiper(".similarSwiper", {
 
 // ✅ TOKEN LOCAL STORAGE-DƏN
 
- const token = localStorage.getItem("client_token");
+const token = localStorage.getItem("client_token");
 
 if (!token) window.location.href = "./login.html";
 
@@ -53,6 +53,7 @@ const currentId = params.get("id");
 
 function closePlayModal() {
   modal.hide();
+  resetPlayer();
 }
 
 closeBtn.addEventListener("click", closePlayModal);
@@ -64,6 +65,24 @@ function openPlayModal() {
 detailMovieImg.addEventListener("click", openPlayModal);
 detailPlayBtn.addEventListener("click", openPlayModal);
 
+function toYoutubeEmbed(url) {
+  if (!url) return "";
+
+  // youtu.be/VIDEO_ID
+  const short = url.match(/youtu\.be\/([a-zA-Z0-9_-]{6,})/);
+  if (short) return `https://www.youtube.com/embed/${short[1]}?autoplay=1&rel=0`;
+
+  // youtube.com/watch?v=VIDEO_ID
+  const v = url.match(/[?&]v=([a-zA-Z0-9_-]{6,})/);
+  if (v) return `https://www.youtube.com/embed/${v[1]}?autoplay=1&rel=0`;
+
+  // artıq embeddirsə
+  if (url.includes("/embed/")) {
+    return url + (url.includes("?") ? "&" : "?") + "autoplay=1&rel=0";
+  }
+
+  return url;
+}
 // ================= MOVIE =================
 async function GetByIdMovie() {
   if (!currentId) {
@@ -117,9 +136,20 @@ async function GetByIdMovie() {
     modalImg.style.display = "none";
     modalOverlay.style.display = "none";
     modalIframe.style.display = "block";
-    modalIframe.src = filteredData.fragman;
+    modalIframe.src = toYoutubeEmbed(filteredData.fragman);
   };
+function resetPlayer() {
+  // videonu dayandır
+  modalIframe.src = "";
 
+  // UI-ni əvvəlki vəziyyətə qaytar (istəsən)
+  modalIframe.style.display = "none";
+  modalImg.style.display = "block";
+  modalOverlay.style.display = "block";
+}
+
+// X, overlay click, ESC hamısında işləyəcək
+modalEl.addEventListener("hidden.bs.modal", resetPlayer);
   if (Array.isArray(filteredData.actors)) {
     actorsList.innerHTML = filteredData.actors.map(actor => {
       const fullName = `${actor.name?.trim() ?? ""} ${actor.surname?.trim() ?? ""}`.trim();
@@ -132,6 +162,7 @@ async function GetByIdMovie() {
       `;
     }).join("");
   }
+  addMyFavoriteBtn.textContent = filteredData.is_favorite ? "-" : "+";
 }
 GetByIdMovie();
 
@@ -230,27 +261,42 @@ commentBtn.addEventListener("click", addComment);
 commentInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") addComment(e);
 });
-
 async function addToFavorite() {
-  // ✅ 404: id yoxdursa
-  if (!currentId) {
-    window.location.href = "./404.html";
-    return;
-  }
-
   const url = `https://api.sarkhanrahimli.dev/api/filmalisa/movie/${currentId}/favorite`;
+  if (addMyFavoriteBtn.textContent === "-") {
+    const option = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
 
-  const option = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  };
+      },
+      body: JSON.stringify({ is_favorite: false }),
+    };
+    const response = await fetch(url, option);
+    if (response.ok) {
+      addMyFavoriteBtn.textContent = "+";
 
-  const response = await fetch(url, option);
-  if (response.ok) {
-    addMyFavoriteBtn.textContent = "-";
+    };
+    toastr.error("Removed from favorites");
+
+
+  }
+  else {
+    const option = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+
+      },
+      body: JSON.stringify({ is_favorite: true }),
+    };
+    const response = await fetch(url, option);
+    if (response.ok) {
+      addMyFavoriteBtn.textContent = "-";
+    }
+    toastr.success("Added to favorites");
   }
 }
 
@@ -301,3 +347,14 @@ getSimiliMovies();
 function openMovieDetail(id) {
   window.location.href = `${location.pathname}?id=${id}`;
 }
+toastr.options = {
+  closeButton: true,
+  progressBar: true,
+  positionClass: "toast-top-right",
+  timeOut: 1000,        // ✅ 1 saniyə
+  extendedTimeOut: 300, // mouse hover edəndə əlavə vaxt
+  showDuration: 200,
+  hideDuration: 200,
+  showMethod: "fadeIn",
+  hideMethod: "fadeOut",
+};
