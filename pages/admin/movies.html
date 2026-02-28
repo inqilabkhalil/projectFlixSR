@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="../../assets/css/global/global.css" />
   <link rel="stylesheet" href="../../assets/css/admin/movies.css" />
   <link rel="stylesheet" href="../../assets/css/global/pagination.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
 
 </head>
 
@@ -114,90 +115,101 @@
             </tr>
           </tbody>
         </table>
-        
+
         <div class="pagination-bar" id="pager">
-            <button class="pager-btn" id="prevPage" type="button">Prev</button>
+          <button class="pager-btn" id="prevPage" type="button">Prev</button>
 
-            <div class="pager-info">
-              <span class="pager-page" id="pageInfo">1 / 1</span>
-            </div>
-
-            <button class="pager-btn" id="nextPage" type="button">Next</button>
+          <div class="pager-info">
+            <span class="pager-page" id="pageInfo">1 / 1</span>
           </div>
 
-      <!-- create and edit Modal -->
+          <button class="pager-btn" id="nextPage" type="button">Next</button>
+        </div>
 
-       <div class="modal fade" id="createMovieModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-body">
-              <form id="movieForm">
-                <input type="text" id="movieTitle" class="input form-control mb-3" name="title" placeholder="Title" required />
-                <textarea id="movieOverview" class="input form-control mb-3" name="overview" rows="3" placeholder="Overview" required></textarea>
-                <input type="text" id="movieCoverUrl" class="input form-control mb-3" name="coverUrl" placeholder="Cover url" required />
-                <input type="text" id="movieTrailerUrl" class="input form-control mb-3" name="trailerUrl" placeholder="Fragman (youtube embed url)" required />
-                <input type="text" id="movieWatchUrl" class="input form-control mb-3" name="watchUrl" placeholder="Watch url" required />
-                <input type="text" id="movieImdb" class="input form-control mb-3" name="imdb" placeholder="IMDB" required />
-                <input type="text" id="movieRuntime" class="input form-control mb-3" name="runtime" placeholder="Run time minute" required />
-                <select class="selectOptions" id="actorsSelect" name="actorId" required  placeholder="select actor">
-                  <option value="">all</option>
-                  <option value="">all</option>
-                </select>
+        <!-- create and edit Modal -->
 
-                <select class="selectOptions" id="categorySelect" name="categoryId" required  placeholder="select category">
-                  <option value="">all</option>
-                  <option value="">all</option>
-                </select>
+        <div class="modal fade" id="createMovieModal" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body">
+                <form id="movieForm">
+                  <input type="text" id="movieTitle" class="input form-control mb-3" name="title" placeholder="Title"
+                    required />
+                  <textarea id="movieOverview" class="input form-control mb-3" name="overview" rows="3"
+                    placeholder="Overview" required></textarea>
+                  <input type="text" id="movieCoverUrl" class="input form-control mb-3" name="coverUrl"
+                    placeholder="Cover url" required />
+                  <input type="text" id="movieTrailerUrl" class="input form-control mb-3" name="trailerUrl"
+                    placeholder="Fragman (youtube embed url)" required />
+                  <input type="text" id="movieWatchUrl" class="input form-control mb-3" name="watchUrl"
+                    placeholder="Watch url" required />
+                  <input type="text" id="movieImdb" class="input form-control mb-3" name="imdb" placeholder="IMDB"
+                    required />
+                  <input type="text" id="movieRuntime" class="input form-control mb-3" name="runtime"
+                    placeholder="Run time minute" required />
+                  <select class="selectOptions" id="actorsSelect" name="actorId"  placeholder="select actor"
+                    multiple>
 
-                
 
-                <!-- Search -->
-                <!-- <input id="actorsSearch" class="form-control mb-2" placeholder="Search actor..." /> -->
-                
-                <!-- Selected chips -->
-                <!-- <div id="selectedActors" class="mb-2 d-flex flex-wrap gap-2"></div> -->
+                  </select>
 
-                <!-- Checkbox list -->
-                <!-- <div id="actorsList" class="border rounded p-2" style="max-height:220px; overflow:auto;"></div> -->
-                 
-                <div class="modal-adultCheck">
+                  <select class="selectOptions" id="categorySelect" name="categoryId" 
+                    placeholder="select category">
+
+                  </select>
+
+
+
+                  <!-- Search -->
+                  <!-- <input id="actorsSearch" class="form-control mb-2" placeholder="Search actor..." /> -->
+
+                  <!-- Selected chips -->
+                  <!-- <div id="selectedActors" class="mb-2 d-flex flex-wrap gap-2"></div> -->
+
+                  <!-- Checkbox list -->
+                  <!-- <div id="actorsList" class="border rounded p-2" style="max-height:220px; overflow:auto;"></div> -->
+
+                  <div class="modal-adultCheck">
                     <label class="adultCheck" for="isAdult">
                       <span class="txt">Adult</span>
                       <input id="isAdult" class="cb" type="checkbox" />
                       <span class="box" aria-hidden="true"></span>
                     </label>
-                  <button class="submitButton btn btn-secondary" type="submit">Submit</button>
-                </div>
-              </form>
-              <img id="modal-img" src="../../assets/img/lostinspace.svg" alt="">
+                    <button class="submitButton btn btn-secondary" type="submit">Submit</button>
+                  </div>
+                </form>
+                <img id="modal-img" src="../../assets/img/lostinspace.svg" alt="">
+              </div>
             </div>
           </div>
         </div>
-        </div>
-      <div class="modal fade" id="deleteMovieModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-body">
-            <p class="mb-0" >
-              Are you sure you want to delete <strong></strong>?
-            </p>
-          </div>
+        <div class="modal fade" id="deleteMovieModal" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body">
+                <p class="mb-0">
+                  Are you sure you want to delete <strong></strong>?
+                </p>
+              </div>
 
-          <div class="modal-footer">
-            <button id="cancelDeleteMovieBtn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button id="confirmDeleteMovieBtn" type="button" class="btn btn-danger">Delete</button>
-          </div>
+              <div class="modal-footer">
+                <button id="cancelDeleteMovieBtn" type="button" class="btn btn-secondary"
+                  data-bs-dismiss="modal">Cancel</button>
+                <button id="confirmDeleteMovieBtn" type="button" class="btn btn-danger">Delete</button>
+              </div>
 
+            </div>
+          </div>
         </div>
-      </div>
-       </div>
       </section>
 
     </main>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
   <script src="../../assets/js/admin page script/movies-page.js"></script>
-   <script src="../../assets/js/admin page script/adminProfile.js"></script>
+  <script src="../../assets/js/admin page script/adminProfile.js"></script>
 </body>
+
 </html>
