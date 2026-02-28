@@ -11,6 +11,7 @@
   gap: 18px;
   background: #0f0f0f;
   z-index: 999;
+  gap: 70px;
 }
 
 .menu__item {
@@ -23,8 +24,8 @@
 }
 
 .menu__item img {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   display: block;
 }
 .menu__item img.image {
@@ -38,11 +39,9 @@ body {
 }
 
 /* ===== SECTION 1 (TOXUNMURAM) ===== */
-.section1 {
-  width: 100%;
-  margin-top: 30px;
-  margin-left: 56px; /* menu fixed olduğu üçün */
-  padding: 0 18px;
+.section--hero {
+  margin-left: 56px;
+  padding-top: 18px;
 }
 /* CAROUSEL */
 .hero-carousel {
@@ -50,7 +49,6 @@ body {
   width: 100%;
   height: 500px;
   overflow: hidden;
-  border-radius: 20px;
 }
 
 /* SLIDE */
@@ -72,6 +70,8 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  position: absolute;
+  z-index: 0;
 }
 
 /* DARK OVERLAY (Netflix effekti) */
@@ -79,9 +79,41 @@ body {
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
 }
+.hero-info {
+  position: absolute;
+  left: 80px;
+  bottom: 120px;
+  z-index: 2;
+  width: min(520px, 80%);
+}
 
+.hero-meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  opacity: 0.9;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.hero-meta .dot {
+  opacity: 0.6;
+}
+
+.hero-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 520px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 /* WATCH BUTTON */
 .watch-btn {
   position: absolute;
@@ -128,10 +160,9 @@ body {
   transform: scale(1.2);
 }
 
-/* ===== ORTAQ SECTION STILI (Action/Comedy) ===== */
 .section {
   margin-left: 56px; /* menu width */
-  padding: 18px 18px 0 18px;
+  padding: 0;
 }
 
 .section__header {
@@ -154,6 +185,7 @@ body {
   overflow-x: auto;
   padding-bottom: 10px;
   scroll-behavior: smooth;
+  padding-right: 0;
 }
 
 .comedy__wrapper {
@@ -161,12 +193,14 @@ body {
   overflow-x: auto;
   padding-bottom: 10px;
   scroll-behavior: smooth;
+  margin-right: 0;
 }
 
 /* scroll barı gözə dəyməsin */
 .action__wrapper::-webkit-scrollbar,
 .comedy__wrapper::-webkit-scrollbar {
   height: 0;
+  margin-right: 0;
 }
 
 /* ===== ACTION CARD (AYRI) ===== */

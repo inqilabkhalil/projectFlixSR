@@ -2,14 +2,13 @@
 .section--favorite {
   margin-top: 30px;
 }
-.section--favorite .section__title{
-font-weight: 500;
-font-size: 35px;
-line-height: 24px;
-letter-spacing: 0%;
-margin-top: 100px;
-margin-bottom: 55px;
-
+.section--favorite .section__title {
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  margin-top: 100px;
+  margin-bottom: 55px;
 }
 /* Card overlay: equal margin between category, rating, name */
 .favorite-card-info {
@@ -20,12 +19,12 @@ margin-bottom: 55px;
   z-index: 3;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 70px;
 }
 
 /* Reset home.css absolute positioning for favorite cards */
-.comedy__wrapper{
-margin-bottom: 188px;
+.comedy__wrapper {
+  margin-bottom: 188px;
 }
 
 .favorite-card .category-name,
