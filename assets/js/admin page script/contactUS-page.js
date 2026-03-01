@@ -43,7 +43,7 @@ async function getAllContacts() {
     RenderData();
   } catch (error) {
     console.error("Error fetching contacts:", error);
-    showToast?.("Failed to load contacts", "error");
+    notifyError("Failed to load contacts");
   }
 }
 
@@ -116,14 +116,14 @@ async function deleteContact() {
 
     if (response.ok) {
       deleteModal.hide();
-      showToast?.("Deleted successfully", "success"); // ✅ TOAST
+      notifySuccess("Deleted successfully"); // ✅ TOAST
       await getAllContacts();
     } else {
-      showToast?.("Delete failed", "error");
+      notifyError("Delete failed");
     }
   } catch (error) {
     console.error("Error deleting contact:", error);
-    showToast?.("Network error", "error");
+    notifyError("Network error");
   }
 }
 

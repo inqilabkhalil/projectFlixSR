@@ -30,32 +30,6 @@ main {
   color: red;
 }
 
-/* ================= TOAST ================= */
-#appToast {
-  background: #121212;
-  color: #fff;
-  border-radius: 14px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
-  overflow: hidden;
-  min-width: 280px;
-}
-
-#appToast.success { border-left: 4px solid #22c55e; }
-#appToast.error   { border-left: 4px solid #ef4444; }
-#appToast.info    { border-left: 4px solid rgba(15, 239, 253, 1); }
-
-#appToast .btn-close {
-  filter: invert(1) opacity(0.7);
-}
-
-.toast-progress {
-  height: 3px;
-  width: 100%;
-  transform-origin: left;
-  transform: scaleX(1);
-  background: rgba(255, 255, 255, 0.25);
-}
-
 .contact-us-container {
   min-height: 100vh;
   width: 100%;
@@ -71,6 +45,3 @@ main {
 body {
   background-color: var(--bg-color);
 }
-#appToast.success .toast-progress { background: #22c55e; }
-#appToast.error .toast-progress   { background: #ef4444; }
-#appToast.info .toast-progress    { background: rgba(15, 239, 253, 1); }

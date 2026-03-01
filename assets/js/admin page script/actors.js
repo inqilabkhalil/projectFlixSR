@@ -159,7 +159,7 @@ async function createActor(e) {
     body: JSON.stringify({ name, surname, img_url: img_url || " " }), // ✅ dəyişdi
   });
 
-  showAppToast?.("Actor created successfully", "success");
+  notifySuccess("Actor created successfully");
 
   createActorForm.reset();
   createActorModal.close();
@@ -205,7 +205,7 @@ async function deleteActor() {
     headers: { Authorization: `Bearer ${token}` },
   });
 
-  showAppToast?.("Actor deleted successfully", "success");
+  notifySuccess("Actor deleted successfully");
 
   closeDeleteModal();
   await fetchActors();

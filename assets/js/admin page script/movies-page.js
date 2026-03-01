@@ -356,13 +356,16 @@ async function saveMovie() {
 
     if (!response.ok) {
       await logError("saveMovie", response);
+      notifyError("Save failed");
       return;
     }
 
     createMovieModal.hide();
+    notifySuccess(isEdit ? "Updated successfully" : "Created successfully");
     await renderMovies();
   } catch (err) {
     console.error("saveMovie error:", err);
+    notifyError("Save failed");
   }
 }
 
@@ -376,12 +379,15 @@ async function deleteMovie() {
     if (handleUnauthorized(response)) return;
     if (!response.ok) {
       await logError("deleteMovie", response);
+      notifyError("Delete failed");
       return;
     }
     deleteMovieModal.hide();
+    notifySuccess("Deleted successfully");
     await renderMovies();
   } catch (err) {
     console.error("deleteMovie error:", err);
+    notifyError("Delete failed");
   }
 }
 

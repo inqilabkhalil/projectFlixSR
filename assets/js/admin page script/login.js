@@ -39,15 +39,20 @@ async function login(event) {
 
     if (!responseData.result) {
       showWarning(responseData.message);
+      notifyError(responseData.message || "Invalid credentials");
       return;
     }
 
     const accessToken = responseData.data.tokens.access_token;
     localStorage.setItem("access_token", accessToken);
 
-    window.location.href = "../admin/dashboard.html";
+    notifySuccess("Login successful");
+    setTimeout(() => {
+      window.location.href = "../admin/dashboard.html";
+    }, 800);
   } catch (error) {
     showWarning("Server xətası");
+    notifyError("Server xətası");
   }
 }
 
