@@ -52,7 +52,7 @@ async function fetchDatas() {
     RenderData();
   } catch (error) {
     console.error("Error fetching comments:", error);
-    showToast?.("Comments loading failed", "error");
+    notifyError("Comments loading failed");
   }
 }
 
@@ -137,15 +137,15 @@ async function deleteComment() {
     );
 
     if (response.ok) {
-      showToast?.("Comment deleted successfully", "success"); // ✅ TOAST
+      notifySuccess("Comment deleted successfully"); // ✅ TOAST
       modal.hide();
       fetchDatas();
     } else {
-      showToast?.("Delete failed", "error"); // ✅ TOAST
+      notifyError("Delete failed"); // ✅ TOAST
     }
   } catch (error) {
     console.error("Error deleting comment:", error);
-    showToast?.("Delete failed", "error"); // ✅ TOAST
+    notifyError("Delete failed"); // ✅ TOAST
   }
 }
 

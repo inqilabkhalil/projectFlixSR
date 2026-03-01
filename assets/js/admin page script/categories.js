@@ -211,10 +211,10 @@ confirmDeleteBtn.addEventListener('click', async () => {
 
   try {
     await deleteCategory(selectedDeleteId);
-    showToast?.("Category deleted successfully", "success");
+    notifySuccess("Category deleted successfully");
     await getCategories({ keepPage: true });
   } catch (err) {
-    showToast?.("Delete failed", "error");
+    notifyError("Delete failed");
   } finally {
     selectedDeleteId = null;
     deleteModal.close();
