@@ -244,3 +244,7 @@ body {
   opacity: 0.92;
   transform: translateY(-1px);
 }
+#emaill[readonly] {
+  opacity: 1;
+  cursor: default;
+}
