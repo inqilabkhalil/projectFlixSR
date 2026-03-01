@@ -68,3 +68,19 @@ async function registerUser(e) {
 }
 
 form.addEventListener('submit', registerUser);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const emailInput = document.getElementById("email");
+  const emailFromUrl = new URLSearchParams(window.location.search).get("email");
+
+  if (!emailInput) return;
+
+  // Autofill bəzən sonra yazır, ona görə biz də biraz sonra yazırıq
+  setTimeout(() => {
+    if (emailFromUrl) {
+      emailInput.value = emailFromUrl; // URLSearchParams artıq decode edir
+      emailInput.dispatchEvent(new Event("input", { bubbles: true }));
+      emailInput.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+  }, 50);
+});
