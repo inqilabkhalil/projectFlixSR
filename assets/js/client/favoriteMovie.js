@@ -36,17 +36,15 @@ async function getFavoriteMovies() {
 
         <div class="favorite-card-info">
 
-          <p class="category-name">
-            ${categoryName}
-          </p>
-
-          <div class="movie-rating">
-            ⭐ ${movie.imdb ?? "-"}
+          <div class="card-meta-row">
+            <span class="category-name">${categoryName}</span>
+            <div class="movie-rating">
+              <i class="fa-solid fa-star" style="color:#f5c518"></i>
+              ${movie.imdb ?? "-"}
+            </div>
           </div>
 
-          <h3 class="movie-name">
-            ${movie.title}
-          </h3>
+          <h3 class="movie-name">${movie.title}</h3>
 
         </div>
       </article>

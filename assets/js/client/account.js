@@ -10,8 +10,39 @@ const emailInput = document.getElementById('emaill');
 const passwordInput = document.getElementById('password');
 const avatarImg = document.getElementById('avatarImg');
 
+const DEFAULT_AVATAR = '../../assets/img/adminman.svg';
+
 let serverFullName = '';
 let serverEmail = '';
+
+// Imgur linkini normalize et (imgur.com -> i.imgur.com)
+function normalizeImgurUrl(url) {
+  if (!url) return url;
+  // imgur.com var amma i.imgur.com deyilse, cevirir
+  if (url.includes('imgur.com') && !url.includes('i.imgur.com')) {
+    return url.replace('imgur.com', 'i.imgur.com');
+  }
+  return url;
+}
+
+// Avatar preview-nu yenile
+function updateAvatarPreview(url) {
+  if (!avatarImg) return;
+  var normalizedUrl = normalizeImgurUrl(url);
+  if (normalizedUrl) {
+    avatarImg.src = normalizedUrl;
+    avatarImg.onerror = function () {
+      avatarImg.src = DEFAULT_AVATAR;
+    };
+  } else {
+    avatarImg.src = DEFAULT_AVATAR;
+  }
+}
+
+// Input deyisdikde preview avtomatik yenilensin
+profileImageUrlInput.addEventListener('input', function () {
+  updateAvatarPreview(profileImageUrlInput.value.trim());
+});
 
 function getToken() {
   return localStorage.getItem(TOKEN_KEY);
@@ -52,17 +83,17 @@ async function loadProfile() {
 
     const result = await res.json();
     const user = result.data;
+    console.log(user);
+    
 
     serverFullName = user?.full_name ?? '';
     serverEmail = user?.email ?? '';
 
-    fullnameInput.value = '';
+    fullnameInput.value = serverFullName;
 
     profileImageUrlInput.value = user?.img_url ?? '';
 
-    if (user?.img_url && avatarImg) {
-      avatarImg.src = user.img_url;
-    }
+    updateAvatarPreview(user?.img_url ?? '');
 
     if (serverEmail) {
       emailInput.value = serverEmail;
