@@ -1,6 +1,7 @@
 /* Favorite page - minimal overrides, uses home.css for layout */
 .section--favorite {
   margin-top: 30px;
+  padding-left: 40px;
 }
 .section--favorite .section__title {
   font-weight: 500;
