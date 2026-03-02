@@ -37,7 +37,6 @@ main {
 .table th {
   vertical-align: middle;
   height: 60px;
-  align-items: flex-start;
 }
 
 table .title-movie {
@@ -167,4 +166,29 @@ table .title-movie p {
   border-radius: 10px;
   padding: 10px 22px;
   font-weight: 500;
+}
+
+.comment-user {
+  text-align: left;          /* istəyirsənsə center saxla, amma left daha düz görünür */
+  padding-left: 18px;        /* optional */
+}
+
+.user-cell {
+  display: flex;
+  align-items: center;       /* ✅ düz xətt */
+  gap: 10px;
+}
+
+.user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;            /* ✅ baseline problemini öldürür */
+  flex-shrink: 0;
+}
+
+.user-name {
+  line-height: 1;            /* ✅ text “aşağı düşməsin” */
+  white-space: nowrap;
 }

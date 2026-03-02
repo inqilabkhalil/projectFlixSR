@@ -77,9 +77,11 @@ function RenderData() {
       return `
         <tr class="table-row"> 
           <td class="comment-user">
-            <img src="../../assets/img/adminman.svg" alt="user" />
-            <span>${item.user.full_name}</span>
-          </td>
+  <div class="user-cell">
+    <img class="user-avatar" src="../../assets/img/adminman.svg" alt="user" />
+    <span class="user-name">${item.user.full_name}</span>
+  </div>
+</td>
 
           <td class="comment-text">${item.comment}</td>
 
