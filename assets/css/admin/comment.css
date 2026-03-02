@@ -37,6 +37,7 @@ main {
 .table th {
   vertical-align: middle;
   height: 60px;
+  align-items: flex-start;
 }
 
 table .title-movie {
