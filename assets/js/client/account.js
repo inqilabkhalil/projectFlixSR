@@ -8,12 +8,15 @@ const profileImageUrlInput = document.getElementById('profileImageUrl');
 const fullnameInput = document.getElementById('fullname');
 const emailInput = document.getElementById('emaill');
 const passwordInput = document.getElementById('password');
+const avatarImg = document.getElementById('avatarImg');
+
+let serverFullName = '';
+let serverEmail = '';
 
 function getToken() {
   return localStorage.getItem(TOKEN_KEY);
 }
 
-// 401 olarsa Bearer-sız da yoxlayırıq (səndə tez-tez bu problem olur)
 async function fetchWithAuth(url, options = {}) {
   const token = getToken();
   const baseHeaders = {
@@ -36,78 +39,88 @@ async function fetchWithAuth(url, options = {}) {
   return res;
 }
 
-// PROFILI ÇƏK
+// ================= LOAD PROFILE =================
 async function loadProfile() {
   try {
     const res = await fetchWithAuth(`${BASE_URL}/profile`, { method: 'GET' });
+    if (!res) return;
 
     if (!res.ok) {
       const txt = await res.text().catch(() => '');
       throw new Error(`Profile load failed: ${res.status} ${txt}`);
     }
 
-    const data = await res.json();
+    const result = await res.json();
+    const user = result.data;
 
-    // Sənin API: data.data.profile
-    const user = data?.data?.profile || data?.profile || data;
+    serverFullName = user?.full_name ?? '';
+    serverEmail = user?.email ?? '';
 
-    // snake_case field-lər
-    const fullName = user?.full_name;
-    const imgUrl = user?.img_url;
-    const email = user?.email;
+    fullnameInput.value = '';
 
-    // full_name və img_url boş ola bilər – boşdursa "" yazırıq
-    fullnameInput.value = fullName ?? '';
-    profileImageUrlInput.value = imgUrl ?? '';
+    profileImageUrlInput.value = user?.img_url ?? '';
 
-    // EMAIL: yalnız varsa yaz, yoxdursa əvvəlkini silmə!
-    if (email) {
-      emailInput.value = email;
-      localStorage.setItem(EMAIL_KEY, email);
+    if (user?.img_url && avatarImg) {
+      avatarImg.src = user.img_url;
+    }
+
+    if (serverEmail) {
+      emailInput.value = serverEmail;
+      localStorage.setItem(EMAIL_KEY, serverEmail);
     }
   } catch (err) {
     console.error(err);
-    // email localStorage-dan görünsün deyə alert versək də input boşalmayacaq
-    alert('Profil yüklənmədi ❌');
+    notifyError('Profil yüklənmədi ❌');
   }
 }
 
-// PROFILI YENİLƏ (email göndərmirik!)
+// ================= UPDATE PROFILE =================
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  const payload = {
-    img_url: profileImageUrlInput.value.trim(),
-    full_name: fullnameInput.value.trim(),
-    ...(passwordInput.value.trim()
-      ? { password: passwordInput.value.trim() }
-      : {}),
-  };
+  const img_url = profileImageUrlInput.value.trim();
+  const full_name_ui = fullnameInput.value.trim();
+  const password = passwordInput.value.trim();
+
+  const email =
+    emailInput.value.trim() ||
+    localStorage.getItem(EMAIL_KEY) ||
+    serverEmail;
+
+  const payload = { email };
+
+  if (img_url) payload.img_url = img_url;
+
+  const finalFullName = full_name_ui || serverFullName;
+  if (finalFullName) payload.full_name = finalFullName;
+
+  if (password) payload.password = password;
 
   try {
     const res = await fetchWithAuth(`${BASE_URL}/profile`, {
       method: 'PUT',
       body: JSON.stringify(payload),
     });
+    if (!res) return;
 
     if (!res.ok) {
       const txt = await res.text().catch(() => '');
       throw new Error(`Update failed: ${res.status} ${txt}`);
     }
 
-    alert('Profil yeniləndi ✅');
     passwordInput.value = '';
-    loadProfile();
+    await loadProfile();
+    notifySuccess('Profil yeniləndi ✅');
   } catch (err) {
     console.error(err);
-    alert('Yenilənmə alınmadı ❌');
+    notifyError(err.message || 'Profil yenilənmədi');
   }
 });
 
-// INIT: refresh edən kimi email dərhal görünsün
+// ================= INIT =================
 document.addEventListener('DOMContentLoaded', () => {
   const savedEmail = localStorage.getItem(EMAIL_KEY);
-  if (savedEmail) emailInput.value = savedEmail; // disabled olsa da value yazılır
+  if (savedEmail) emailInput.value = savedEmail;
 
   loadProfile();
 });
