@@ -143,3 +143,13 @@
   color: #fff;
   margin: 0;
 }
+
+.logout-item{
+  margin-top: auto;
+    cursor: pointer;
+}
+.logout-item img{
+  width: 25px;
+  height: 25px;
+  filter: brightness(0) invert(1);
+}
