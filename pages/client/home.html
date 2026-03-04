@@ -50,6 +50,9 @@
       <a class="menu__item favorite-item" href="./favorite.html">
         <img src="../../assets/img/home.icon5.svg" alt="Favorite" />
       </a>
+       <a class="menu__item logout-item" >
+      <img src="../../assets/img/logout-svgrepo-com.svg" alt="Logout" />
+    </a>
     </nav>
     <!-- navbar sol hisse bitti -->
     <!-- section1 -->
@@ -60,84 +63,25 @@
     </section>
 
     <!-- section1 bitti -->
-    <!-- section2 -->
-    <section class="section section--action">
-      <div class="section__header">
-        <h2 class="section__title">
-          Trailer <span class="section__chevron">&gt;</span>
-        </h2>
-      </div>
 
-      <div class="action__wrapper" id="actionWrapper">
-        <article class="action-card">
-          <img src="" alt="Action movie 1" />
-          <p class="category-name">Fantasy</p>
-          <p class="movie-name">Wonder Woman 1984</p>
-        </article>
+    <!-- Dynamic genre sections container -->
+    <div id="genreSections"></div>
 
-        <article class="action-card">
-          <img src="" alt="Action movie 2" />
-          <span class="category-name">Fantasy</span>
-          <h3 class="movie-name">Wonder Woman 1984</h3>
-        </article>
-
-        <article class="action-card">
-          <img src="" alt="Action movie 3" />
-          <span class="category-name">Fantasy</span>
-          <h3 class="movie-name">Mortal Kombat</h3>
-        </article>
-
-        <article class="action-card">
-          <img src="" alt="Action movie 4" />
-          <span class="category-name">Drama</span>
-          <h3 class="movie-name">The Courier</h3>
-        </article>
-
-        <article class="action-card">
-          <img src="" alt="Action movie 5" />
-          <span class="category-name">Action</span>
-          <h3 class="movie-name">Thunder Force</h3>
-        </article>
-      </div>
-    </section>
-
-    <!-- section2 bitti -->
-    <!-- section3 -->
-    <section class="section section--comedy">
-      <div class="section__header">
-        <h2 class="section__title">
-          All Movies <span class="section__chevron">&gt;</span>
-        </h2>
-      </div>
-
-      <div class="comedy__wrapper" id="comedyWrapper">
-        <article class="comedy-card">
-          <img src="../../assets/img/home.fon1.jpg" alt="Comedy movie 1" />
-          <span class="category-name">Sci-Fi & Fantasy</span>
-          <h3 class="movie-name">Game of Thrones</h3>
-        </article>
-
-        <article class="comedy-card">
-          <img src="../../assets/img/home.fon2.jpg" alt="Comedy movie 2" />
-          <span class="category-name">Sci-Fi & Fantasy</span>
-          <h3 class="movie-name">The Falcon and the Winter Soldier</h3>
-        </article>
-
-        <article class="comedy-card">
-          <img src="../../assets/img/home.fon3.png" alt="Comedy movie 3" />
-          <span class="category-name">Sci-Fi & Fantasy</span>
-          <h3 class="movie-name">WandaVisionGame of Thrones</h3>
-        </article>
-      </div>
-    </section>
-
-    <!-- section3 bitti -->
-    <!-- modal -->
-    <div class="modal" id="movieModal">
-      <div class="modal-content">
-        <span class="close-modal" id="closeModal">&times;</span>
-        <h2>Movie Title</h2>
-        <p>Burada film məlumatı olacaq...</p>
+    <!-- Trailer Modal -->
+    <div class="trailer-modal" id="trailerModal">
+      <div class="trailer-modal__overlay" id="trailerOverlay"></div>
+      <div class="trailer-modal__content">
+        <button class="trailer-modal__close" id="trailerClose">&times;</button>
+        <iframe
+          id="trailerIframe"
+          class="trailer-modal__iframe"
+          width="100%"
+          height="100%"
+          src=""
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
     <script src="../../assets/js/utils/loader.js"></script>
@@ -145,5 +89,6 @@
     <script src="../../assets/js/client/home.js"></script>
     <script src="../../assets/js/client/active.js"></script>
     <script src="../../assets/js/client/checkClientToken.js"></script>
+      <script src="../../assets/js/client/logout.js"></script>
   </body>
 </html>

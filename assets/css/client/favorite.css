@@ -1,4 +1,22 @@
 /* Favorite page - minimal overrides, uses home.css for layout */
+
+/* comedy-card base for favorite page */
+.comedy-card {
+  flex: 0 0 auto;
+  width: 504px;
+  height: 736px;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+}
+
+.comedy-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .section--favorite {
   margin-top: 30px;
   padding-left: 40px;
@@ -11,38 +29,81 @@
   margin-top: 100px;
   margin-bottom: 55px;
 }
-/* Card overlay: equal margin between category, rating, name */
+/* Card overlay: category + rating row, then title */
 .favorite-card-info {
   position: absolute;
   left: 14px;
   right: 14px;
-  bottom: 24px;
+  bottom: 20px;
   z-index: 3;
   display: flex;
   flex-direction: column;
-  gap: 70px;
+  gap: 10px;
+}
+
+/* Top row: badge + rating side by side */
+.favorite-card-info .card-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
 }
 
 /* Reset home.css absolute positioning for favorite cards */
 .comedy__wrapper {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
   margin-bottom: 188px;
 }
 
-.favorite-card .category-name,
+.comedy__wrapper::-webkit-scrollbar {
+  height: 0;
+}
+
+.favorite-card .category-name {
+  position: static;
+  left: auto;
+  bottom: auto;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #0ef0fd;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+  width: fit-content;
+}
+
 .favorite-card .movie-name {
   position: static;
   left: auto;
   bottom: auto;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
 }
 
-/* Rating stars */
+/* Rating */
 .favorite-card .movie-rating {
   position: static;
   left: auto;
   bottom: auto;
-  display: flex;
-  gap: 4px;
-  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
 }
 
 .favorite-card .movie-rating .fa-solid {
@@ -82,4 +143,14 @@
 .favorite-card .movie-name-link .movie-name {
   color: #fff;
   margin: 0;
+}
+
+.logout-item{
+  margin-top: auto;
+    cursor: pointer;
+}
+.logout-item img{
+  width: 25px;
+  height: 25px;
+  filter: brightness(0) invert(1);
 }

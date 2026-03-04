@@ -96,6 +96,16 @@ body {
   margin-bottom: 68px;
   /* align-items: center; */
 }
+.logout-item{
+  margin-top: auto;
+    cursor: pointer;
+}
+.logout-item img{
+  width: 25px;
+  height: 25px;
+  filter: brightness(0) invert(1);
+}
+
 
 .account-logo img {
   display: block;

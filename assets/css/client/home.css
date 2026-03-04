@@ -178,152 +178,236 @@ body {
 }
 
 /* WRAPPERS: horizontal scroll */
-.action__wrapper {
+.genre__wrapper {
   display: flex;
-  gap: 14px;
+  gap: 16px;
   overflow-x: auto;
-  padding-bottom: 10px;
+  padding-bottom: 12px;
   scroll-behavior: smooth;
-  padding-right: 0;
-}
-
-.comedy__wrapper {
-  display: flex;
-  overflow-x: auto;
-  padding-bottom: 10px;
-  scroll-behavior: smooth;
-  margin-right: 0;
 }
 
 /* scroll barı gözə dəyməsin */
-.action__wrapper::-webkit-scrollbar,
-.comedy__wrapper::-webkit-scrollbar {
+.genre__wrapper::-webkit-scrollbar {
   height: 0;
   margin-right: 0;
 }
 
-/* ===== ACTION CARD (AYRI) ===== */
-.action-card {
+/* ===== UNIFIED MOVIE CARD ===== */
+.movie-card {
   flex: 0 0 auto;
-  width: 292px;
-  height: 440px;
+  width: 280px;
+  height: 420px;
   position: relative;
-  background: transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.action-card img {
-   transition: transform 0.4s ease, filter 0.4s ease;
-  cursor: pointer;
+.movie-card:hover {
+  transform: translateY(-6px) scale(1.03);
+}
+
+/* Poster */
+.movie-card__poster {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: filter 0.35s ease;
 }
 
-.action-card:hover img {
-  transform: scale(1.05);
-  filter: brightness(1.1);
+.movie-card:hover .movie-card__poster {
+  filter: brightness(1.15);
 }
 
-/* ===== COMEDY CARD (AYRI) ===== */
-.comedy-card {
-  flex: 0 0 auto;
-  width: 504px;
-  height: 736px;
-  overflow: hidden;
-  position: relative;
-  background: transparent;
-}
-
-.comedy-card img {
-  width: 100%;
-  height: 100%; /* Comedy şəkilləri böyüsün deyirsənsə bunu artır */
-  object-fit: cover;
-  display: block;
-}
-.category-name {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px 8px;
-  font-size: 14px;
-  font-weight: 400;
-  color: rgb(15, 239, 253);
-  background: rgba(29, 29, 29, 0.5);
-
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-
-  width: fit-content;
+/* Dark gradient overlay */
+.movie-card__overlay {
   position: absolute;
-  left: 14px;
-  bottom: 60px;
-  z-index: 3;
-
-  padding: 6px 10px;
-  font-size: 13px;
-  font-weight: 500;
-
-  color: rgb(15, 239, 253);
-  background: rgba(29, 29, 29, 0.5);
-
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-
-  width: fit-content;
-  /* hug kimi */
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.25) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
-.movie-name {
-  color: #fff;
-  font-size: 24px;
-  line-height: 40px;
-  font-weight: 500;
-  margin: 0;
-  position: absolute;
-  left: 14px;
-  bottom: 20px;
-  z-index: 3;
-  color: #fff;
+/* Genre badge */
+.movie-card__badge {
+  padding: 4px 10px;
+  font-size: 11px;
   font-weight: 600;
-}
-.action-card {
-  overflow: hidden;
-}
-/* category yeri */
-.action-card .category-name,
-.comedy-card .category-name {
-  left: 14px;
-  bottom: 62px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #0ef0fd;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
 }
 
-/* movie name yeri */
-.action-card .movie-name,
-.comedy-card .movie-name {
-  left: 24px;
-  bottom: 14px;
-}
-.movie-rating {
-  position: absolute;
-  right: 14px;
-  bottom: 62px; /* category ilə eyni hündürlükdə istəsən */
-  z-index: 3;
+/* IMDB rating */
+.movie-card__rating {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   padding: 4px 8px;
-  border-radius: 8px;
+  border-radius: 6px;
   background: rgba(0, 0, 0, 0.55);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
-}
-.comedy-card .movie-rating {
-  right: 54px;
-}
-.movie-rating i {
-  color: #f5c518; /* IMDB yellow */
+  backdrop-filter: blur(4px);
 }
 
-.movie-rating span {
+.movie-card__rating i {
+  color: #f5c518;
+}
+
+.movie-card__rating span {
   color: #fff;
+}
+
+/* Title */
+.movie-card__title {
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  right: 12px;
+  z-index: 3;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+/* Meta row (badge + rating) above title */
+.movie-card__meta {
+  position: absolute;
+  bottom: 42px;
+  left: 12px;
+  right: 12px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: opacity 0.3s ease;
+}
+
+/* Trailer preview on hover */
+.movie-card__trailer {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.movie-card__trailer.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.movie-card__trailer iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+}
+
+/* Hide text elements when trailer is playing */
+.movie-card:has(.movie-card__trailer.active) .movie-card__title,
+.movie-card:has(.movie-card__trailer.active) .movie-card__badge,
+.movie-card:has(.movie-card__trailer.active) .movie-card__rating,
+.movie-card:has(.movie-card__trailer.active) .movie-card__meta,
+.movie-card:has(.movie-card__trailer.active) .movie-card__overlay {
+  opacity: 0;
+}
+
+/* Genre section spacing */
+.section--genre {
+  padding: 20px 14px 0 14px;
+}
+
+/* Empty state */
+.genre__empty {
+  color: #888;
+  font-size: 14px;
+  padding: 20px 0;
+}
+
+/* ===== TRAILER MODAL ===== */
+.trailer-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.trailer-modal.active {
+  display: flex;
+}
+
+.trailer-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.trailer-modal__content {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 1;
+  background: #000;
+}
+
+.trailer-modal__iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.trailer-modal__close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  z-index: 2;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.trailer-modal__close:hover {
+  opacity: 1;
+}
+
+.logout-item{
+  margin-top: auto;
+    cursor: pointer;
+}
+.logout-item img{
+  width: 25px;
+  height: 25px;
+  filter: brightness(0) invert(1);
 }
