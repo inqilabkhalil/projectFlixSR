@@ -24,23 +24,22 @@ body {
   display: flex;
   justify-content: center;
 }
-
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1440px;
-  padding: 0 120px 0 90px;
   box-sizing: border-box;
+  padding-left: 150px;
+    padding-right: 30px;   
 }
 
 nav .logo-div {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding-left: 150px;
 }
+
 
 .logo-div img {
   width: 60px;
