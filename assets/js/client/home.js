@@ -52,7 +52,10 @@ function getTrailerUrl(movie) {
 }
 
 // YouTube linkini embed formatina cevirir
-// meselen: 'https://youtube.com/watch?v=abc123' => 'https://youtube.com/embed/abc123?autoplay=1'
+// YouTube embed parametrleri - UI gizletmek ucun
+var EMBED_PARAMS = "autoplay=1&mute=1&controls=0&modestbranding=1&rel=0";
+
+// meselen: 'https://youtube.com/watch?v=abc123' => 'https://youtube.com/embed/abc123?autoplay=1&mute=1&...'
 function makeEmbedUrl(url) {
   if (!url) return "";
 
@@ -60,13 +63,13 @@ function makeEmbedUrl(url) {
   var match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?#]+)/);
 
   if (match) {
-    return "https://www.youtube.com/embed/" + match[1] + "?autoplay=1";
+    return "https://www.youtube.com/embed/" + match[1] + "?" + EMBED_PARAMS;
   }
 
   // Artiq embed formatindadirsa
   if (url.includes("youtube.com/embed")) {
-    if (url.includes("autoplay")) return url;
-    return url + "?autoplay=1";
+    var base = url.split("?")[0];
+    return base + "?" + EMBED_PARAMS;
   }
 
   return url;
@@ -266,6 +269,43 @@ function renderHero(movies) {
 
 
 // =============================================
+//  TRAILER HOVER - Zamanlama sabitleri
+// =============================================
+
+// Hover basladiqdan sonra trailerin gosterilmesine qeder gozlenilecek vaxt (ms)
+var HOVER_DELAY = 3000; // 3 saniye
+
+// Trailer oynama muddeti - bu vaxtdan sonra avtomatik baglanir (ms)
+var TRAILER_DURATION = 7000; // 7 saniye
+
+
+// =============================================
+//  TRAILER HOVER - Funksiyalar
+// =============================================
+
+// Traileri goster - iframe yaradir ve karta elave edir
+function showTrailer(trailerBox) {
+  // Artiq iframe varsa, tezeden yaratma
+  if (trailerBox.querySelector("iframe")) return;
+
+  var iframe = document.createElement("iframe");
+  iframe.src = trailerBox.dataset.src;
+  iframe.allow = "autoplay; encrypted-media";
+  iframe.setAttribute("frameborder", "0");
+  trailerBox.appendChild(iframe);
+  trailerBox.classList.add("active");
+}
+
+// Traileri sil - iframe-i cicar ve posteri geri goster
+function removeTrailer(trailerBox) {
+  trailerBox.classList.remove("active");
+
+  var iframe = trailerBox.querySelector("iframe");
+  if (iframe) iframe.remove();
+}
+
+
+// =============================================
 //  MOVIE CARD - Bir kartı yaratma funksiyasi
 // =============================================
 
@@ -329,35 +369,33 @@ function createMovieCard(movie) {
     card.appendChild(trailerBox);
   }
 
-  // Hover eventi - uzerin geldikde trailer gosterilir
-  var hoverTimer = null;
+  // ----- Hover eventleri -----
+  var hoverTimer = null;    // 3 saniye gozleme timer-i
+  var durationTimer = null; // Trailer oynama muddeti timer-i
 
   card.addEventListener("mouseenter", function () {
     if (!trailerBox) return;
 
+    // 3 saniye gozle, sonra traileri goster
     hoverTimer = setTimeout(function () {
-      // Eger iframe yoxdursa, yarat
-      if (!trailerBox.querySelector("iframe")) {
-        var iframe = document.createElement("iframe");
-        iframe.src = trailerBox.dataset.src;
-        iframe.allow = "autoplay; encrypted-media";
-        iframe.allowFullscreen = true;
-        iframe.setAttribute("frameborder", "0");
-        trailerBox.appendChild(iframe);
-      }
-      trailerBox.classList.add("active");
-    }, 600); // 600ms gozle
+      showTrailer(trailerBox);
+
+      // Trailer 7 saniye oynayir, sonra avtomatik baglanir
+      durationTimer = setTimeout(function () {
+        removeTrailer(trailerBox);
+      }, TRAILER_DURATION);
+    }, HOVER_DELAY);
   });
 
   card.addEventListener("mouseleave", function () {
+    // Butun timerleri legv et
     clearTimeout(hoverTimer);
-    if (!trailerBox) return;
+    clearTimeout(durationTimer);
 
-    trailerBox.classList.remove("active");
-
-    // Videonu dayandirmaq ucun iframe-i sil
-    var iframe = trailerBox.querySelector("iframe");
-    if (iframe) iframe.remove();
+    // Trailer oynayirsa, dayandirma ve posteri geri goster
+    if (trailerBox) {
+      removeTrailer(trailerBox);
+    }
   });
 
   // Karta click => detail sehifesine get
