@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorite Movies</title>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
@@ -23,6 +24,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <link rel="stylesheet" href="../../assets/css/global/variables.css" />
     <link rel="stylesheet" href="../../assets/css/global/global.css" />
     <link rel="stylesheet" href="../../assets/css/client/home.css" />
@@ -52,44 +54,29 @@
       <a class="menu__item favorite-item" href="./favorite.html">
         <img src="../../assets/img/home.icon5.svg" alt="Favorite" />
       </a>
+
+      <a class="menu__item logout-item" href="#" id="logoutBtn">
+        <img src="../../assets/img/logout-svgrepo-com.svg" alt="Logout" />
+      </a>
     </nav>
     <!-- navbar sol hisse bitti -->
 
-    <!-- Favorite section - same structure as home Action/Comedy sections -->
+    <!-- Favorite section -->
     <section class="section section--favorite">
       <div class="section__header">
         <h2 class="section__title">
           Favorite movies <span class="section__chevron">&gt;</span>
         </h2>
       </div>
-    <a class="menu__item favorite-item" href="./favorite.html">
-      <img src="../../assets/img/home.icon5.svg" alt="Favorite" />
-    </a>
-     <a class="menu__item logout-item" >
-      <img src="../../assets/img/logout-svgrepo-com.svg" alt="Logout" />
-    </a>
-  </nav>
-  <!-- navbar sol hisse bitti -->
 
       <div class="comedy__wrapper" id="favoriteWrapper"></div>
     </section>
 
+    <!-- scripts -->
     <script src="../../assets/js/utils/loader.js"></script>
     <script src="../../assets/js/client/active.js"></script>
-
-    <script src="../../assets/js/client/favoriteMovie.js"></script>
     <script src="../../assets/js/client/checkClientToken.js"></script>
-  </body>
-</html>
-    </div>
-  </section>
-
-  <script src="../../assets/js/utils/loader.js"></script>
-  <script src="../../assets/js/client/active.js"></script>
-
-  <script src="../../assets/js/client/favoriteMovie.js"></script>
-  <script src="../../assets/js/client/checkClientToken.js"></script>
+    <script src="../../assets/js/client/favoriteMovie.js"></script>
     <script src="../../assets/js/client/logout.js"></script>
-</body>
-
+  </body>
 </html>
