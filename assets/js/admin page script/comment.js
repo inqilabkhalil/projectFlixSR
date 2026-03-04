@@ -1,12 +1,31 @@
 let currentId = null;
 let currentMovieId = null;
 
+// Tam commentleri saxlamaq ucun Map
+var fullCommentMap = new Map();
+
+// Comment truncation funksiyalari
+function truncateComment(text, maxLength) {
+  if (!text) return "";
+  if (text.length <= maxLength) return text;
+  return text.slice(0, maxLength) + "...";
+}
+
+function isLongComment(text, maxLength) {
+  if (!text) return false;
+  return text.length > maxLength;
+}
+
 const modalEl = document.getElementById("deleteModal");
 const modal = new bootstrap.Modal(modalEl);
 
 const commentTableBody = document.querySelector(".comment-table-body");
 const token = localStorage.getItem("access_token");
 const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
+
+const commentModalEl = document.getElementById("commentModal");
+const commentModal = new bootstrap.Modal(commentModalEl);
+const commentModalBody = document.getElementById("commentModalBody");
 
 const prevBtn = document.getElementById("prevPage");
 const nextBtn = document.getElementById("nextPage");
@@ -74,6 +93,13 @@ function RenderData() {
         { day: "2-digit", month: "short", year: "numeric" }
       );
 
+      var fullText = item.comment || "";
+      var isLong = isLongComment(fullText, 80);
+      var displayText = truncateComment(fullText, 80);
+
+      // Tam commenti Map-e yaz
+      fullCommentMap.set(item.id, fullText);
+
       return `
         <tr class="table-row"> 
           <td class="comment-user">
@@ -83,7 +109,9 @@ function RenderData() {
   </div>
 </td>
 
-          <td class="comment-text">${item.comment}</td>
+          <td class="comment-text ${isLong ? "comment-truncated" : ""}" data-comment-id="${item.id}">
+            ${displayText}${isLong ? ' <span class="read-more-link">Read more</span>' : ''}
+          </td>
 
           <td>${item.movie.title}</td>
           <td>${formattedDate}</td>
@@ -102,6 +130,18 @@ function RenderData() {
     .join("");
 
   commentTableBody.innerHTML = filteredData;
+
+  // Read more click eventleri
+  commentTableBody.querySelectorAll(".read-more-link").forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var td = link.closest(".comment-text");
+      var commentId = Number(td.dataset.commentId);
+      var fullText = fullCommentMap.get(commentId) || "";
+      commentModalBody.textContent = fullText;
+      commentModal.show();
+    });
+  });
 
   renderPager(totalPages);
 }
