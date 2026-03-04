@@ -28,16 +28,18 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1440px;
   width: 100%;
+  margin: 0 auto;
+  padding: 0 60px;
   box-sizing: border-box;
-  padding-left: 150px;
-    padding-right: 30px;   
 }
 
 nav .logo-div {
   display: flex;
   align-items: center;
   gap: 10px;
+  padding-left: 150px;
 }
 
 
@@ -132,16 +134,15 @@ nav .logo-div {
 }
 
 .get-started-btn {
-  font-size: 18px;
+  font-size: 24px;
   cursor: pointer;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 100%;
-  padding: 18px 18px;
+  padding: 16px 22px;
 }
 
 .get-started-btn i {
-  font-size: 14px;
-  transition: transform 0.2s ease;
+  font-size: 18px;
 }
 
 /* ── FEATURE SECTIONS ── */
@@ -461,4 +462,23 @@ nav .logo-div {
   .footer-links {
     grid-template-columns: 1fr;
   }
+}
+
+.logo-div img {
+  padding-left: 16px;
+}
+
+.header nav a {
+  padding-right: 56px;
+}
+
+.landingPage {
+  background-image: url("./assets/img/landingPageBack.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+.inputBtn input {
+  padding: 18px 16px;
 }
