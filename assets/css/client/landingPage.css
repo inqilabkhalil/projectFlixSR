@@ -21,8 +21,9 @@ body {
 .header {
   background-color: transparent;
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
-
 nav {
   display: flex;
   align-items: center;
@@ -40,6 +41,7 @@ nav .logo-div {
   gap: 10px;
   padding-left: 150px;
 }
+
 
 .logo-div img {
   width: 60px;
