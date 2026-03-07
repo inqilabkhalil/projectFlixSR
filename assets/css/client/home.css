@@ -75,12 +75,7 @@ body {
 
 /* DARK OVERLAY (Netflix effekti) */
 .hero-slide::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+  display: none;
 }
 .hero-info {
   position: absolute;
@@ -125,11 +120,8 @@ body {
   font-weight: 600;
   cursor: pointer;
   z-index: 2;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 0, 128, 0.18),
-    rgba(0, 255, 255, 0.18)
-  );
+  background: transparent;
+  color: #fff;
 }
 .watch-btn:hover {
   background: rgba(255, 255, 255, 0.35);
@@ -201,7 +193,9 @@ body {
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .movie-card:hover {
@@ -416,11 +410,11 @@ body {
   opacity: 1;
 }
 
-.logout-item{
+.logout-item {
   margin-top: auto;
-    cursor: pointer;
+  cursor: pointer;
 }
-.logout-item img{
+.logout-item img {
   width: 25px;
   height: 25px;
   filter: brightness(0) invert(1);
