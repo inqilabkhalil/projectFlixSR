@@ -381,3 +381,42 @@ table .title-movie p {
   cursor: pointer;
   color: rgba(240, 242, 247, 0.92);
 }
+
+/* ===== CHOICES.JS – Actor Select Colors ===== */
+
+#movieForm .choices__inner {
+  background: rgba(10, 10, 12, 0.7);
+  border: 1px solid rgba(90, 130, 210, 0.35);
+}
+
+#movieForm .choices.is-focused .choices__inner {
+  border-color: rgba(130, 175, 255, 0.7);
+  box-shadow: 0 0 0 3px rgba(110, 165, 255, 0.14);
+}
+
+#movieForm .choices__list--multiple .choices__item {
+  background-color: rgba(10, 10, 12, 0.7);
+  border: 1px solid rgba(90, 130, 210, 0.35);
+  color: rgba(240, 242, 247, 0.92);
+}
+
+#movieForm .choices__input {
+  background: transparent;
+  color: rgba(240, 242, 247, 0.92);
+}
+
+#movieForm .choices__list--dropdown,
+#movieForm .choices .choices__list[aria-expanded] {
+  background: #141417;
+  border: 1px solid rgba(90, 130, 210, 0.35);
+}
+
+#movieForm .choices__list--dropdown .choices__item {
+  color: rgba(240, 242, 247, 0.92);
+}
+
+#movieForm .choices__list--dropdown .choices__item--selectable.is-highlighted,
+#movieForm .choices .choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
+  background: rgba(90, 130, 210, 0.2);
+  color: rgba(240, 242, 247, 0.92);
+}
