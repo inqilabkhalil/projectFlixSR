@@ -1,4 +1,6 @@
+  const createBtn = document.querySelector('.create-btn');
 // ✅ TOGGLE KODU — DƏYİŞMİR (eyni saxlanılıb)
+
 function toggleFaq(element) {
   const answer = element.nextElementSibling;
   const icon = element.querySelector(".faq-icon");
@@ -10,6 +12,14 @@ function toggleFaq(element) {
     answer.classList.add("active");
     icon.classList.add("spin");
   }
+}
+
+const token = localStorage.getItem('client_token');
+if(token){
+  createBtn.innerText = "Go Home";
+  createBtn.href = "./pages/client/home.html";
+
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {
