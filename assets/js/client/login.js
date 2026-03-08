@@ -6,7 +6,18 @@ function showWarning(text) {
   warningEl.textContent = text;
   warningEl.style.display = 'block';
 }
+const togglePassword = document.getElementById("togglePassword");
+const passwordInput = document.getElementById("password");
 
+togglePassword.addEventListener("click", () => {
+  const type = passwordInput.getAttribute("type");
+
+  if (type === "password") {
+    passwordInput.setAttribute("type", "text");
+  } else {
+    passwordInput.setAttribute("type", "password");
+  }
+});
 async function login(event) {
   event.preventDefault();
   const email = document.getElementById('email').value.trim();
