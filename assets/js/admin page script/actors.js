@@ -104,6 +104,7 @@ function renderPage() {
       (actor) => `
         <tr>
           <th scope="row">${actor.id}</th>
+          <td><img src="${actor.img_url || ''}" alt="${actor.name}" style="width:48px;height:48px;object-fit:cover;border-radius:50%;" onerror="this.style.display='none'"></td>
           <td>${actor.name}</td>
           <td>${actor.surname}</td>
           <td class="operation">
