@@ -58,3 +58,12 @@ async function login(event) {
 
 
 form.addEventListener("submit", login);
+
+const togglePassword = document.getElementById("togglePassword");
+const passwordInput = document.getElementById("password");
+
+togglePassword.addEventListener("click", () => {
+  const isPassword = passwordInput.type === "password";
+  passwordInput.type = isPassword ? "text" : "password";
+  togglePassword.textContent = isPassword ? "🙈" : "👁";
+});
